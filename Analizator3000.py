@@ -11,28 +11,33 @@ os.chdir("D:/Projekty/Python/Analizator3000") #zmieniam mu na siłę miejsce odc
 print("KATALOG: ", os.getcwd()) #testowo do sprawdzania ścieżki odczytu plików, mogę później usunąć
 sciezki = glob.glob("Dzienniki/*.txt") + glob.glob("Dzienniki/*.jrnl") #zapisywanie scieżek do plików 
 
+#odczytywanie plików i ich kodowania
+
 print("Znaleziono plików:", len(sciezki)) #sprawdzamy ile jest tych plików
 for plik in sciezki: #pętla wypisze mi ścieżki do plików
     print(plik) #generuje scieżkę dla każdego pliku
+    try:
+        with open(plik, "r", encoding="utf-8") as f:
+            linie = f.readlines()
+            print(f"✅ Odczytano {len(linie)} linii z pliku (UTF-8): {plik}")
+    except UnicodeDecodeError:
+        try:
+            with open(plik, "r", encoding="cp1250") as f:
+                linie = f.readlines()
+                print(f"✅ Odczytano {len(linie)} linii z pliku (CP1250): {plik}")
+        except Exception as e:
+            print(f"❌ Błąd odczytu pliku {plik}: {e}")
+            continue  # przejdź do kolejnego pliku, by nie zatrzymać programu
 
-for plik in sciezki: #dla każdego pliku z listy scieżek
-    print(f"\n📄 Przetwarzam błędy pliku: {plik}")
-    
-    #zamaskowałem część kodu testowego
-try:
-    with open(plik, "r", encoding="utf-8") as f: #otwiram plik (po konkretnej ścieżce) z możlwiwością odczytu R i kodowaniem utf8
-        linie = f.readlines()
-except UnicodeDecodeError: 
-    with open(plik, "r", encoding="cp1250", errors="replace") as f: #Przy wgraniu większej ilości plików okazało się że częśc z nich może mnieć inne kodowanie. Powyższe wybiera domyślnie utf-8 a jak nie wyjdzie próbuje z windowsowum cp1250
-        linie = f.readlines()
-   # CZYTANIE BŁĘDÓW:
+# CZYTANIE BŁĘDÓW:
 
-for i, linia in enumerate(linie):
-        if any(keyword in linia.lower() for keyword in ["stcode", "rejcode", "error", "blad", "rcode"]): #szukam słów kluczowych by wypisać je w liście
-                wykluczenia = ["no errors", "when no errors", "error -1"]
+    wykluczenia = ["no errors", "when no errors", "error -1", "chip contact error 1", "enter blik code"]   #UWAGA!!! tylko małe litery
+
+    for i, linia in enumerate(linie):
+        if any(keyword in linia.lower() for keyword in ["stcode", "rejcode", "error", "blad", "rcode", "aplikacja wylaczona", "gooutofservice"]): #szukam słów kluczowych by wypisać je w liście
                 
                 if any(wyklucz in linia.lower() for wyklucz in wykluczenia):
-                 continue #jak nie zawiera takich słów z wykluczeń to zostanie wyświetlone
+                    continue #jak nie zawiera takich słów z wykluczeń to zostanie wyświetlone
                 
                 from pathlib import Path
                 nazwa_pliku = Path(plik).name #pobieram nazwe pliku bez scieżki (żeby było czytelniej)
