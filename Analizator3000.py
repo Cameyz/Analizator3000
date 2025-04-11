@@ -1,12 +1,14 @@
 import glob #biblioteka która używa Unixowych wyrażeń do szukania plików
 import os
 import re #moduł wyrażeń regularnych
+from collections import defaultdict
 
 licznik_bledow_urzadzen = {} #tworzę słownik tak by każda zmienna miała swoje id
 bledy_stclass = {} # klasa → kod → licznik
 bledy_stclass_per_dziennik = {}  # (ID, data) → klasa → kod → liczba
 globalne_bledy_stclass = {} # tutaj do podsumowani globalu
 bledy_dyspensera_per_dziennik = {} #zbieram bledy dyspnsera
+bledy_dyspensera_global = {}# tutaj podsumuje bledy globalne
 
 os.chdir("D:/Projekty/Python/Analizator3000") #zmieniam mu na siłę miejsce odczytu plików
 print("KATALOG: ", os.getcwd()) #testowo do sprawdzania ścieżki odczytu plików, mogę później usunąć
@@ -53,27 +55,27 @@ for plik in sciezki: #pętla wypisze mi ścieżki do plików
                 print(f"🛑 [{data}] {nazwa_pliku} | Linia {i+1}: {linia.strip()}")
                 licznik_bledow_urzadzen[klucz] += 1 #jeśli wykona się powyższy print (czyli znajdzie się błąd, zwieksze licznik błedów w słowniku o 1)
                 
-                #SZUKANIE stClass oraz stCode w dzienniku !!!!!!!!!!!!!!!!!!!!!!!!
+        #SZUKANIE stClass oraz stCode w dzienniku !!!!!!!!!!!!!!!!!!!!!!!!
 
-                wzorzec = r"stClass=(\w+), stCode=(\w+)"
-                dopasowanie = re.search(wzorzec, linia)
+        wzorzec = r"stClass=(\w+), stCode=(\w+)"
+        dopasowanie = re.search(wzorzec, linia)
 
-                if dopasowanie:
-                    klasa = dopasowanie.group(1)
-                    kod = dopasowanie.group(2)
+        if dopasowanie:
+            klasa = dopasowanie.group(1)
+            kod = dopasowanie.group(2)
 
-                    if klucz not in bledy_stclass_per_dziennik:
-                        bledy_stclass_per_dziennik[klucz] = {}
+            if klucz not in bledy_stclass_per_dziennik:
+                bledy_stclass_per_dziennik[klucz] = {}
 
-                    if klasa not in bledy_stclass_per_dziennik[klucz]:
-                        bledy_stclass_per_dziennik[klucz][klasa] = {}
+            if klasa not in bledy_stclass_per_dziennik[klucz]:
+                bledy_stclass_per_dziennik[klucz][klasa] = {}
 
-                    if kod not in bledy_stclass_per_dziennik[klucz][klasa]:
-                        bledy_stclass_per_dziennik[klucz][klasa][kod] = 1
-                    else:
-                        bledy_stclass_per_dziennik[klucz][klasa][kod] += 1
+            if kod not in bledy_stclass_per_dziennik[klucz][klasa]:
+                bledy_stclass_per_dziennik[klucz][klasa][kod] = 1
+            else:
+                bledy_stclass_per_dziennik[klucz][klasa][kod] += 1
 
-        # Sprawdznie błędów dypsnsera
+        # Sprawdznie błędów dypsnsera !!!!!!!!!!!!!!!!!!!!!!!!
 
         wzorzec_dyspensera = r"BLAD Dyspensera: (\w{8}) (\w{8})"
         dop_dysp = re.search(wzorzec_dyspensera, linia)
@@ -126,7 +128,7 @@ for klasa, kody in globalne_bledy_stclass.items():
     for kod, ile_razy in kody.items():
         print(f"⚙️  Kod: {kod} → {ile_razy}x")
 
-
+#wyświetlam wynik podsumowania jakie klasy błedów znaleziono dla dyspnsera
 print("\n📊 Podsumowanie błędów dyspensera:")
 for (urz, data), klasy in bledy_dyspensera_per_dziennik.items():
     print(f"\n📅 {data} | 🏧 {urz}")
@@ -134,6 +136,23 @@ for (urz, data), klasy in bledy_dyspensera_per_dziennik.items():
         print(f"🔧 Klasa: {klasa}")
         for kod, ile_razy in kody.items():
             print(f"⚙️  Kod: {kod} → {ile_razy}x")
+
+# Globalna tabela: klasa → kod → liczba
+bledy_dyspensera_global = defaultdict(lambda: defaultdict(int))
+
+# Przepisujemy dane z wersji per dziennik do globalnej
+for klasy in bledy_dyspensera_per_dziennik.values():
+    for klasa, kody in klasy.items():
+        for kod, ile in kody.items():
+            bledy_dyspensera_global[klasa][kod] += ile
+
+# Wyświetlenie globalnego podsumowania
+print("\n⚠️  W badanym okresie łacznie błędów dyspensera:")
+for klasa, kody in bledy_dyspensera_global.items():
+    print(f"🔧 Klasa: {klasa}")
+    for kod, ile in kody.items():
+        print(f"⚙️  Kod: {kod} → {ile}x")
+
 
 #from collections import defaultdict
 #
