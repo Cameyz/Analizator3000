@@ -6,6 +6,7 @@ licznik_bledow_urzadzen = {} #tworzę słownik tak by każda zmienna miała swoj
 bledy_stclass = {} # klasa → kod → licznik
 bledy_stclass_per_dziennik = {}  # (ID, data) → klasa → kod → liczba
 globalne_bledy_stclass = {} # tutaj do podsumowani globalu
+bledy_dyspensera_per_dziennik = {} #zbieram bledy dyspnsera
 
 os.chdir("D:/Projekty/Python/Analizator3000") #zmieniam mu na siłę miejsce odczytu plików
 print("KATALOG: ", os.getcwd()) #testowo do sprawdzania ścieżki odczytu plików, mogę później usunąć
@@ -72,6 +73,27 @@ for plik in sciezki: #pętla wypisze mi ścieżki do plików
                     else:
                         bledy_stclass_per_dziennik[klucz][klasa][kod] += 1
 
+        # Sprawdznie błędów dypsnsera
+
+        wzorzec_dyspensera = r"BLAD Dyspensera: (\w{8}) (\w{8})"
+        dop_dysp = re.search(wzorzec_dyspensera, linia)
+
+        if dop_dysp:
+            pelna_klasa = dop_dysp.group(1)
+            kod = dop_dysp.group(2)
+            klasa = pelna_klasa[-4:]
+
+            if (urzadzenie_id, data) not in bledy_dyspensera_per_dziennik:
+                bledy_dyspensera_per_dziennik[(urzadzenie_id, data)] = {}
+
+            if klasa not in bledy_dyspensera_per_dziennik[(urzadzenie_id, data)]:
+                bledy_dyspensera_per_dziennik[(urzadzenie_id, data)][klasa] = {}
+
+            if kod not in bledy_dyspensera_per_dziennik[(urzadzenie_id, data)][klasa]:
+                bledy_dyspensera_per_dziennik[(urzadzenie_id, data)][klasa][kod] = 1
+            else:
+                bledy_dyspensera_per_dziennik[(urzadzenie_id, data)][klasa][kod] += 1
+
 
 #wyświetlam wynik podsumowania ilości błędów dla kazdego z plików
 
@@ -104,42 +126,51 @@ for klasa, kody in globalne_bledy_stclass.items():
     for kod, ile_razy in kody.items():
         print(f"⚙️  Kod: {kod} → {ile_razy}x")
 
-from collections import defaultdict
 
+print("\n📊 Podsumowanie błędów dyspensera:")
+for (urz, data), klasy in bledy_dyspensera_per_dziennik.items():
+    print(f"\n📅 {data} | 🏧 {urz}")
+    for klasa, kody in klasy.items():
+        print(f"🔧 Klasa: {klasa}")
+        for kod, ile_razy in kody.items():
+            print(f"⚙️  Kod: {kod} → {ile_razy}x")
+
+#from collections import defaultdict
+#
 # Przykładowe dane z błędami dyspensera
-linie_dyspensera = [
-    "BLAD Dyspensera: 00006434 0000004C 00000000",
-    "BLAD Dyspensera: 00006434 0000004C 00000000",
-    "BLAD Dyspensera: 00006500 000000FF 00000000",
-    "BLAD Dyspensera: 00006434 0000004C 00000000",
-    "BLAD Dyspensera: 00006500 000000AA 00000000"
-]
-
+#linie_dyspensera = [
+#    "BLAD Dyspensera: 00006434 0000004C 00000000",
+#    "BLAD Dyspensera: 00006434 0000004C 00000000",
+#    "BLAD Dyspensera: 00006500 000000FF 00000000",
+#    "BLAD Dyspensera: 00006434 0000004C 00000000",
+#    "BLAD Dyspensera: 00006500 000000AA 00000000"
+#]
+#
 # słownik zagnieżdżony: klasa → kod → liczba
-bledy_dyspensera = defaultdict(lambda: defaultdict(int))
-
+#bledy_dyspensera = defaultdict(lambda: defaultdict(int))
+#
 # wzorzec do wyciągania klasy i kodu
-wzorzec_dyspnser = r"BLAD Dyspensera: (\w{8}) (\w{8})"
-
-for linia in linie_dyspensera:
-    dopasowanie = re.search(wzorzec_dyspnser, linia)
-    if dopasowanie:
-        pelna_klasa = dopasowanie.group(1)
-        klasa = pelna_klasa[-4:]  # ostatnie 4 znaki
-        kod = dopasowanie.group(2)
-        bledy_dyspensera[klasa][kod] += 1
-
-import pandas as pd
+#wzorzec_dyspnser = r"BLAD Dyspensera: (\w{8}) (\w{8})"
+#
+#for linia in linie_dyspensera:
+#    dopasowanie = re.search(wzorzec_dyspnser, linia)
+#    if dopasowanie:
+#        pelna_klasa = dopasowanie.group(1)
+#        klasa = pelna_klasa[-4:]  # ostatnie 4 znaki
+#        kod = dopasowanie.group(2)
+#        bledy_dyspensera[klasa][kod] += 1
+#
+#import pandas as pd
 # Zamiana słownika do DataFrame dla przejrzystości
-tabela = []
-for klasa, kody in bledy_dyspensera.items():
-    for kod, ilosc in kody.items():
-        tabela.append((klasa, kod, ilosc))
-
-df = pd.DataFrame(tabela, columns=["Klasa", "Kod błędu", "Ilość wystąpień"])
-
-print("\n📊 Podsumowanie błędów dyspensera:\n")
-print(df.to_string(index=False))
+#tabela = []
+#for klasa, kody in bledy_dyspensera.items():
+#    for kod, ilosc in kody.items():
+#        tabela.append((klasa, kod, ilosc))
+#
+#df = pd.DataFrame(tabela, columns=["Klasa", "Kod błędu", "Ilość wystąpień"])
+#
+#print("\n📊 Podsumowanie błędów dyspensera:\n")
+#print(df.to_string(index=False))
 
 print("\n")
 

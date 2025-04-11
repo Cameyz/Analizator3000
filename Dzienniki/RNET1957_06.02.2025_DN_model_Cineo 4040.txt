@@ -25,7 +25,7 @@
 09:14:54 Go out of service - zamkniecie
 09:14:56 Go out of service - zamkniecie
 09:15:11 <- OD INTERWPLAT 1738829711216, OUT OF SERVICE:  Brak konfiguracji z IW, Niepoprawny stan aplikacji(UNKNOWN), Brak InService z IW
-09:15:11 <- OD INTERWPLAT 1738829711303, Po³¹czono z serwerem kolejkowym
+09:15:11 <- OD INTERWPLAT 1738829711303, Po  czono z serwerem kolejkowym
 09:15:13 Drzwi sejfu otwarte
 09:15:41 Aplikacja wylaczona
 09:21:59 STATUS CZYTNIKA CTLS: 0001
@@ -79,7 +79,7 @@
 10:44:48 Go out of service - zamkniecie
 10:46:04 <- OD INTERWPLAT 1738835164336, OUT OF SERVICE:  Niepoprawny stan aplikacji(UNKNOWN), Brak InService z IW
 10:46:04 <- OD INTERWPLAT OnDeviceConfiguration, 
-10:46:04 <- OD INTERWPLAT 1738835164367, Synchronizacja danych z InterWp³at¹ wykonana. Mo¿liwe transakcje ONLINE
+10:46:04 <- OD INTERWPLAT 1738835164367, Synchronizacja danych z InterWp at  wykonana. Mo liwe transakcje ONLINE
 10:46:04 <- OD INTERWPLAT OnDeviceConfiguration, 
 10:46:04 <- OD INTERWPLAT GoOutOfService, 
 10:46:11 <- OD INTERWPLAT OnDeviceConfiguration, 
@@ -1081,7 +1081,7 @@ POZ5  AU3 34137 ---- --- O 0000 0000 ---- ---- ---- ---- ---- 0000 0000 00
 22:59:42 <- OD INTERWPLAT 1738879182047, ApplicationState: IDLE
 23:00:43 <- OD INTERWPLAT 1738879243000, ApplicationState: IDLE
 23:00:59 InterApp event: on restart
-23:00:59 <- OD INTERWPLAT 1738879259141, Restart urz¹dzenia z InterWp³aty
+23:00:59 <- OD INTERWPLAT 1738879259141, Restart urz dzenia z InterWp aty
 23:00:59 <- OD INTERWPLAT 1738879259328, OUT OF SERVICE:  Brak InService z IW
 23:00:59 Wywolane zamkniecie z SOP
 23:00:59 <- OD INTERWPLAT 1738879259624, ApplicationState: IDLE
@@ -1139,3 +1139,5 @@ POZ5  AU3 34137 ---- --- O 0000 0000 ---- ---- ---- ---- ---- 0000 0000 00
 23:57:09 <- OD INTERWPLAT 1738882629306, ApplicationState: IDLE
 23:58:10 <- OD INTERWPLAT 1738882690089, ApplicationState: IDLE
 23:59:11 <- OD INTERWPLAT 1738882751364, ApplicationState: IDLE
+stClass=65G0, stCode=22000c31, stWarn=0
+stClass=65c0, stCode=24000c31, stWarn=0
