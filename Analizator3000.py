@@ -27,8 +27,7 @@ except UnicodeDecodeError:
         linie = f.readlines()
    # CZYTANIE BŁĘDÓW:
 
-
-    for i, linia in enumerate(linie):
+for i, linia in enumerate(linie):
         if any(keyword in linia.lower() for keyword in ["stcode", "rejcode", "error", "blad", "rcode"]): #szukam słów kluczowych by wypisać je w liście
                 wykluczenia = ["no errors", "when no errors", "error -1"]
                 
