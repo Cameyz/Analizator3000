@@ -153,7 +153,7 @@ for klasa, kody in bledy_dyspensera_global.items():
     for kod, ile in kody.items():
         print(f"⚙️  Kod: {kod} → {ile}x")
 
-
+""" # tak się oznacza komentarze dla większej ilości lini
 #from collections import defaultdict
 #
 # Przykładowe dane z błędami dyspensera
@@ -190,6 +190,7 @@ for klasa, kody in bledy_dyspensera_global.items():
 #
 #print("\n📊 Podsumowanie błędów dyspensera:\n")
 #print(df.to_string(index=False))
+"""
 
 print("\n")
 
