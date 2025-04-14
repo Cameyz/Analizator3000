@@ -11,6 +11,8 @@ bledy_dyspensera_per_dziennik = {} #zbieram bledy dyspnsera
 bledy_dyspensera_global = {}# tutaj podsumuje bledy globalne
 transakcje_udane = {} # (urządzenie, data) -> liczba
 transakcje_nieudane = {} # (urządzenie, data) -> liczba
+transakcje_wplaty_udane = {} # (urządzenie, data) -> liczba
+transakcje_wplaty_nieudane = {} # (urządzenie, data) -> liczba
 
 os.chdir("D:/Projekty/Python/Analizator3000") #zmieniam mu na siłę miejsce odczytu plików
 print("KATALOG: ", os.getcwd()) #testowo do sprawdzania ścieżki odczytu plików, mogę później usunąć
@@ -46,12 +48,14 @@ for plik in sciezki: #pętla wypisze mi ścieżki do plików
     """
 
     #lista słów świadcząca i nie udanej trx
-    trx_slowa_nieudane = ["trans. odrzucona","brak reakcji klienta w czasie", "status transakcji 3", "Status transakcji 1", "Klient wybral 'cancel' - anulowanie transakcji"]
+    trx_slowa_nieudane = ["trans. odrzucona","brak reakcji klienta w czasie", "status transakcji 3", "Status transakcji 1", "Klient wybral 'cancel' - anulowanie transakcji", "blad", "deponowanie - blad"]
 
     """
     Status transakcji 1 - to anulowanie
     Status transakcji 3 - to błąd przy wpłacie
     """
+    trx_slowa_konczace = ["koniec operacji", "deponowanie - blad", "blad urzadzenia", "zdetektowano banknoty", "rozpoczeto retract", "reset nieudany", "koniec transakc"]  # dodasz więcej jak będzie trzeba
+
     transakcja_aktywna = False
     trx_status = "nieznany"
 
@@ -70,10 +74,15 @@ for plik in sciezki: #pętla wypisze mi ścieżki do plików
         if "rozpoczecie transakcji" in linia_mala or "poczatek operacji" in linia_mala:
             transakcja_aktywna = True
             trx_status = "nieznany"
+            trx_typ="wypłata" #domyślnie każda trx to wypłata
 
+        if "wplaty" in linia_mala: #chyba że ma słowo wpłata to zmienimy jej typ
+                trx_typ="wpłata"   
+        
         # Sprawdzanie słów świadczących o udanej transakcji
         if transakcja_aktywna and any(haslo in linia_mala for haslo in trx_slowa_udane):
             trx_status = "udana"
+            
 
         # Sprawdzanie słów świadczących o nieudanej transakcji
         if transakcja_aktywna and any(haslo in linia_mala for haslo in trx_slowa_nieudane):
@@ -83,9 +92,15 @@ for plik in sciezki: #pętla wypisze mi ścieżki do plików
         if transakcja_aktywna and ("koniec transakc" in linia_mala or "koniec operacji" in linia_mala):
             klucz = (urzadzenie_id, data)
             if trx_status == "udana":
-                transakcje_udane[klucz] = transakcje_udane.get(klucz, 0) + 1
+                if trx_typ == "wpłata":
+                    transakcje_wplaty_udane[klucz] = transakcje_wplaty_udane.get(klucz, 0) +1
+                else:
+                    transakcje_udane[klucz] = transakcje_udane.get(klucz, 0) + 1
             elif trx_status == "nieudana":
-                transakcje_nieudane[klucz] = transakcje_nieudane.get(klucz, 0) + 1
+                if trx_typ == "wpłata":
+                    transakcje_wplaty_nieudane[klucz] = transakcje_wplaty_nieudane.get(klucz, 0) + 1
+                else:
+                    transakcje_nieudane[klucz] = transakcje_nieudane.get(klucz, 0) + 1
             else:
                 # nie zliczamy nieokreślonych transakcji
                 pass
@@ -98,10 +113,6 @@ for plik in sciezki: #pętla wypisze mi ścieżki do plików
                 if any(wyklucz in linia.lower() for wyklucz in wykluczenia):
                     continue #jak nie zawiera takich słów z wykluczeń to zostanie wyświetlone
                 
-                
-                
-                
-
                 if klucz not in licznik_bledow_urzadzen:
                     licznik_bledow_urzadzen[klucz] = 0 #do słownika dodaje kluczę (nazwe urządzenia i datę) i ilość błędów (na start to 0)
                 
@@ -208,16 +219,20 @@ for klasa, kody in bledy_dyspensera_global.items():
 
 # Wyświetlanie podsumowania transkacji
 
-print("\n⚠️   Podsumowanie transakcji:")
-print(f"{'ID urządzenia':<12} {'Data':<12} {'✅ Udane':<10} {'❌ Nieudane':<12} {'📋 Razem':<10}") #zapis :<12 mówi o tym że na te pole zachowuje 12 miejsc
-print("-" * 60)
+print("\n⚠️   Podsumowanie transakcji z podziałem na typy (wpłaty/wypłaty):")
+print(f"{'ID urządzenia':<12} {'Data':<12} {'✅ Wypłaty':<10} {'❌ Wypłaty':<10} {'✅ Wpłaty':<10} {'❌ Wpłaty':<10} {'📋 Razem':<10}") #:<12 deklaruje ilośc miejsc w danym polu
+print("-" * 80)
 
-wszystkie_klucze = set(transakcje_udane.keys()) | set(transakcje_nieudane.keys()) # układam nowy łownik które paruje unikalne klucze z udanych i nie udanych trx 
-for urzadzenie_id, data in sorted(wszystkie_klucze):
-    udane = transakcje_udane.get((urzadzenie_id, data), 0) # spisuje wartośc udanych trx, jesli nie ma zadnej wartości zwrócę 0
-    nieudane = transakcje_nieudane.get((urzadzenie_id, data), 0)
-    suma = udane + nieudane
-    print(f"{urzadzenie_id:<12} {data:<12} {udane:<10} {nieudane:<12} {suma:<10}")
+wszystkie_klucze_typy = set(transakcje_udane.keys()) | set(transakcje_nieudane.keys()) | set(transakcje_wplaty_udane.keys()) | set(transakcje_wplaty_nieudane.keys())
+
+for urzadzenie_id, data in sorted(wszystkie_klucze_typy):
+    wyp_ud = transakcje_udane.get((urzadzenie_id, data), 0)
+    wyp_nie = transakcje_nieudane.get((urzadzenie_id, data), 0)
+    wpl_ud = transakcje_wplaty_udane.get((urzadzenie_id, data), 0)
+    wpl_nie = transakcje_wplaty_nieudane.get((urzadzenie_id, data), 0)
+    suma = wyp_ud + wyp_nie + wpl_ud + wpl_nie
+    print(f"{urzadzenie_id:<12} {data:<12} {wyp_ud:<12} {wyp_nie:<12} {wpl_ud:<12} {wpl_nie:<12} {suma:<10}")
+
 
 print("\n")
 
