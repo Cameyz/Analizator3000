@@ -9,6 +9,8 @@ bledy_stclass_per_dziennik = {}  # (ID, data) → klasa → kod → liczba
 globalne_bledy_stclass = {} # tutaj do podsumowani globalu
 bledy_dyspensera_per_dziennik = {} #zbieram bledy dyspnsera
 bledy_dyspensera_global = {}# tutaj podsumuje bledy globalne
+transakcje_udane = {} # (urządzenie, data) -> liczba
+transakcje_nieudane = {} # (urządzenie, data) -> liczba
 
 os.chdir("D:/Projekty/Python/Analizator3000") #zmieniam mu na siłę miejsce odczytu plików
 print("KATALOG: ", os.getcwd()) #testowo do sprawdzania ścieżki odczytu plików, mogę później usunąć
@@ -32,22 +34,73 @@ for plik in sciezki: #pętla wypisze mi ścieżki do plików
             print(f"❌ Błąd odczytu pliku {plik}: {e}")
             continue  # przejdź do kolejnego pliku, by nie zatrzymać programu
 
-# CZYTANIE BŁĘDÓW:
+#Silnik programu, najpier tabele i zmienne globalne później funkcję wykonujące
 
-    wykluczenia = ["no errors", "when no errors", "error -1", "chip contact error 1", "enter blik code"]   #UWAGA!!! tylko małe litery
+    wykluczenia = ["no errors", "when no errors", "error -1", "chip contact error 1", "enter blik code"]   #UWAGA!!! tylko małe litery - lista słów do wykluczeń
+ 
+    #lista słów świadczących o udanej trx
+    trx_slowa_udane = ["gotowka odebrana", "sprawdzenie salda", "banknoty odebrane", "status transakcji 6", "bankonty odebrano"] 
+
+    """
+    Status transakcji 6 - to kumnikat po wpłacie na DN, trx ok
+    """
+
+    #lista słów świadcząca i nie udanej trx
+    trx_slowa_nieudane = ["trans. odrzucona","brak reakcji klienta w czasie", "status transakcji 3", "Status transakcji 1", "Klient wybral 'cancel' - anulowanie transakcji"]
+
+    """
+    Status transakcji 1 - to anulowanie
+    Status transakcji 3 - to błąd przy wpłacie
+    """
+    transakcja_aktywna = False
+    trx_status = "nieznany"
+
+    from pathlib import Path
+    nazwa_pliku = Path(plik).name #pobieram nazwe pliku bez scieżki (żeby było czytelniej)
+    urzadzenie_id = Path(plik).name[:8] #zaczytuje 8 pierwszych znaków jako ID bankomatu - może niedziałac jak plik będzie miał inne nazewnictwo 
+    data = nazwa_pliku.split("_")[1] # zakładamy format gdzie data jest ZAWSZE w środku nazwy inaczej data nie będzie działać
+    klucz = (urzadzenie_id, data) #klucz bedzie rozdzialał dane z różnych plików na podsatwie ID i daty
 
     for i, linia in enumerate(linie):
+
+        #SPRAWDZANIE TRX
+        linia_mala = linia.lower().strip()
+
+        # Rozpoznawanie rozpoczęcia transakcji
+        if "rozpoczecie transakcji" in linia_mala or "poczatek operacji" in linia_mala:
+            transakcja_aktywna = True
+            trx_status = "nieznany"
+
+        # Sprawdzanie słów świadczących o udanej transakcji
+        if transakcja_aktywna and any(haslo in linia_mala for haslo in trx_slowa_udane):
+            trx_status = "udana"
+
+        # Sprawdzanie słów świadczących o nieudanej transakcji
+        if transakcja_aktywna and any(haslo in linia_mala for haslo in trx_slowa_nieudane):
+            trx_status = "nieudana"
+
+        # Rozpoznawanie zakończenia transakcji
+        if transakcja_aktywna and ("koniec transakc" in linia_mala or "koniec operacji" in linia_mala):
+            klucz = (urzadzenie_id, data)
+            if trx_status == "udana":
+                transakcje_udane[klucz] = transakcje_udane.get(klucz, 0) + 1
+            elif trx_status == "nieudana":
+                transakcje_nieudane[klucz] = transakcje_nieudane.get(klucz, 0) + 1
+            else:
+                # nie zliczamy nieokreślonych transakcji
+                pass
+            transakcja_aktywna = False  # kończymy śledzenie tej transakcji
+       
+
+        # Szukanie błędów
         if any(keyword in linia.lower() for keyword in ["stcode", "rejcode", "error", "blad", "rcode", "aplikacja wylaczona", "gooutofservice"]): #szukam słów kluczowych by wypisać je w liście
                 
                 if any(wyklucz in linia.lower() for wyklucz in wykluczenia):
                     continue #jak nie zawiera takich słów z wykluczeń to zostanie wyświetlone
                 
-                from pathlib import Path
-                nazwa_pliku = Path(plik).name #pobieram nazwe pliku bez scieżki (żeby było czytelniej)
-                urzadzenie_id = Path(plik).name[:8] #zaczytuje 8 pierwszych znaków jako ID bankomatu - może niedziałac jak plik będzie miał inne nazewnictwo 
                 
-                data = nazwa_pliku.split("_")[1] # zakładamy format gdzie data jest ZAWSZE w środku nazwy inaczej data nie będzie działać
-                klucz = (urzadzenie_id, data) #klucz bedzie rozdzialał dane z różnych plików na podsatwie ID i daty
+                
+                
 
                 if klucz not in licznik_bledow_urzadzen:
                     licznik_bledow_urzadzen[klucz] = 0 #do słownika dodaje kluczę (nazwe urządzenia i datę) i ilość błędów (na start to 0)
@@ -153,44 +206,18 @@ for klasa, kody in bledy_dyspensera_global.items():
     for kod, ile in kody.items():
         print(f"⚙️  Kod: {kod} → {ile}x")
 
-""" # tak się oznacza komentarze dla większej ilości lini
-#from collections import defaultdict
-#
-# Przykładowe dane z błędami dyspensera
-#linie_dyspensera = [
-#    "BLAD Dyspensera: 00006434 0000004C 00000000",
-#    "BLAD Dyspensera: 00006434 0000004C 00000000",
-#    "BLAD Dyspensera: 00006500 000000FF 00000000",
-#    "BLAD Dyspensera: 00006434 0000004C 00000000",
-#    "BLAD Dyspensera: 00006500 000000AA 00000000"
-#]
-#
-# słownik zagnieżdżony: klasa → kod → liczba
-#bledy_dyspensera = defaultdict(lambda: defaultdict(int))
-#
-# wzorzec do wyciągania klasy i kodu
-#wzorzec_dyspnser = r"BLAD Dyspensera: (\w{8}) (\w{8})"
-#
-#for linia in linie_dyspensera:
-#    dopasowanie = re.search(wzorzec_dyspnser, linia)
-#    if dopasowanie:
-#        pelna_klasa = dopasowanie.group(1)
-#        klasa = pelna_klasa[-4:]  # ostatnie 4 znaki
-#        kod = dopasowanie.group(2)
-#        bledy_dyspensera[klasa][kod] += 1
-#
-#import pandas as pd
-# Zamiana słownika do DataFrame dla przejrzystości
-#tabela = []
-#for klasa, kody in bledy_dyspensera.items():
-#    for kod, ilosc in kody.items():
-#        tabela.append((klasa, kod, ilosc))
-#
-#df = pd.DataFrame(tabela, columns=["Klasa", "Kod błędu", "Ilość wystąpień"])
-#
-#print("\n📊 Podsumowanie błędów dyspensera:\n")
-#print(df.to_string(index=False))
-"""
+# Wyświetlanie podsumowania transkacji
+
+print("\n⚠️   Podsumowanie transakcji:")
+print(f"{'ID urządzenia':<12} {'Data':<12} {'✅ Udane':<10} {'❌ Nieudane':<12} {'📋 Razem':<10}") #zapis :<12 mówi o tym że na te pole zachowuje 12 miejsc
+print("-" * 60)
+
+wszystkie_klucze = set(transakcje_udane.keys()) | set(transakcje_nieudane.keys()) # układam nowy łownik które paruje unikalne klucze z udanych i nie udanych trx 
+for urzadzenie_id, data in sorted(wszystkie_klucze):
+    udane = transakcje_udane.get((urzadzenie_id, data), 0) # spisuje wartośc udanych trx, jesli nie ma zadnej wartości zwrócę 0
+    nieudane = transakcje_nieudane.get((urzadzenie_id, data), 0)
+    suma = udane + nieudane
+    print(f"{urzadzenie_id:<12} {data:<12} {udane:<10} {nieudane:<12} {suma:<10}")
 
 print("\n")
 
