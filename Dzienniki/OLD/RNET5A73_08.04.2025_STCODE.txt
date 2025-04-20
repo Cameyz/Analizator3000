@@ -1,0 +1,1176 @@
+00:00:00 Utworzono plik dziennika
+00:07:19 <- OD INTERWPLAT 1744063639449, ApplicationState: IDLE
+00:22:19 <- OD INTERWPLAT 1744064539360, ApplicationState: IDLE
+00:37:19 <- OD INTERWPLAT 1744065439366, ApplicationState: IDLE
+00:52:19 <- OD INTERWPLAT 1744066339360, ApplicationState: IDLE
+01:07:19 <- OD INTERWPLAT 1744067239374, ApplicationState: IDLE
+01:22:19 <- OD INTERWPLAT 1744068139544, ApplicationState: IDLE
+01:37:19 <- OD INTERWPLAT 1744069039466, ApplicationState: IDLE
+01:52:19 <- OD INTERWPLAT 1744069939483, ApplicationState: IDLE
+02:07:19 <- OD INTERWPLAT 1744070839467, ApplicationState: IDLE
+02:22:19 <- OD INTERWPLAT 1744071739585, ApplicationState: IDLE
+02:37:19 <- OD INTERWPLAT 1744072639625, ApplicationState: IDLE
+02:52:19 <- OD INTERWPLAT 1744073539512, ApplicationState: IDLE
+03:07:19 <- OD INTERWPLAT 1744074439551, ApplicationState: IDLE
+03:22:19 <- OD INTERWPLAT 1744075339547, ApplicationState: IDLE
+03:37:19 <- OD INTERWPLAT 1744076239593, ApplicationState: IDLE
+03:52:19 <- OD INTERWPLAT 1744077139710, ApplicationState: IDLE
+04:07:19 <- OD INTERWPLAT 1744078039601, ApplicationState: IDLE
+04:22:19 <- OD INTERWPLAT 1744078939669, ApplicationState: IDLE
+04:37:19 <- OD INTERWPLAT 1744079839666, ApplicationState: IDLE
+04:52:19 <- OD INTERWPLAT 1744080739649, ApplicationState: IDLE
+05:07:19 <- OD INTERWPLAT 1744081639773, ApplicationState: IDLE
+05:22:19 <- OD INTERWPLAT 1744082539753, ApplicationState: IDLE
+05:37:19 <- OD INTERWPLAT 1744083439764, ApplicationState: IDLE
+05:52:19 <- OD INTERWPLAT 1744084339785, ApplicationState: IDLE
+06:07:19 <- OD INTERWPLAT 1744085239772, ApplicationState: IDLE
+06:22:19 <- OD INTERWPLAT 1744086139913, ApplicationState: IDLE
+06:37:19 <- OD INTERWPLAT 1744087039808, ApplicationState: IDLE
+06:52:19 <- OD INTERWPLAT 1744087939825, ApplicationState: IDLE
+07:07:19 <- OD INTERWPLAT 1744088839845, ApplicationState: IDLE
+07:22:19 <- OD INTERWPLAT 1744089739938, ApplicationState: IDLE
+
+08.04.2025/07:30:18/RNET5A73->Rozpoczecie transakcji
+07:30:18 ->Karta405621******0438 wlozona
+07:30:19 <- OD INTERWPLAT 1744090219055, ApplicationState: TRANSACTION
+07:30:24 EMV CANDIDATES: 1
+07:30:26 EMV AID A0000000031010 / 405621******0438 STARTED
+07:30:33 wprowadzono PIN
+07:30:33 
+07:30:33 Transaction request ABB   DD, amount buffer 00000000
+07:30:34 Transaction reply next 521 function 5000
+INFO IS DCC CARD HOST RESP:
+NOT A DCC CARD
+07:30:44 Amount 800 entered
+07:30:47 
+07:30:47 Transaction request ABBD    , amount buffer 00000800
+07:30:48 Transaction reply next 710 function A090
+07:30:49 TVR: 8080040000, TSI: 6400
+07:31:05 Got.(1:4,4;)
+07:31:06 Karta(405621******0438)zaprezentowana
+07:31:07 Karta(405621******0438)odebrana
+07:31:12 CASH REJECTED:
+  TYP CUR  VALUE NOTES
+1 PLN    200     1
+07:31:12 Gotowka dostepna
+RNET5A73 TRAN: 429 STAN: 964586172
+2025-04-08 07:30:47
+************0438 WYPLATA: 800,00 PLN
+07:31:16 Gotowka odebrana
+07:31:16 ! CCDM : Banknoty odebrane
+07:31:24 (08.04.2025) <-Koniec transakc.
+07:31:24 DISP 0000 0000 0000 0000 0004 0000
+NAME TYPE  ID   VAL  CUR S INIT CNT  DISP PRES RETR REJ  CIN  MIN  MAX  AD P NAME  ID   S INIT CNT  DISP PRES RETR REJ  MAX  H
+RRK1 RETR 47507 ---- --- O 0000 0000 ---- ---- ---- ---- ---- 0000 0050 0- 1 RRK1 47507 O 0000 0000 ---- ---- ---- ---- 0150 0
+RRK2 REJE 47507 ---- --- O 0000 0021 ---- ---- ---- ---- ---- 0000 0050 0- 1 RRK2 47507 O 0000 0021 ---- ---- ---- ---- 0100 0
+POZ1 ROLL 54754   50 PLN O 1304 0184 1120 1113 0000 0007 0204 0020 2000 0- 1 POZ1 54754 O 1100 0184 1120 1113 0000 0007 2000 0
+POZ2 ROLL 54789  100 PLN E 2103 0000 2103 2100 0000 0003 1603 0020 2000 0- 1 POZ2 54789 E 0500 0000 2103 2100 0000 0003 2000 0
+POZ3 ROLL 33560  100 PLN O 0968 0301 0667 0664 0000 0003 0468 0020 2000 0- 1 POZ3 33560 O 0500 0301 0667 0664 0000 0003 2000 0
+POZ4 ROLL 54702  200 PLN O 1771 0339 1429 1421 0000 0008 1371 0020 2000 0- 1 POZ4 54702 O 0400 0339 1429 1421 0000 0008 2000 0
+HEAD    2 07873 ---- --- M 0000 0000 ---- ---- ---- ---- ---- 0000 0020 00
+RRK3    3 47507 ---- --- O 0000 0000 ---- ---- ---- ---- ---- 0000 0100 00
+POZ5   AU 33605 ---- --- O 0000 0216 ---- ---- ---- ---- ---- 0000 2000 00
+POZ5      33605   10 PLN - ---- ---- ---- ---- ---- ---- 0014 ---- ---- --
+POZ5      33605   20 PLN - ---- ---- ---- ---- ---- ---- 0011 ---- ---- --
+POZ5      33605  100 PLN - ---- ---- ---- ---- ---- ---- 0085 ---- ---- --
+POZ5      33605  200 PLN - ---- ---- ---- ---- ---- ---- 0091 ---- ---- --
+POZ5      33605  500 PLN - ---- ---- ---- ---- ---- ---- 0015 ---- ---- --
+NOM: 0050 0100 0100 0200 
+KAS: 0184 0000 0301 0339 
+REJ: 0007 0003 0003 0008 
+CLI: 1113 2100 0664 1421 
+07:31:24 <- OD INTERWPLAT 1744090284543, ApplicationState: IDLE
+07:37:20 <- OD INTERWPLAT 1744090640010, ApplicationState: IDLE
+07:52:19 <- OD INTERWPLAT 1744091539923, ApplicationState: IDLE
+08:07:19 <- OD INTERWPLAT 1744092439980, ApplicationState: IDLE
+08:22:19 <- OD INTERWPLAT 1744093339994, ApplicationState: IDLE
+
+08.04.2025/08:23:19/RNET5A73->Rozpoczecie transakcji
+08:23:19 ->Karta405621******6531 wlozona
+08:23:19 <- OD INTERWPLAT 1744093399516, ApplicationState: TRANSACTION
+08:23:23 EMV CANDIDATES: 1
+08:23:25 EMV AID A0000000031010 / 405621******6531 STARTED
+08:23:34 wprowadzono PIN
+08:23:34 
+08:23:34 Transaction request ABB   DD, amount buffer 00000000
+08:23:34 Transaction reply next 521 function 5000
+INFO IS DCC CARD HOST RESP:
+NOT A DCC CARD
+08:23:44 Amount 100 entered
+08:23:47 
+08:23:47 Transaction request ABBD    , amount buffer 00000100
+08:23:48 Transaction reply next 710 function A090
+08:23:48 TVR: 8080040000, TSI: 6400
+08:23:52 Got.(4:3,1;)
+08:23:53 Karta(405621******6531)zaprezentowana
+08:23:54 Karta(405621******6531)odebrana
+08:23:58 Gotowka dostepna
+RNET5A73 TRAN: 431 STAN: 964658644
+2025-04-08 08:23:47
+************6531 WYPLATA: 100,00 PLN
+08:24:01 Gotowka odebrana
+08:24:02 ! CCDM : Banknoty odebrane
+08:24:09 (08.04.2025) <-Koniec transakc.
+08:24:09 DISP 0000 0000 0000 0001 0000 0000
+NAME TYPE  ID   VAL  CUR S INIT CNT  DISP PRES RETR REJ  CIN  MIN  MAX  AD P NAME  ID   S INIT CNT  DISP PRES RETR REJ  MAX  H
+RRK1 RETR 47507 ---- --- O 0000 0000 ---- ---- ---- ---- ---- 0000 0050 0- 1 RRK1 47507 O 0000 0000 ---- ---- ---- ---- 0150 0
+RRK2 REJE 47507 ---- --- O 0000 0021 ---- ---- ---- ---- ---- 0000 0050 0- 1 RRK2 47507 O 0000 0021 ---- ---- ---- ---- 0100 0
+POZ1 ROLL 54754   50 PLN O 1304 0184 1120 1113 0000 0007 0204 0020 2000 0- 1 POZ1 54754 O 1100 0184 1120 1113 0000 0007 2000 0
+POZ2 ROLL 54789  100 PLN E 2103 0000 2103 2100 0000 0003 1603 0020 2000 0- 1 POZ2 54789 E 0500 0000 2103 2100 0000 0003 2000 0
+POZ3 ROLL 33560  100 PLN O 0968 0300 0668 0665 0000 0003 0468 0020 2000 0- 1 POZ3 33560 O 0500 0300 0668 0665 0000 0003 2000 0
+POZ4 ROLL 54702  200 PLN O 1771 0339 1429 1421 0000 0008 1371 0020 2000 0- 1 POZ4 54702 O 0400 0339 1429 1421 0000 0008 2000 0
+HEAD    2 07873 ---- --- M 0000 0000 ---- ---- ---- ---- ---- 0000 0020 00
+RRK3    3 47507 ---- --- O 0000 0000 ---- ---- ---- ---- ---- 0000 0100 00
+POZ5   AU 33605 ---- --- O 0000 0216 ---- ---- ---- ---- ---- 0000 2000 00
+POZ5      33605   10 PLN - ---- ---- ---- ---- ---- ---- 0014 ---- ---- --
+POZ5      33605   20 PLN - ---- ---- ---- ---- ---- ---- 0011 ---- ---- --
+POZ5      33605  100 PLN - ---- ---- ---- ---- ---- ---- 0085 ---- ---- --
+POZ5      33605  200 PLN - ---- ---- ---- ---- ---- ---- 0091 ---- ---- --
+POZ5      33605  500 PLN - ---- ---- ---- ---- ---- ---- 0015 ---- ---- --
+NOM: 0050 0100 0100 0200 
+KAS: 0184 0000 0300 0339 
+REJ: 0007 0003 0003 0008 
+CLI: 1113 2100 0665 1421 
+08:24:10 <- OD INTERWPLAT 1744093450040, ApplicationState: IDLE
+08:37:19 <- OD INTERWPLAT 1744094239955, ApplicationState: IDLE
+
+08.04.2025/08:41:10/RNET5A73->Rozpoczecie transakcji
+08:41:10 ->Karta413426******4357 wlozona
+08:41:10 <- OD INTERWPLAT 1744094470555, ApplicationState: TRANSACTION
+08:41:13 EMV CANDIDATES: 1
+08:41:15 EMV AID A0000000031010 / 413426******4357 STARTED
+08:41:19 wprowadzono PIN
+08:41:19 
+08:41:19 Transaction request ABB   DD, amount buffer 00000000
+08:41:20 Transaction reply next 521 function 5000
+INFO IS DCC CARD HOST RESP:
+NOT A DCC CARD
+08:41:25 Amount 8000 entered
+08:41:27 
+08:41:27 Transaction request ABBD    , amount buffer 00008000
+08:41:28 Transaction reply next 710 function A090
+08:41:28 TVR: 8080040000, TSI: 6000
+08:41:38 Got.(1:4,40;)
+08:41:40 Karta(413426******4357)zaprezentowana
+08:41:41 Karta(413426******4357)odebrana
+08:41:44 Gotowka dostepna
+RNET5A73 TRAN: 433 STAN: 964687670
+2025-04-08 08:41:27
+************4357 WYPLATA: 8.000,00 PLN
+08:41:46 Gotowka odebrana
+08:41:46 ! CCDM : Banknoty odebrane
+08:41:55 (08.04.2025) <-Koniec transakc.
+08:41:55 DISP 0000 0000 0000 0000 0040 0000
+NAME TYPE  ID   VAL  CUR S INIT CNT  DISP PRES RETR REJ  CIN  MIN  MAX  AD P NAME  ID   S INIT CNT  DISP PRES RETR REJ  MAX  H
+RRK1 RETR 47507 ---- --- O 0000 0000 ---- ---- ---- ---- ---- 0000 0050 0- 1 RRK1 47507 O 0000 0000 ---- ---- ---- ---- 0150 0
+RRK2 REJE 47507 ---- --- O 0000 0021 ---- ---- ---- ---- ---- 0000 0050 0- 1 RRK2 47507 O 0000 0021 ---- ---- ---- ---- 0100 0
+POZ1 ROLL 54754   50 PLN O 1304 0184 1120 1113 0000 0007 0204 0020 2000 0- 1 POZ1 54754 O 1100 0184 1120 1113 0000 0007 2000 0
+POZ2 ROLL 54789  100 PLN E 2103 0000 2103 2100 0000 0003 1603 0020 2000 0- 1 POZ2 54789 E 0500 0000 2103 2100 0000 0003 2000 0
+POZ3 ROLL 33560  100 PLN O 0968 0300 0668 0665 0000 0003 0468 0020 2000 0- 1 POZ3 33560 O 0500 0300 0668 0665 0000 0003 2000 0
+POZ4 ROLL 54702  200 PLN O 1771 0299 1469 1461 0000 0008 1371 0020 2000 0- 1 POZ4 54702 O 0400 0299 1469 1461 0000 0008 2000 0
+HEAD    2 07873 ---- --- M 0000 0000 ---- ---- ---- ---- ---- 0000 0020 00
+RRK3    3 47507 ---- --- O 0000 0000 ---- ---- ---- ---- ---- 0000 0100 00
+POZ5   AU 33605 ---- --- O 0000 0216 ---- ---- ---- ---- ---- 0000 2000 00
+POZ5      33605   10 PLN - ---- ---- ---- ---- ---- ---- 0014 ---- ---- --
+POZ5      33605   20 PLN - ---- ---- ---- ---- ---- ---- 0011 ---- ---- --
+POZ5      33605  100 PLN - ---- ---- ---- ---- ---- ---- 0085 ---- ---- --
+POZ5      33605  200 PLN - ---- ---- ---- ---- ---- ---- 0091 ---- ---- --
+POZ5      33605  500 PLN - ---- ---- ---- ---- ---- ---- 0015 ---- ---- --
+NOM: 0050 0100 0100 0200 
+KAS: 0184 0000 0300 0299 
+REJ: 0007 0003 0003 0008 
+CLI: 1113 2100 0665 1461 
+08:41:56 <- OD INTERWPLAT 1744094516281, ApplicationState: IDLE
+
+08.04.2025/08:42:03/RNET5A73->Rozpoczecie transakcji
+08:42:03 ->Karta wlozona
+08:42:03 EMV AID A0000000031010 / 443208******6596 STARTED CTLS 
+08:42:03 EMV TVR: 0000000000 TSI: 0000 CTLS
+08:42:07 Rozpoczeto transakcje wplaty
+08:42:08 [WEB] [Trace] Loading dialog: Wait initialization (scrWaitInit.htm)
+08:42:08 Numer transakcji : 0
+08:42:08 -> DO INTERWPLAT 00018, CardIdentify
+08:42:08 <- OD INTERWPLAT 00018, OK (CardIdentify, 4432080000006596)
+08:42:08 Numer transakcji : 0
+08:42:08 [WEB] [Trace] Loading dialog: Please wait (EkranW.htm)
+08:42:08 -> DO INTERWPLAT 00018, AccountIdentify
+08:42:08 <- OD INTERWPLAT 00018, OK (AccountIdentify, 4432080000006596)
+08:42:08 [WEB] [Trace] Loading dialog: Info account and card info (Ekran7Pre.htm)
+08:42:11 <- OD INTERWPLAT 1744094531634, ApplicationState: TRANSACTION
+08:42:13 [WEB] CONFIRM pressed
+08:42:14 [WEB] [Trace] Loading dialog: Router screen (Ekran7Pre2.htm)
+08:42:14 [WEB] [Trace] Loading dialog: Enter deposit amount (Ekran7Pre2AmountEntry.htm)
+08:42:17 [WEB] CONFIRM pressed
+08:42:17 Deklaracja kwoty wplaty: 14100
+08:42:18 [WEB] [Trace] Loading dialog: Prepare banknotes to insert (Ekran7Pre2PrepareNotes.htm)
+08:42:22 [WEB] CONFIRM pressed
+08:42:23 Oczekiwanie na wlozenie pieniedzy
+08:42:23 [WEB] [Trace] Loading dialog: Insert notes (Ekran7.htm)
+08:42:24 Otwarcie INPUT TRAY (Status ok)
+08:42:24 ! CCDM : Banknoty wlozone
+08:42:25 [WEB] [Trace] Loading dialog: Processing notes (Ekran7W.htm)
+08:42:29 Zamkniecie INPUT TRAY (Status ok)
+08:42:45 [IW] IdentifyNotes() = ok
+08:42:45 Przyjete banknoty
+         ID=    4 | 100 (  PLN) * 27
+         ID=    5 | 200 (  PLN) * 62
+08:42:45 [WEB] [Trace] Loading dialog: Deposit summary (Ekran11.htm)
+08:42:48 [WEB] CHANGE AMOUNT pressed
+08:42:48 [WEB] [Trace] Loading dialog: Enter deposit amount (Ekran7Pre2AmountEntry.htm)
+08:42:52 [WEB] CONFIRM pressed
+08:42:52 Deklaracja kwoty wplaty: 15100
+08:42:52 [WEB] [Trace] Loading dialog: Deposit summary (Ekran11.htm)
+08:42:54 [WEB] CONFIRM pressed
+08:42:55 [WEB] [Trace] Loading dialog: Please wait (EkranW.htm)
+08:42:55 -> DO INTERWPLAT 00018, CashTransfer
+08:42:55 <- OD INTERWPLAT 00018, OK (CashTransfer, AF20348D1F5E39C)
+08:42:55 [WEB] [Trace] Loading dialog: Take card (EkranY.htm)
+08:42:55 Status oddania karty = OK (0 sek.) 
+08:42:55 [WEB] [Trace] Loading dialog: Navigate to PRINT|NONE|ASKFOR receipt (EkranAskForReceiptPre.htm)
+08:43:01 [WEB] [Trace] Loading dialog: Ask for receipt (EkranAskForReceipt.htm)
+08:43:03 [WEB] CONFIRM pressed
+08:43:03 [WEB] [Trace] Loading dialog: Deposit OK, Receipt OK (Ekran12.htm)
+08:43:09 Drukowanie potwierdzenia : ok
+08:43:16 Wydanie potwierdzenia : ok
+08:43:16 Skladowanie 89 banknotow
+08:43:16 Suma na ESCROW 15100 PLN
+08:43:16 [WEB] [Trace] Loading dialog: Depositing notes (EkranWDepo.htm)
+08:43:30 ! CCDM : Zmiana statusu kasety : 3
+08:43:31 Skladowanie banknotow - OK
+08:43:31 -> DO INTERWPLAT 00018, CashTransferStatus
+08:43:31 Status transakcji 6 (-1889590007)
+08:43:31 [WEB] [Trace] Loading dialog: Accounting info (EkranKsiegowanieInfo.htm)
+08:43:32 [WEB] [Trace] Loading dialog: Deposit hours info (E34.htm)
+08:43:38 (08.04.2025) <-Koniec transakc.
+08:43:38 ROLL 0000 0000 0000 0027 0062 0000
+NAME TYPE  ID   VAL  CUR S INIT CNT  DISP PRES RETR REJ  CIN  MIN  MAX  AD P NAME  ID   S INIT CNT  DISP PRES RETR REJ  MAX  H
+RRK1 RETR 47507 ---- --- O 0000 0000 ---- ---- ---- ---- ---- 0000 0050 0- 1 RRK1 47507 O 0000 0000 ---- ---- ---- ---- 0150 0
+RRK2 REJE 47507 ---- --- O 0000 0021 ---- ---- ---- ---- ---- 0000 0050 0- 1 RRK2 47507 O 0000 0021 ---- ---- ---- ---- 0100 0
+POZ1 ROLL 54754   50 PLN O 1304 0184 1120 1113 0000 0007 0204 0020 2000 0- 1 POZ1 54754 O 1100 0184 1120 1113 0000 0007 2000 0
+POZ2 ROLL 54789  100 PLN E 2130 0027 2103 2100 0000 0003 1630 0020 2000 0- 1 POZ2 54789 O 0500 0027 2103 2100 0000 0003 2000 0
+POZ3 ROLL 33560  100 PLN O 0968 0300 0668 0665 0000 0003 0468 0020 2000 0- 1 POZ3 33560 O 0500 0300 0668 0665 0000 0003 2000 0
+POZ4 ROLL 54702  200 PLN O 1833 0361 1469 1461 0000 0008 1433 0020 2000 0- 1 POZ4 54702 O 0400 0361 1469 1461 0000 0008 2000 0
+HEAD    2 07873 ---- --- M 0000 0000 ---- ---- ---- ---- ---- 0000 0020 00
+RRK3    3 47507 ---- --- O 0000 0000 ---- ---- ---- ---- ---- 0000 0100 00
+POZ5   AU 33605 ---- --- O 0000 0216 ---- ---- ---- ---- ---- 0000 2000 00
+POZ5      33605   10 PLN - ---- ---- ---- ---- ---- ---- 0014 ---- ---- --
+POZ5      33605   20 PLN - ---- ---- ---- ---- ---- ---- 0011 ---- ---- --
+POZ5      33605  100 PLN - ---- ---- ---- ---- ---- ---- 0085 ---- ---- --
+POZ5      33605  200 PLN - ---- ---- ---- ---- ---- ---- 0091 ---- ---- --
+POZ5      33605  500 PLN - ---- ---- ---- ---- ---- ---- 0015 ---- ---- --
+NOM: 0050 0100 0100 0200 
+KAS: 0184 0027 0300 0361 
+REJ: 0007 0003 0003 0008 
+CLI: 1113 2100 0665 1461 
+         SUM  POZ1 POZ2 POZ3 POZ4 HEAD RRK3 POZ5 
+ 10PLN : 0014 0015
+ 20PLN : 0011 0000 0000 0000 0000 0000 0000 0014 
+ 50PLN : 0191 0000 0000 0000 0000 0000 0000 0011 
+100PLN : 0418 0191 0000 0000 0000 0000 0000 0000 
+200PLN : 0460 0000 0030 0303 0000 0000 0000 0085 
+RET: 0
+         SUM   K1   K2
+ 10 PLN: 0014 0000 0000
+ 20 PLN: 0011 0000 0000
+ 50 PLN: 0191 0191 0000
+100 PLN: 0418 0000 0030
+200 PLN: 0460 0000 0000
+500 PLN: 0015 0000 0000
+RET: 0
+08:43:38 <- OD INTERWPLAT 1744094618574, ApplicationState: TRANSACTION
+
+08.04.2025/08:52:18/RNET5A73->Rozpoczecie transakcji
+08:52:18 ->Karta547890******5494 wlozona
+08:52:18 <- OD INTERWPLAT 1744095138636, ApplicationState: TRANSACTION
+08:52:21 EMV CANDIDATES: 1
+08:52:23 EMV AID A0000000041010 / 547890******5494 STARTED
+08:52:28 wprowadzono PIN
+08:52:28 
+08:52:28 Transaction request ABB   DD, amount buffer 00000000
+08:52:28 Transaction reply next 521 function 5000
+INFO IS DCC CARD HOST RESP:
+NOT A DCC CARD
+08:52:33 <- OD INTERWPLAT 1744095153960, ApplicationState: TRANSACTION
+08:52:34 Amount 5000 entered
+08:52:35 
+08:52:35 Transaction request ABBD    , amount buffer 00005000
+08:52:36 Transaction reply next 710 function A090
+08:52:37 TVR: 8000040000, TSI: 6000
+08:52:44 Got.(1:4,25;)
+08:52:46 Karta(547890******5494)zaprezentowana
+08:52:46 Karta(547890******5494)odebrana
+08:52:50 Gotowka dostepna
+RNET5A73 TRAN: 435 STAN: 964707547
+2025-04-08 08:52:35
+************5494 WYPLATA: 5.000,00 PLN
+08:52:52 Gotowka odebrana
+08:52:52 ! CCDM : Banknoty odebrane
+08:53:02 (08.04.2025) <-Koniec transakc.
+08:53:02 DISP 0000 0000 0000 0000 0025 0000
+NAME TYPE  ID   VAL  CUR S INIT CNT  DISP PRES RETR REJ  CIN  MIN  MAX  AD P NAME  ID   S INIT CNT  DISP PRES RETR REJ  MAX  H
+RRK1 RETR 47507 ---- --- O 0000 0000 ---- ---- ---- ---- ---- 0000 0050 0- 1 RRK1 47507 O 0000 0000 ---- ---- ---- ---- 0150 0
+RRK2 REJE 47507 ---- --- O 0000 0021 ---- ---- ---- ---- ---- 0000 0050 0- 1 RRK2 47507 O 0000 0021 ---- ---- ---- ---- 0100 0
+POZ1 ROLL 54754   50 PLN O 1304 0184 1120 1113 0000 0007 0204 0020 2000 0- 1 POZ1 54754 O 1100 0184 1120 1113 0000 0007 2000 0
+POZ2 ROLL 54789  100 PLN E 2130 0027 2103 2100 0000 0003 1630 0020 2000 0- 1 POZ2 54789 O 0500 0027 2103 2100 0000 0003 2000 0
+POZ3 ROLL 33560  100 PLN O 0968 0300 0668 0665 0000 0003 0468 0020 2000 0- 1 POZ3 33560 O 0500 0300 0668 0665 0000 0003 2000 0
+POZ4 ROLL 54702  200 PLN O 1833 0336 1494 1486 0000 0008 1433 0020 2000 0- 1 POZ4 54702 O 0400 0336 1494 1486 0000 0008 2000 0
+HEAD    2 07873 ---- --- M 0000 0000 ---- ---- ---- ---- ---- 0000 0020 00
+RRK3    3 47507 ---- --- O 0000 0000 ---- ---- ---- ---- ---- 0000 0100 00
+08:53:02 <- OD INTERWPLAT 1744095182405, ApplicationState: IDLE
+POZ5   AU 33605 ---- --- O 0000 0216 ---- ---- ---- ---- ---- 0000 2000 00
+POZ5      33605   10 PLN - ---- ---- ---- ---- ---- ---- 0014 ---- ---- --
+POZ5      33605   20 PLN - ---- ---- ---- ---- ---- ---- 0011 ---- ---- --
+POZ5      33605  100 PLN - ---- ---- ---- ---- ---- ---- 0085 ---- ---- --
+POZ5      33605  200 PLN - ---- ---- ---- ---- ---- ---- 0091 ---- ---- --
+POZ5      33605  500 PLN - ---- ---- ---- ---- ---- ---- 0015 ---- ---- --
+NOM: 0050 0100 0100 0200 
+KAS: 0184 0027 0300 0336 
+REJ: 0007 0003 0003 0008 
+CLI: 1113 2100 0665 1486 
+
+08.04.2025/08:53:06/RNET5A73->Rozpoczecie transakcji
+08:53:06 ->Karta516842******7296 wlozona
+08:53:09 EMV CANDIDATES: 1
+08:53:11 EMV AID A0000000041010 / 516842******7296 STARTED
+08:53:16 wprowadzono PIN
+08:53:16 
+08:53:16 Transaction request ABCCD   , amount buffer 00000000
+08:53:17 Transaction reply next 734 function 5000
+08:53:17 TVR: 8000040000, TSI: 6000
+08:53:17 Rozpoczeto transakcje wplaty
+RNET5A73 TRAN: 436 STAN: 964708775
+2025-04-08 08:53:16
+************7296 WERYFIKACJA PIN
+08:53:17 <- OD INTERWPLAT 1744095197809, ApplicationState: TRANSACTION
+08:53:18 [WEB] [Trace] Loading dialog: Wait initialization (scrWaitInit.htm)
+08:53:18 Numer transakcji : 0
+08:53:18 -> DO INTERWPLAT 00023, CardIdentify
+08:53:18 <- OD INTERWPLAT 00023, OK (CardIdentify, 24160014621865362210000001)
+08:53:18 Numer transakcji : 0
+08:53:18 [WEB] [Trace] Loading dialog: Please wait (EkranW.htm)
+08:53:18 -> DO INTERWPLAT 00023, AccountIdentify
+08:53:18 <- OD INTERWPLAT 00023, OK (AccountIdentify, 24160014621865362210000001)
+08:53:19 [WEB] [Trace] Loading dialog: Info account and card info (Ekran7Pre.htm)
+08:53:23 [WEB] CONFIRM pressed
+08:53:24 [WEB] [Trace] Loading dialog: Router screen (Ekran7Pre2.htm)
+08:53:24 [WEB] [Trace] Loading dialog: Enter deposit amount (Ekran7Pre2AmountEntry.htm)
+08:53:29 [WEB] CONFIRM pressed
+08:53:29 Deklaracja kwoty wplaty: 5000
+08:53:30 [WEB] [Trace] Loading dialog: Prepare banknotes to insert (Ekran7Pre2PrepareNotes.htm)
+08:53:34 [WEB] CONFIRM pressed
+08:53:35 Oczekiwanie na wlozenie pieniedzy
+08:53:35 [WEB] [Trace] Loading dialog: Insert notes (Ekran7.htm)
+08:53:36 ! CCDM : Banknoty wlozone
+08:53:36 Otwarcie INPUT TRAY (Status ok)
+08:53:36 [WEB] [Trace] Loading dialog: Processing notes (Ekran7W.htm)
+08:53:40 Zamkniecie INPUT TRAY (Status ok)
+08:53:49 [IW] IdentifyNotes() = ok
+08:53:49 Przyjete banknoty
+         ID=    5 | 200 (  PLN) * 25
+08:53:50 [WEB] [Trace] Loading dialog: Deposit summary (Ekran11.htm)
+08:53:52 [WEB] CONFIRM pressed
+08:53:52 [WEB] [Trace] Loading dialog: Please wait (EkranW.htm)
+08:53:52 -> DO INTERWPLAT 00023, CashTransfer
+08:53:52 <- OD INTERWPLAT 00023, OK (CashTransfer, 855895C6BA764C9)
+08:53:53 [WEB] [Trace] Loading dialog: Take card (EkranY.htm)
+08:53:54 Karta(516842******7296)zaprezentowana
+08:53:55 Status oddania karty = OK (2 sek.) 
+08:53:55 [WEB] [Trace] Loading dialog: Navigate to PRINT|NONE|ASKFOR receipt (EkranAskForReceiptPre.htm)
+08:54:00 [WEB] [Trace] Loading dialog: Ask for receipt (EkranAskForReceipt.htm)
+08:54:02 [WEB] CONFIRM pressed
+08:54:02 [WEB] [Trace] Loading dialog: Deposit OK, Receipt OK (Ekran12.htm)
+08:54:08 Drukowanie potwierdzenia : ok
+08:54:14 Wydanie potwierdzenia : ok
+08:54:14 Skladowanie 25 banknotow
+08:54:14 Suma na ESCROW 5000 PLN
+08:54:14 [WEB] [Trace] Loading dialog: Depositing notes (EkranWDepo.htm)
+08:54:22 Skladowanie banknotow - OK
+08:54:22 -> DO INTERWPLAT 00023, CashTransferStatus
+08:54:22 Status transakcji 6 (-1889590007)
+08:54:22 [WEB] [Trace] Loading dialog: Accounting info (EkranKsiegowanieInfo.htm)
+08:54:22 [WEB] [Trace] Loading dialog: Deposit hours info (E34.htm)
+08:54:28 (08.04.2025) <-Koniec transakc.
+08:54:28 ROLL 0000 0000 0000 0000 0025 0000
+NAME TYPE  ID   VAL  CUR S INIT CNT  DISP PRES RETR REJ  CIN  MIN  MAX  AD P NAME  ID   S INIT CNT  DISP PRES RETR REJ  MAX  H
+RRK1 RETR 47507 ---- --- O 0000 0000 ---- ---- ---- ---- ---- 0000 0050 0- 1 RRK1 47507 O 0000 0000 ---- ---- ---- ---- 0150 0
+RRK2 REJE 47507 ---- --- O 0000 0021 ---- ---- ---- ---- ---- 0000 0050 0- 1 RRK2 47507 O 0000 0021 ---- ---- ---- ---- 0100 0
+POZ1 ROLL 54754   50 PLN O 1304 0184 1120 1113 0000 0007 0204 0020 2000 0- 1 POZ1 54754 O 1100 0184 1120 1113 0000 0007 2000 0
+POZ2 ROLL 54789  100 PLN E 2130 0027 2103 2100 0000 0003 1630 0020 2000 0- 1 POZ2 54789 O 0500 0027 2103 2100 0000 0003 2000 0
+POZ3 ROLL 33560  100 PLN O 0968 0300 0668 0665 0000 0003 0468 0020 2000 0- 1 POZ3 33560 O 0500 0300 0668 0665 0000 0003 2000 0
+POZ4 ROLL 54702  200 PLN O 1858 0361 1494 1486 0000 0008 1458 0020 2000 0- 1 POZ4 54702 O 0400 0361 1494 1486 0000 0008 2000 0
+HEAD    2 07873 ---- --- M 0000 0000 ---- ---- ---- ---- ---- 0000 0020 00
+RRK3    3 47507 ---- --- O 0000 0000 ---- ---- ---- ---- ---- 0000 0100 00
+POZ5   AU 33605 ---- --- O 0000 0216 ---- ---- ---- ---- ---- 0000 2000 00
+POZ5      33605   10 PLN - ---- ---- ---- ---- ---- ---- 0014 ---- ---- --
+POZ5      33605   20 PLN - ---- ---- ---- ---- ---- ---- 0011 ---- ---- --
+POZ5      33605  100 PLN - ---- ---- ---- ---- ---- ---- 0085 ---- ---- --
+POZ5      33605  200 PLN - ---- ---- ---- ---- ---- ---- 0091 ---- ---- --
+POZ5      33605  500 PLN - ---- ---- ---- ---- ---- ---- 0015 ---- ---- --
+NOM: 0050 0100 0100 0200 
+KAS: 0184 0027 0300 0361 
+REJ: 0007 0003 0003 0008 
+CLI: 1113 2100 0665 1486 
+         SUM  POZ1 POZ2 POZ3 POZ4 HEAD RRK3 POZ5 
+ 10PLN : 0014 0015
+ 20PLN : 0011 0000 0000 0000 0000 0000 0000 0014 
+ 50PLN : 0191 0000 0000 0000 0000 0000 0000 0011 
+100PLN : 0418 0191 0000 0000 0000 0000 0000 0000 
+200PLN : 0460 0000 0030 0303 0000 0000 0000 0085 
+RET: 0
+         SUM   K1   K2
+ 10 PLN: 0014 0000 0000
+ 20 PLN: 0011 0000 0000
+ 50 PLN: 0191 0191 0000
+100 PLN: 0418 0000 0030
+200 PLN: 0460 0000 0000
+500 PLN: 0015 0000 0000
+RET: 0
+08:54:29 <- OD INTERWPLAT 1744095269076, ApplicationState: IDLE
+
+08.04.2025/08:54:43/RNET5A73->Rozpoczecie transakcji
+08:54:44 <- OD INTERWPLAT 1744095284438, ApplicationState: TRANSACTION
+08:55:03 Klient wybral 'CANCEL' - anulowanie transakcji
+08:55:09 (08.04.2025) <-Koniec transakc.
+NAME TYPE  ID   VAL  CUR S INIT CNT  DISP PRES RETR REJ  CIN  MIN  MAX  AD P NAME  ID   S INIT CNT  DISP PRES RETR REJ  MAX  H
+RRK1 RETR 47507 ---- --- O 0000 0000 ---- ---- ---- ---- ---- 0000 0050 0- 1 RRK1 47507 O 0000 0000 ---- ---- ---- ---- 0150 0
+RRK2 REJE 47507 ---- --- O 0000 0021 ---- ---- ---- ---- ---- 0000 0050 0- 1 RRK2 47507 O 0000 0021 ---- ---- ---- ---- 0100 0
+POZ1 ROLL 54754   50 PLN O 1304 0184 1120 1113 0000 0007 0204 0020 2000 0- 1 POZ1 54754 O 1100 0184 1120 1113 0000 0007 2000 0
+POZ2 ROLL 54789  100 PLN E 2130 0027 2103 2100 0000 0003 1630 0020 2000 0- 1 POZ2 54789 O 0500 0027 2103 2100 0000 0003 2000 0
+POZ3 ROLL 33560  100 PLN O 0968 0300 0668 0665 0000 0003 0468 0020 2000 0- 1 POZ3 33560 O 0500 0300 0668 0665 0000 0003 2000 0
+POZ4 ROLL 54702  200 PLN O 1858 0361 1494 1486 0000 0008 1458 0020 2000 0- 1 POZ4 54702 O 0400 0361 1494 1486 0000 0008 2000 0
+HEAD    2 07873 ---- --- M 0000 0000 ---- ---- ---- ---- ---- 0000 0020 00
+RRK3    3 47507 ---- --- O 0000 0000 ---- ---- ---- ---- ---- 0000 0100 00
+POZ5   AU 33605 ---- --- O 0000 0216 ---- ---- ---- ---- ---- 0000 2000 00
+POZ5      33605   10 PLN - ---- ---- ---- ---- ---- ---- 0014 ---- ---- --
+POZ5      33605   20 PLN - ---- ---- ---- ---- ---- ---- 0011 ---- ---- --
+POZ5      33605  100 PLN - ---- ---- ---- ---- ---- ---- 0085 ---- ---- --
+POZ5      33605  200 PLN - ---- ---- ---- ---- ---- ---- 0091 ---- ---- --
+NOM: 0050 0100 0100 0200 
+KAS: 0184 0027 0300 0361 
+REJ: 0007 0003 0003 0008 
+CLI: 1113 2100 0665 1486 
+POZ5      33605  500 PLN - ---- ---- ---- ---- ---- ---- 0015 ---- ---- --
+08:55:10 <- OD INTERWPLAT 1744095310242, ApplicationState: IDLE
+
+08.04.2025/08:55:12/RNET5A73->Rozpoczecie transakcji
+08:55:12 ->Karta424671******0324 wlozona
+08:55:15 EMV CANDIDATES: 1
+08:55:17 EMV AID A0000000031010 / 424671******0324 STARTED
+08:55:22 wprowadzono PIN
+08:55:22 
+08:55:22 Transaction request ABCCD   , amount buffer 00000000
+08:55:23 Transaction reply next 734 function 5000
+08:55:23 TVR: 8080040000, TSI: 6000
+08:55:23 Rozpoczeto transakcje wplaty
+RNET5A73 TRAN: 437 STAN: 964712533
+2025-04-08 08:55:22
+************0324 WERYFIKACJA PIN
+08:55:24 [WEB] [Trace] Loading dialog: Wait initialization (scrWaitInit.htm)
+08:55:24 Numer transakcji : 0
+08:55:24 -> DO INTERWPLAT 00025, CardIdentify
+08:55:24 <- OD INTERWPLAT 00025, OK (CardIdentify, 70105014611000009731680709)
+08:55:24 Numer transakcji : 0
+08:55:24 [WEB] [Trace] Loading dialog: Please wait (EkranW.htm)
+08:55:24 -> DO INTERWPLAT 00025, AccountIdentify
+08:55:24 <- OD INTERWPLAT 00025, OK (AccountIdentify, 70105014611000009731680709)
+08:55:24 [WEB] [Trace] Loading dialog: Info account and card info (Ekran7Pre.htm)
+08:55:25 <- OD INTERWPLAT 1744095325588, ApplicationState: TRANSACTION
+08:55:30 [WEB] CONFIRM pressed
+08:55:31 [WEB] [Trace] Loading dialog: Router screen (Ekran7Pre2.htm)
+08:55:31 [WEB] [Trace] Loading dialog: Prepare banknotes to insert (Ekran7Pre2PrepareNotes.htm)
+08:55:33 [WEB] CONFIRM pressed
+08:55:33 Oczekiwanie na wlozenie pieniedzy
+08:55:34 [WEB] [Trace] Loading dialog: Insert notes (Ekran7.htm)
+08:55:35 Otwarcie INPUT TRAY (Status ok)
+08:55:35 ! CCDM : Banknoty wlozone
+08:55:36 [WEB] [Trace] Loading dialog: Processing notes (Ekran7W.htm)
+08:55:40 Zamkniecie INPUT TRAY (Status ok)
+08:55:46 [IW] IdentifyNotes() = ok
+08:55:46 Przyjete banknoty
+         ID=    2 | 020 (  PLN) * 01
+08:55:46 [WEB] [Trace] Loading dialog: Deposit summary (Ekran11.htm)
+08:55:48 [WEB] CONFIRM pressed
+08:55:48 [WEB] [Trace] Loading dialog: Please wait (EkranW.htm)
+08:55:48 -> DO INTERWPLAT 00025, CashTransfer
+08:55:49 <- OD INTERWPLAT 00025, OK (CashTransfer, BF8625098800025)
+08:55:49 [WEB] [Trace] Loading dialog: Take card (EkranY.htm)
+08:55:50 Karta(424671******0324)zaprezentowana
+08:55:51 Status oddania karty = OK (2 sek.) 
+08:55:51 [WEB] [Trace] Loading dialog: Navigate to PRINT|NONE|ASKFOR receipt (EkranAskForReceiptPre.htm)
+08:55:57 [WEB] [Trace] Loading dialog: Ask for receipt (EkranAskForReceipt.htm)
+08:55:58 [WEB] CANCEL pressed
+08:55:59 Skladowanie 1 banknotow
+08:55:59 Suma na ESCROW 20 PLN
+08:55:59 [WEB] [Trace] Loading dialog: Depositing notes (EkranWDepo.htm)
+08:56:04 Skladowanie banknotow - OK
+08:56:04 -> DO INTERWPLAT 00025, CashTransferStatus
+08:56:04 Status transakcji 6 (-1889590007)
+08:56:04 [WEB] [Trace] Loading dialog: Accounting info (EkranKsiegowanieInfo.htm)
+08:56:05 [WEB] [Trace] Loading dialog: Deposit hours info (E34.htm)
+08:56:11 (08.04.2025) <-Koniec transakc.
+08:56:11 DEPO 0000 0001 0000 0000 0000 0000
+NAME TYPE  ID   VAL  CUR S INIT CNT  DISP PRES RETR REJ  CIN  MIN  MAX  AD P NAME  ID   S INIT CNT  DISP PRES RETR REJ  MAX  H
+RRK1 RETR 47507 ---- --- O 0000 0000 ---- ---- ---- ---- ---- 0000 0050 0- 1 RRK1 47507 O 0000 0000 ---- ---- ---- ---- 0150 0
+RRK2 REJE 47507 ---- --- O 0000 0021 ---- ---- ---- ---- ---- 0000 0050 0- 1 RRK2 47507 O 0000 0021 ---- ---- ---- ---- 0100 0
+POZ1 ROLL 54754   50 PLN O 1304 0184 1120 1113 0000 0007 0204 0020 2000 0- 1 POZ1 54754 O 1100 0184 1120 1113 0000 0007 2000 0
+POZ2 ROLL 54789  100 PLN E 2130 0027 2103 2100 0000 0003 1630 0020 2000 0- 1 POZ2 54789 O 0500 0027 2103 2100 0000 0003 2000 0
+POZ3 ROLL 33560  100 PLN O 0968 0300 0668 0665 0000 0003 0468 0020 2000 0- 1 POZ3 33560 O 0500 0300 0668 0665 0000 0003 2000 0
+POZ4 ROLL 54702  200 PLN O 1858 0361 1494 1486 0000 0008 1458 0020 2000 0- 1 POZ4 54702 O 0400 0361 1494 1486 0000 0008 2000 0
+HEAD    2 07873 ---- --- M 0000 0000 ---- ---- ---- ---- ---- 0000 0020 00
+RRK3    3 47507 ---- --- O 0000 0000 ---- ---- ---- ---- ---- 0000 0100 00
+POZ5   AU 33605 ---- --- O 0000 0217 ---- ---- ---- ---- ---- 0000 2000 00
+POZ5      33605   10 PLN - ---- ---- ---- ---- ---- ---- 0014 ---- ---- --
+POZ5      33605   20 PLN - ---- ---- ---- ---- ---- ---- 0012 ---- ---- --
+POZ5      33605  100 PLN - ---- ---- ---- ---- ---- ---- 0085 ---- ---- --
+POZ5      33605  200 PLN - ---- ---- ---- ---- ---- ---- 0091 ---- ---- --
+POZ5      33605  500 PLN - ---- ---- ---- ---- ---- ---- 0015 ---- ---- --
+NOM: 0050 0100 0100 0200 
+KAS: 0184 0027 0300 0361 
+REJ: 0007 0003 0003 0008 
+CLI: 1113 2100 0665 1486 
+         SUM  POZ1 POZ2 POZ3 POZ4 HEAD RRK3 POZ5 
+ 10PLN : 0014 0015
+ 20PLN : 0012 0000 0000 0000 0000 0000 0000 0014 
+ 50PLN : 0191 0000 0000 0000 0000 0000 0000 0012 
+100PLN : 0418 0191 0000 0000 0000 0000 0000 0000 
+200PLN : 0460 0000 0030 0303 0000 0000 0000 0085 
+RET: 0
+         SUM   K1   K2
+ 10 PLN: 0014 0000 0000
+ 20 PLN: 0012 0000 0000
+ 50 PLN: 0191 0191 0000
+100 PLN: 0418 0000 0030
+200 PLN: 0460 0000 0000
+500 PLN: 0015 0000 0000
+RET: 0
+08:56:11 <- OD INTERWPLAT 1744095371525, ApplicationState: IDLE
+
+08.04.2025/08:56:20/RNET5A73->Rozpoczecie transakcji
+08:56:20 ->Karta557511******6659 wlozona
+08:56:25 EMV CANDIDATES: 1
+08:56:26 <- OD INTERWPLAT 1744095386875, ApplicationState: TRANSACTION
+08:56:27 EMV AID A0000000041010 / 557511******6659 STARTED
+08:56:35 wprowadzono PIN
+08:56:35 
+08:56:35 Transaction request ABB   DD, amount buffer 00000000
+08:56:35 Transaction reply next 521 function 5000
+INFO IS DCC CARD HOST RESP:
+NOT A DCC CARD
+08:56:49 Amount 3300 entered
+08:56:52 
+08:56:52 Transaction request ABBF    , amount buffer 00003300
+08:56:53 Transaction reply next 710 function A091
+08:56:54 TVR: 8000040000, TSI: 6000
+08:57:01 Got.(1:4,16;4:3,1;)
+08:57:02 Karta(557511******6659)zaprezentowana
+08:57:03 Karta(557511******6659)odebrana
+08:57:07 Gotowka dostepna
+RNET5A73 TRAN: 439 STAN: 964715334
+2025-04-08 08:56:52
+************6659 WYPLATA: 3.300,00 PLN
+08:57:12 Gotowka odebrana
+08:57:12 ! CCDM : Banknoty odebrane
+08:57:18 (08.04.2025) <-Koniec transakc.
+08:57:19 DISP 0000 0000 0000 0001 0016 0000
+NAME TYPE  ID   VAL  CUR S INIT CNT  DISP PRES RETR REJ  CIN  MIN  MAX  AD P NAME  ID   S INIT CNT  DISP PRES RETR REJ  MAX  H
+RRK2 REJE 47507 ---- --- O 0000 0021 ---- ---- ---- ---- ---- 0000 0050 0- 1 RRK2 47507 O 0000 0021 ---- ---- ---- ---- 0100 0
+RRK1 RETR 47507 ---- --- O 0000 0000 ---- ---- ---- ---- ---- 0000 0050 0- 1 RRK1 47507 O 0000 0000 ---- ---- ---- ---- 0150 0
+POZ1 ROLL 54754   50 PLN O 1304 0184 1120 1113 0000 0007 0204 0020 2000 0- 1 POZ1 54754 O 1100 0184 1120 1113 0000 0007 2000 0
+POZ2 ROLL 54789  100 PLN E 2130 0027 2103 2100 0000 0003 1630 0020 2000 0- 1 POZ2 54789 O 0500 0027 2103 2100 0000 0003 2000 0
+POZ3 ROLL 33560  100 PLN O 0968 0299 0669 0666 0000 0003 0468 0020 2000 0- 1 POZ3 33560 O 0500 0299 0669 0666 0000 0003 2000 0
+POZ4 ROLL 54702  200 PLN O 1858 0345 1510 1502 0000 0008 1458 0020 2000 0- 1 POZ4 54702 O 0400 0345 1510 1502 0000 0008 2000 0
+08:57:19 <- OD INTERWPLAT 1744095439232, ApplicationState: IDLE
+HEAD    2 07873 ---- --- M 0000 0000 ---- ---- ---- ---- ---- 0000 0020 00
+RRK3    3 47507 ---- --- O 0000 0000 ---- ---- ---- ---- ---- 0000 0100 00
+POZ5   AU 33605 ---- --- O 0000 0217 ---- ---- ---- ---- ---- 0000 2000 00
+POZ5      33605   10 PLN - ---- ---- ---- ---- ---- ---- 0014 ---- ---- --
+POZ5      33605   20 PLN - ---- ---- ---- ---- ---- ---- 0012 ---- ---- --
+POZ5      33605  100 PLN - ---- ---- ---- ---- ---- ---- 0085 ---- ---- --
+POZ5      33605  200 PLN - ---- ---- ---- ---- ---- ---- 0091 ---- ---- --
+POZ5      33605  500 PLN - ---- ---- ---- ---- ---- ---- 0015 ---- ---- --
+NOM: 0050 0100 0100 0200 
+KAS: 0184 0027 0299 0345 
+REJ: 0007 0003 0003 0008 
+CLI: 1113 2100 0666 1502 
+09:07:20 <- OD INTERWPLAT 1744096040043, ApplicationState: IDLE
+
+08.04.2025/09:08:03/RNET5A73->Rozpoczecie transakcji
+09:08:04 ->Karta405621******0449 wlozona
+09:08:04 <- OD INTERWPLAT 1744096084369, ApplicationState: TRANSACTION
+09:08:17 EMV CANDIDATES: 1
+09:08:19 EMV AID A0000000031010 / 405621******0449 STARTED
+09:08:21 Rozpoczeto transakcje wplaty
+09:08:22 [WEB] [Trace] Loading dialog: Wait initialization (scrWaitInit.htm)
+09:08:22 Numer transakcji : 0
+09:08:22 -> DO INTERWPLAT 00028, CardIdentify
+09:08:22 <- OD INTERWPLAT 00028, OK (CardIdentify, 4056210000000449)
+09:08:22 Numer transakcji : 0
+09:08:22 [WEB] [Trace] Loading dialog: Please wait (EkranW.htm)
+09:08:22 -> DO INTERWPLAT 00028, AccountIdentify
+09:08:22 <- OD INTERWPLAT 00028, OK (AccountIdentify, 4056210000000449)
+09:08:23 [WEB] [Trace] Loading dialog: Info account and card info (Ekran7Pre.htm)
+09:08:27 [WEB] CONFIRM pressed
+09:08:28 [WEB] [Trace] Loading dialog: Router screen (Ekran7Pre2.htm)
+09:08:28 [WEB] [Trace] Loading dialog: Enter deposit amount (Ekran7Pre2AmountEntry.htm)
+09:08:33 [WEB] CONFIRM pressed
+09:08:33 Deklaracja kwoty wplaty: 2000
+09:08:33 [WEB] [Trace] Loading dialog: Prepare banknotes to insert (Ekran7Pre2PrepareNotes.htm)
+09:08:38 [WEB] CONFIRM pressed
+09:08:38 Oczekiwanie na wlozenie pieniedzy
+09:08:39 [WEB] [Trace] Loading dialog: Insert notes (Ekran7.htm)
+09:08:40 ! CCDM : Banknoty wlozone
+09:08:40 Otwarcie INPUT TRAY (Status ok)
+09:08:40 [WEB] [Trace] Loading dialog: Processing notes (Ekran7W.htm)
+09:08:45 Zamkniecie INPUT TRAY (Status ok)
+09:09:31 ! CCDM : Odrzucono paczke : 7
+09:09:31 ! CCDM : Odrzucono paczke EX : 7
+09:09:32 [IW] IdentifyNotes() = ok
+09:09:32 Odrzucono 1 banknotow
+09:09:32 Przyjete banknoty
+         ID=    1 | 010 (  PLN) * 199
+09:09:32 [WEB] [Trace] Loading dialog: Take unrecognised notes (Ekran7Ref.htm)
+09:09:39 [IW] OutputTray.Open() = ok
+09:09:41 ! CCDM : Banknoty odebrane
+09:09:41 [IW] OutputTray.Close() = przyslona zamknieta
+09:09:41 [WEB] [Trace] Loading dialog: Deposit summary (Ekran11.htm)
+09:09:45 [WEB] ADD BANKNOTES pressed
+09:09:46 Oczekiwanie na wlozenie pieniedzy
+09:09:46 [WEB] [Trace] Loading dialog: Insert notes (Ekran7.htm)
+09:09:47 Otwarcie INPUT TRAY (Status ok)
+09:09:47 ! CCDM : Banknoty wlozone
+09:09:48 [WEB] [Trace] Loading dialog: Processing notes (Ekran7W.htm)
+09:09:52 Zamkniecie INPUT TRAY (Status ok)
+09:09:58 [IW] IdentifyNotes() = ok
+09:09:58 Przyjete banknoty
+         ID=    1 | 010 (  PLN) * 200
+09:09:59 Wiecej banknotow nie da sie dolozyc
+09:09:59 [WEB] [Trace] Loading dialog: Router screen (Ekran11Full.htm)
+09:09:59 [WEB] [Trace] Loading dialog: Deposit summary (Ekran11.htm)
+09:10:01 [WEB] CONFIRM pressed
+09:10:01 [WEB] [Trace] Loading dialog: Please wait (EkranW.htm)
+09:10:01 -> DO INTERWPLAT 00028, CashTransfer
+09:10:01 <- OD INTERWPLAT 00028, OK (CashTransfer, 531CD7397F03F9C)
+09:10:02 [WEB] [Trace] Loading dialog: Take card (EkranY.htm)
+09:10:03 Karta(405621******0449)zaprezentowana
+09:10:04 Status oddania karty = OK (2 sek.) 
+09:10:04 [WEB] [Trace] Loading dialog: Navigate to PRINT|NONE|ASKFOR receipt (EkranAskForReceiptPre.htm)
+09:10:09 [WEB] [Trace] Loading dialog: Ask for receipt (EkranAskForReceipt.htm)
+09:10:10 [WEB] CANCEL pressed
+09:10:11 Skladowanie 200 banknotow
+09:10:11 Suma na ESCROW 2000 PLN
+09:10:11 [WEB] [Trace] Loading dialog: Depositing notes (EkranWDepo.htm)
+09:10:38 Skladowanie banknotow - OK
+09:10:38 -> DO INTERWPLAT 00028, CashTransferStatus
+09:10:38 Status transakcji 6 (-1889590007)
+09:10:38 [WEB] [Trace] Loading dialog: Accounting info (EkranKsiegowanieInfo.htm)
+09:10:38 [WEB] [Trace] Loading dialog: Deposit hours info (E34.htm)
+09:10:44 (08.04.2025) <-Koniec transakc.
+09:10:44 DEPO 0200 0000 0000 0000 0000 0000
+NAME TYPE  ID   VAL  CUR S INIT CNT  DISP PRES RETR REJ  CIN  MIN  MAX  AD P NAME  ID   S INIT CNT  DISP PRES RETR REJ  MAX  H
+RRK1 RETR 47507 ---- --- O 0000 0000 ---- ---- ---- ---- ---- 0000 0050 0- 1 RRK1 47507 O 0000 0000 ---- ---- ---- ---- 0150 0
+RRK2 REJE 47507 ---- --- O 0000 0021 ---- ---- ---- ---- ---- 0000 0050 0- 1 RRK2 47507 O 0000 0021 ---- ---- ---- ---- 0100 0
+POZ1 ROLL 54754   50 PLN O 1304 0184 1120 1113 0000 0007 0204 0020 2000 0- 1 POZ1 54754 O 1100 0184 1120 1113 0000 0007 2000 0
+POZ2 ROLL 54789  100 PLN E 2130 0027 2103 2100 0000 0003 1630 0020 2000 0- 1 POZ2 54789 O 0500 0027 2103 2100 0000 0003 2000 0
+POZ3 ROLL 33560  100 PLN O 0968 0299 0669 0666 0000 0003 0468 0020 2000 0- 1 POZ3 33560 O 0500 0299 0669 0666 0000 0003 2000 0
+POZ4 ROLL 54702  200 PLN O 1858 0345 1510 1502 0000 0008 1458 0020 2000 0- 1 POZ4 54702 O 0400 0345 1510 1502 0000 0008 2000 0
+HEAD    2 07873 ---- --- M 0000 0000 ---- ---- ---- ---- ---- 0000 0020 00
+RRK3    3 47507 ---- --- O 0000 0000 ---- ---- ---- ---- ---- 0000 0100 00
+POZ5   AU 33605 ---- --- O 0000 0417 ---- ---- ---- ---- ---- 0000 2000 00
+POZ5      33605   10 PLN - ---- ---- ---- ---- ---- ---- 0214 ---- ---- --
+POZ5      33605   20 PLN - ---- ---- ---- ---- ---- ---- 0012 ---- ---- --
+POZ5      33605  100 PLN - ---- ---- ---- ---- ---- ---- 0085 ---- ---- --
+POZ5      33605  200 PLN - ---- ---- ---- ---- ---- ---- 0091 ---- ---- --
+POZ5      33605  500 PLN - ---- ---- ---- ---- ---- ---- 0015 ---- ---- --
+NOM: 0050 0100 0100 0200 
+KAS: 0184 0027 0299 0345 
+REJ: 0007 0003 0003 0008 
+CLI: 1113 2100 0666 1502 
+         SUM  POZ1 POZ2 POZ3 POZ4 HEAD RRK3 POZ5 
+ 10PLN : 0214 0015
+ 20PLN : 0012 0000 0000 0000 0000 0000 0000 0214 
+ 50PLN : 0191 0000 0000 0000 0000 0000 0000 0012 
+100PLN : 0417 0191 0000 0000 0000 0000 0000 0000 
+200PLN : 0444 0000 0030 0302 0000 0000 0000 0085 
+RET: 0
+         SUM   K1   K2
+ 10 PLN: 0214 0000 0000
+ 20 PLN: 0012 0000 0000
+ 50 PLN: 0191 0191 0000
+100 PLN: 0417 0000 0030
+200 PLN: 0444 0000 0000
+500 PLN: 0015 0000 0000
+RET: 0
+09:10:45 <- OD INTERWPLAT 1744096245330, ApplicationState: IDLE
+
+08.04.2025/09:11:41/RNET5A73->Rozpoczecie transakcji
+09:11:42 ->Karta405621******0449 wlozona
+09:11:42 <- OD INTERWPLAT 1744096302345, ApplicationState: TRANSACTION
+09:11:50 EMV CANDIDATES: 1
+09:11:52 EMV AID A0000000031010 / 405621******0449 STARTED
+09:11:53 Rozpoczeto transakcje wplaty
+09:11:54 [WEB] [Trace] Loading dialog: Wait initialization (scrWaitInit.htm)
+09:11:54 Numer transakcji : 0
+09:11:54 -> DO INTERWPLAT 00029, CardIdentify
+09:11:54 <- OD INTERWPLAT 00029, OK (CardIdentify, 4056210000000449)
+09:11:54 Numer transakcji : 0
+09:11:54 [WEB] [Trace] Loading dialog: Please wait (EkranW.htm)
+09:11:54 -> DO INTERWPLAT 00029, AccountIdentify
+09:11:54 <- OD INTERWPLAT 00029, OK (AccountIdentify, 4056210000000449)
+09:11:54 [WEB] [Trace] Loading dialog: Info account and card info (Ekran7Pre.htm)
+09:11:59 [WEB] CONFIRM pressed
+09:11:59 [WEB] [Trace] Loading dialog: Router screen (Ekran7Pre2.htm)
+09:12:00 [WEB] [Trace] Loading dialog: Enter deposit amount (Ekran7Pre2AmountEntry.htm)
+09:12:03 [WEB] CONFIRM pressed
+09:12:03 Deklaracja kwoty wplaty: 3000
+09:12:03 [WEB] [Trace] Loading dialog: Prepare banknotes to insert (Ekran7Pre2PrepareNotes.htm)
+09:12:08 [WEB] CONFIRM pressed
+09:12:08 Oczekiwanie na wlozenie pieniedzy
+09:12:08 [WEB] [Trace] Loading dialog: Insert notes (Ekran7.htm)
+09:12:10 Otwarcie INPUT TRAY (Status ok)
+09:12:10 ! CCDM : Banknoty wlozone
+09:12:10 [WEB] [Trace] Loading dialog: Processing notes (Ekran7W.htm)
+09:12:17 Zamkniecie INPUT TRAY (Status ok)
+09121809:12:19 ! Zdarzenie : BCD Urzadzenie zmienilo status na 0
+09:13:55 ! CCDM : Odrzucono paczke EX : 7
+09:13:55 ! CCDM : Odrzucono paczke : 7
+09135509:13:55 ! CCDM : Blad sprzetu : (stClass=65c0, stCode=24000c31, stWarn=0)
+09:13:55 ! CCDM : Blad sprzetu :  LogicalName CIM30
+WorkStationName RNET5A73
+AppID CCAPPLICATION
+Vendor dependent Info:
+0000  C0 65 00 00 31 0C 00 24  00 00 00 00 4A 41 4D 3A    .e..1..$ ....JAM:
+0001  6E 6F 74 65 20 6A 61 6D  3A 20 68 65 61 64 20 2D    note jam : head -
+0002  3E 20 6D 69 64 64 6C 65  20 74 72 61 6E 73 70 6F    > middle  transpo
+0003  72 74 20 75 6E 69 74 20  2D 3E 20 61 6C 69 67 6E    rt unit  -> align
+0004  6D 65 6E 74 20 75 6E 69  74 20 2D 3E 20 65 6E 74    ment uni t -> ent
+0005  72 79 20 70 68 6F 74 6F  2D 73 65 6E 73 6F 72 00    ry photo -sensor.
+
+
+09:13:56 [IW] IdentifyNotes() = ok
+09:13:56 Odrzucono 2 banknotow
+09:13:56 Przyjete banknoty
+         ID=    1 | 010 (  PLN) * 57
+         ID=    2 | 020 (  PLN) * 114
+09:13:56 [WEB] [Trace] Loading dialog: Take unrecognised notes (Ekran7Ref.htm)
+09:13:56 [IW] InputTray.Open() = blad
+09:13:59 Blad modulu kasowego : 21
+Stat : HW ERROR | BIM :    OK   | Tray : N EMP N EMP| Shutter :  CLOSE CLOSE| Stacker :  N EMP N EMP| Way :  INOP  INOP 
+ECOD =  | SCOD =  | WCOD =  | DLOC =  | CEX =  | CAS =  | IO =  | SHUT =  | ESSTA = 
+09:14:00 Blad modulu kasowego : 21
+Stat : HW ERROR | BIM :    OK   | Tray : N EMP N EMP| Shutter :  CLOSE CLOSE| Stacker :  N EMP N EMP| Way :  INOP  INOP 
+ECOD =  | SCOD =  | WCOD =  | DLOC =  | CEX =  | CAS =  | IO =  | SHUT =  | ESSTA = 
+09:14:00 -> DO INTERWPLAT 00029, SessionStatus
+09:14:00 Status transakcji 3 (-1889590007)
+09:14:00 [WEB] [Trace] Loading dialog: Take notes (EkranCcdmError.htm)
+09:14:00 Drukowanie potwierdzenia : ok
+09:14:04 ! CCDM : Blad sprzetu : (stClass=65c0, stCode=24000c31, stWarn=0)
+09:14:04 ! CCDM : Blad sprzetu :  LogicalName CIM30
+WorkStationName RNET5A73
+AppID CCAPPLICATION
+Vendor dependent Info:
+0000  C0 65 00 00 31 0C 00 24  00 00 00 00 4A 41 4D 3A    .e..1..$ ....JAM:
+0001  6E 6F 74 65 20 6A 61 6D  3A 20 68 65 61 64 20 2D    note jam : head -
+0002  3E 20 6D 69 64 64 6C 65  20 74 72 61 6E 73 70 6F    > middle  transpo
+0003  72 74 20 75 6E 69 74 20  2D 3E 20 61 6C 69 67 6E    rt unit  -> align
+0004  6D 65 6E 74 20 75 6E 69  74 20 2D 3E 20 65 6E 74    ment uni t -> ent
+0005  72 79 20 70 68 6F 74 6F  2D 73 65 6E 73 6F 72 00    ry photo -sensor.
+
+
+09:14:07 Wydanie potwierdzenia : ok
+09:14:07 [WEB] [Trace] Loading dialog: Take card (EkranY.htm)
+09:14:08 Karta(405621******0449)zaprezentowana
+09:14:10 Status oddania karty = OK (2 sek.) 
+09:14:10 [WEB] [Trace] Loading dialog: Transaction failed (CCDM error) (EkranCcdmErrorW.htm)
+09:14:11 CCDM Retract : kod -1
+09:14:11 Blad modulu kasowego : 21
+Stat : HW ERROR | BIM :    OK   | Tray : N EMP N EMP| Shutter :  CLOSE CLOSE| Stacker :  N EMP N EMP| Way :  INOP  INOP 
+ECOD =  | SCOD =  | WCOD =  | DLOC =  | CEX =  | CAS =  | IO =  | SHUT =  | ESSTA = 
+09:14:11 [WEB] [Trace] Loading dialog: Accounting info (EkranKsiegowanieInfo.htm)
+09:16:43 ! CCDM : Cialo obce w module
+09:16:43 ! CCDM : Blad sprzetu :  LogicalName CIM30
+WorkStationName RNET5A73
+AppID CCAPPLICATION
+Vendor dependent Info:
+0000  C0 65 00 00 31 0C 00 24  00 00 00 00 4A 41 4D 3A    .e..1..$ ....JAM:
+0001  6E 6F 74 65 20 6A 61 6D  3A 20 68 65 61 64 20 2D    note jam : head -
+0002  3E 20 6D 69 64 64 6C 65  20 74 72 61 6E 73 70 6F    > middle  transpo
+0003  72 74 20 75 6E 69 74 20  2D 3E 20 61 6C 69 67 6E    rt unit  -> align
+0004  6D 65 6E 74 20 75 6E 69  74 20 2D 3E 20 65 6E 74    ment uni t -> ent
+0005  72 79 20 70 68 6F 74 6F  2D 73 65 6E 73 6F 72 00    ry photo -sensor.
+
+
+09:16:43 ! CCDM : Blad sprzetu : (stClass=65c0, stCode=24000c31, stWarn=0)
+09:16:43 Resetowanie modulu kasowego : blad -14
+09:16:43 Blad modulu kasowego : 21
+Stat : HW ERROR | BIM :    OK   | Tray : N EMP N EMP| Shutter :  CLOSE CLOSE| Stacker :  N EMP N EMP| Way :  INOP  INOP 
+ECOD =  | SCOD =  | WCOD =  | DLOC =  | CEX =  | CAS =  | IO =  | SHUT =  | ESSTA = 
+09:16:43 [WEB] [Trace] Loading dialog: Deposit hours info (E34.htm)
+09:16:49 (08.04.2025) <-Koniec transakc.
+NAME TYPE  ID   VAL  CUR S INIT CNT  DISP PRES RETR REJ  CIN  MIN  MAX  AD P NAME  ID   S INIT CNT  DISP PRES RETR REJ  MAX  H
+RRK1 RETR 47507 ---- --- O 0000 0000 ---- ---- ---- ---- ---- 0000 0050 0- 1 RRK1 47507 O 0000 0000 ---- ---- ---- ---- 0150 0
+RRK2 REJE 47507 ---- --- O 0000 0021 ---- ---- ---- ---- ---- 0000 0050 0- 1 RRK2 47507 O 0000 0021 ---- ---- ---- ---- 0100 0
+POZ1 ROLL 54754   50 PLN O 1304 0184 1120 1113 0000 0007 0204 0020 2000 0- 1 POZ1 54754 O 1100 0184 1120 1113 0000 0007 2000 0
+POZ2 ROLL 54789  100 PLN E 2130 0027 2103 2100 0000 0003 1630 0020 2000 0- 1 POZ2 54789 O 0500 0027 2103 2100 0000 0003 2000 0
+POZ3 ROLL 33560  100 PLN O 0968 0299 0669 0666 0000 0003 0468 0020 2000 0- 1 POZ3 33560 O 0500 0299 0669 0666 0000 0003 2000 0
+POZ4 ROLL 54702  200 PLN O 1858 0345 1510 1502 0000 0008 1458 0020 2000 0- 1 POZ4 54702 O 0400 0345 1510 1502 0000 0008 2000 0
+HEAD    2 07873 ---- --- M 0000 0000 ---- ---- ---- ---- ---- 0000 0020 00
+RRK3    3 47507 ---- --- O 0000 0000 ---- ---- ---- ---- ---- 0000 0100 00
+POZ5   AU 33605 ---- --- O 0000 0417 ---- ---- ---- ---- ---- 0000 2000 00
+POZ5      33605   10 PLN - ---- ---- ---- ---- ---- ---- 0214 ---- ---- --
+POZ5      33605   20 PLN - ---- ---- ---- ---- ---- ---- 0012 ---- ---- --
+09:16:49 <- OD INTERWPLAT 1744096609761, ApplicationState: IDLE
+POZ5      33605  100 PLN - ---- ---- ---- ---- ---- ---- 0085 ---- ---- --
+POZ5      33605  200 PLN - ---- ---- ---- ---- ---- ---- 0091 ---- ---- --
+POZ5      33605  500 PLN - ---- ---- ---- ---- ---- ---- 0015 ---- ---- --
+NOM: 0050 0100 0100 0200 
+KAS: 0184 0027 0299 0345 
+REJ: 0007 0003 0003 0008 
+CLI: 1113 2100 0666 1502 
+         SUM  POZ1 POZ2 POZ3 POZ4 HEAD RRK3 POZ5 
+ 10PLN : 0214 0015
+ 20PLN : 0012 0000 0000 0000 0000 0000 0000 0214 
+ 50PLN : 0191 0000 0000 0000 0000 0000 0000 0012 
+100PLN : 0417 0191 0000 0000 0000 0000 0000 0000 
+200PLN : 0444 0000 0030 0302 0000 0000 0000 0085 
+RET: 0
+         SUM   K1   K2
+ 10 PLN: 0214 0000 0000
+ 20 PLN: 0012 0000 0000
+ 50 PLN: 0191 0191 0000
+100 PLN: 0417 0000 0030
+200 PLN: 0444 0000 0000
+500 PLN: 0015 0000 0000
+RET: 0
+09:16:50 Tryb supervisora uruchomiony
+09:16:51 Gotowka cofnieta:
+  KASETA  ID  WALUTA  WARTOSC IL.BANKN
+   ERROR -1            
+NAME TYPE  ID   VAL  CUR S INIT CNT  DISP PRES RETR REJ  CIN  MIN  MAX  AD P NAME  ID   S INIT CNT  DISP PRES RETR REJ  MAX  H
+RRK1 RETR 47507 ---- --- O 0000 0000 ---- ---- ---- ---- ---- 0000 0050 0- 1 RRK1 47507 O 0000 0000 ---- ---- ---- ---- 0150 0
+RRK2 REJE 47507 ---- --- O 0000 0021 ---- ---- ---- ---- ---- 0000 0050 0- 1 RRK2 47507 O 0000 0021 ---- ---- ---- ---- 0100 0
+POZ1 ROLL 54754   50 PLN O 1304 0184 1120 1113 0000 0007 0204 0020 2000 0- 1 POZ1 54754 O 1100 0184 1120 1113 0000 0007 2000 0
+POZ2 ROLL 54789  100 PLN E 2130 0027 2103 2100 0000 0003 1630 0020 2000 0- 1 POZ2 54789 O 0500 0027 2103 2100 0000 0003 2000 0
+POZ3 ROLL 33560  100 PLN O 0968 0299 0669 0666 0000 0003 0468 0020 2000 0- 1 POZ3 33560 O 0500 0299 0669 0666 0000 0003 2000 0
+POZ4 ROLL 54702  200 PLN O 1858 0345 1510 1502 0000 0008 1458 0020 2000 0- 1 POZ4 54702 O 0400 0345 1510 1502 0000 0008 2000 0
+HEAD    2 07873 ---- --- M 0000 0000 ---- ---- ---- ---- ---- 0000 0020 00
+RRK3    3 47507 ---- --- O 0000 0000 ---- ---- ---- ---- ---- 0000 0100 00
+POZ5   AU 33605 ---- --- O 0000 0417 ---- ---- ---- ---- ---- 0000 2000 00
+POZ5      33605   10 PLN - ---- ---- ---- ---- ---- ---- 0214 ---- ---- --
+POZ5      33605   20 PLN - ---- ---- ---- ---- ---- ---- 0012 ---- ---- --
+POZ5      33605  100 PLN - ---- ---- ---- ---- ---- ---- 0085 ---- ---- --
+POZ5      33605  200 PLN - ---- ---- ---- ---- ---- ---- 0091 ---- ---- --
+POZ5      33605  500 PLN - ---- ---- ---- ---- ---- ---- 0015 ---- ---- --
+NOM: 0050 0100 0100 0200 
+KAS: 0184 0027 0299 0345 
+REJ: 0007 0003 0003 0008 
+CLI: 1113 2100 0666 1502 
+09:16:52 Liczniki gotowki(S)
+   PLN      200 01858 01505 00008 O
+   ***        0 00000 00000 00000 N
+   PLN       50 01304 01113 00007 O
+   PLN      100 03098 02766 00006 O
+09:16:52 Autonaprawa - symulowane wejscie do SOP
+09:17:02 Liczniki gotowki(=)
+   PLN      200 01858 01505 00008 O
+   ***        0 00000 00000 00000 N
+   PLN       50 01304 01113 00007 O
+   PLN      100 03098 02766 00006 O
+09:17:02 Tryb supervisora zakonczony
+09:17:03 Go out of service - zamkniecie
+09:17:05 <- OD INTERWPLAT 1744096625029, ApplicationState: CLOSED
+09:17:05 <- OD INTERWPLAT 1744096625036, OUT OF SERVICE:  Niepoprawny stan aplikacji(CLOSED)
+09:17:05 Go out of service - zamkniecie
+09:17:02 Go in service - otwarcie
+09:17:04 Gotowka cofnieta:
+  KASETA  ID  WALUTA  WARTOSC IL.BANKN
+   ERROR -1            
+09:17:14 <- OD INTERWPLAT 1744096634308, ApplicationState: IDLE
+09:17:14 <- OD INTERWPLAT 1744096634312, IN SERVICE: 
+09:18:05 Gotowka cofnieta:
+  KASETA  ID  WALUTA  WARTOSC IL.BANKN
+   ERROR -1            
+09:19:06 Gotowka cofnieta:
+  KASETA  ID  WALUTA  WARTOSC IL.BANKN
+   ERROR -1            
+
+08.04.2025/09:19:42/RNET5A73->Rozpoczecie transakcji
+09:19:42 ->Karta557511******6494 wlozona
+09:19:42 <- OD INTERWPLAT 1744096782429, ApplicationState: TRANSACTION
+09:19:45 EMV CANDIDATES: 1
+09:19:47 EMV AID A0000000041010 / 557511******6494 STARTED
+09:19:48 Rozpoczeto transakcje wplaty
+09:19:49 Blad modulu kasowego : 21
+Stat : HW ERROR | BIM :    OK   | Tray : N EMP N EMP| Shutter :  CLOSE CLOSE| Stacker :  N EMP N EMP| Way :  INOP  INOP 
+ECOD =  | SCOD =  | WCOD =  | DLOC =  | CEX =  | CAS =  | IO =  | SHUT =  | ESSTA = 
+09:19:49 Resetowanie modulu kasowego : blad -1
+09:19:49 Blad modulu kasowego : 21
+Stat : HW ERROR | BIM :    OK   | Tray : N EMP N EMP| Shutter :  CLOSE CLOSE| Stacker :  N EMP N EMP| Way :  INOP  INOP 
+ECOD =  | SCOD =  | WCOD =  | DLOC =  | CEX =  | CAS =  | IO =  | SHUT =  | ESSTA = 
+09:19:49 Blad modulu kasowego
+09:19:49 -> DO INTERWPLAT 00030, SessionStatus
+09:19:49 Status transakcji 3 (-1889590007)
+09:19:49 Blad modulu kasowego : 21
+Stat : HW ERROR | BIM :    OK   | Tray : N EMP N EMP| Shutter :  CLOSE CLOSE| Stacker :  N EMP N EMP| Way :  INOP  INOP 
+ECOD =  | SCOD =  | WCOD =  | DLOC =  | CEX =  | CAS =  | IO =  | SHUT =  | ESSTA = 
+09:19:50 [WEB] [Trace] Loading dialog: Cash IN error (EkranXX.htm)
+09:19:57 [WEB] [Trace] Loading dialog: Take card (EkranY.htm)
+09:19:58 Karta(557511******6494)zaprezentowana
+09:19:59 Status oddania karty = OK (1 sek.) 
+09:19:59 [WEB] [Trace] Loading dialog: Accounting info (EkranKsiegowanieInfo.htm)
+09:19:59 Resetowanie modulu kasowego : blad -1
+09:20:00 Blad modulu kasowego : 21
+Stat : HW ERROR | BIM :    OK   | Tray : N EMP N EMP| Shutter :  CLOSE CLOSE| Stacker :  N EMP N EMP| Way :  INOP  INOP 
+ECOD =  | SCOD =  | WCOD =  | DLOC =  | CEX =  | CAS =  | IO =  | SHUT =  | ESSTA = 
+09:20:00 [WEB] [Trace] Loading dialog: Deposit hours info (E34.htm)
+09:20:06 (08.04.2025) <-Koniec transakc.
+NAME TYPE  ID   VAL  CUR S INIT CNT  DISP PRES RETR REJ  CIN  MIN  MAX  AD P NAME  ID   S INIT CNT  DISP PRES RETR REJ  MAX  H
+RRK1 RETR 47507 ---- --- O 0000 0000 ---- ---- ---- ---- ---- 0000 0050 0- 1 RRK1 47507 O 0000 0000 ---- ---- ---- ---- 0150 0
+RRK2 REJE 47507 ---- --- O 0000 0021 ---- ---- ---- ---- ---- 0000 0050 0- 1 RRK2 47507 O 0000 0021 ---- ---- ---- ---- 0100 0
+POZ1 ROLL 54754   50 PLN O 1304 0184 1120 1113 0000 0007 0204 0020 2000 0- 1 POZ1 54754 O 1100 0184 1120 1113 0000 0007 2000 0
+POZ2 ROLL 54789  100 PLN E 2130 0027 2103 2100 0000 0003 1630 0020 2000 0- 1 POZ2 54789 O 0500 0027 2103 2100 0000 0003 2000 0
+POZ3 ROLL 33560  100 PLN O 0968 0299 0669 0666 0000 0003 0468 0020 2000 0- 1 POZ3 33560 O 0500 0299 0669 0666 0000 0003 2000 0
+POZ4 ROLL 54702  200 PLN O 1858 0345 1510 1502 0000 0008 1458 0020 2000 0- 1 POZ4 54702 O 0400 0345 1510 1502 0000 0008 2000 0
+HEAD    2 07873 ---- --- M 0000 0000 ---- ---- ---- ---- ---- 0000 0020 00
+RRK3    3 47507 ---- --- O 0000 0000 ---- ---- ---- ---- ---- 0000 0100 00
+POZ5   AU 33605 ---- --- O 0000 0417 ---- ---- ---- ---- ---- 0000 2000 00
+POZ5      33605   10 PLN - ---- ---- ---- ---- ---- ---- 0214 ---- ---- --
+POZ5      33605   20 PLN - ---- ---- ---- ---- ---- ---- 0012 ---- ---- --
+09:20:06 <- OD INTERWPLAT 1744096806375, ApplicationState: IDLE
+POZ5      33605  100 PLN - ---- ---- ---- ---- ---- ---- 0085 ---- ---- --
+POZ5      33605  200 PLN - ---- ---- ---- ---- ---- ---- 0091 ---- ---- --
+POZ5      33605  500 PLN - ---- ---- ---- ---- ---- ---- 0015 ---- ---- --
+NOM: 0050 0100 0100 0200 
+KAS: 0184 0027 0299 0345 
+REJ: 0007 0003 0003 0008 
+CLI: 1113 2100 0666 1502 
+09:20:07 Gotowka cofnieta:
+  KASETA  ID  WALUTA  WARTOSC IL.BANKN
+   ERROR -1            
+09:21:09 Gotowka cofnieta:
+  KASETA  ID  WALUTA  WARTOSC IL.BANKN
+   ERROR -1            
+09:22:10 Gotowka cofnieta:
+  KASETA  ID  WALUTA  WARTOSC IL.BANKN
+   ERROR -1            
+09:22:14 <- OD INTERWPLAT 1744096934061, ApplicationState: IDLE
+09:28:11 InterApp event: on restart
+09:28:11 <- OD INTERWPLAT 1744097291131, Restart urządzenia z InterWpłaty
+09:28:11 Wywolane zamkniecie z SOP
+09:28:11 <- OD INTERWPLAT 1744097291162, OUT OF SERVICE:  Brak InService z IW
+09:28:11 <- OD INTERWPLAT 1744097291427, ApplicationState: IDLE
+09:28:12 <- OD INTERWPLAT 1744097292956, ApplicationState: IDLE
+09:28:12 Aplikacja wylaczona
+09:37:15 STATUS CZYTNIKA CTLS: 0001
+09:38:21 Aplikacja uruchomiona
+09:39:39 TYPY KASET NDC(4): T1 200 PLN, T2 0 PLN, T3 50 PLN, T4 100 PLN
+09:39:39 SPECYFIKACJA EPP: TYP V6, FRM 0613, PCI 2.0, SN 'PL    1023921177'
+         EPP PCI CER = 4-20105
+         EPP PCI HW  = P930-3011-04
+         EPP PCI FRM = 1901-04.14 
+         EPP PCI APL = 1950-06.13, 1975-02.22
+09:39:39 Rozpoznawane banknoty: 10 PLN, 20 PLN, 50 PLN, 100 PLN, 200 PLN, 500 PLN
+09:28:25 [RR] Aplikacja wylaczona
+09:40:05 <- OD INTERWPLAT OnDeviceConfiguration, 
+09:40:05 <- OD INTERWPLAT GoInService, 
+09:40:06 <- OD INTERWPLAT 1744098006231, ApplicationState: LOADING
+09:40:06 <- OD INTERWPLAT 1744098006262, OUT OF SERVICE:  Niepoprawny stan aplikacji(LOADING)
+09:40:06 <- OD INTERWPLAT 1744098006839, ApplicationState: LOADING
+09:40:07 Blad modulu kasowego : 21
+Stat : POWER OFF| BIM :   ????  | Tray :  ???   ??? | Shutter :   ???   ??? | Stacker :   ???   ??? | Way :   ---   --- 
+ECOD =  | SCOD =  | WCOD =  | DLOC =  | CEX =  | CAS =  | IO =  | SHUT =  | ESSTA = 
+09:41:06 ! CCDM : Cialo obce w module
+09:41:06 ! CCDM : Blad sprzetu :  LogicalName CIM30
+WorkStationName RNET5A73
+AppID CCAPPLICATION
+Vendor dependent Info:
+0000  C0 65 00 00 31 0C 00 24  00 00 00 00 4A 41 4D 3A    .e..1..$ ....JAM:
+0001  6E 6F 74 65 20 6A 61 6D  3A 20 68 65 61 64 20 2D    note jam : head -
+0002  3E 20 6D 69 64 64 6C 65  20 74 72 61 6E 73 70 6F    > middle  transpo
+0003  72 74 20 75 6E 69 74 20  2D 3E 20 61 6C 69 67 6E    rt unit  -> align
+0004  6D 65 6E 74 20 75 6E 69  74 20 2D 3E 20 65 6E 74    ment uni t -> ent
+0005  72 79 20 70 68 6F 74 6F  2D 73 65 6E 73 6F 72 00    ry photo -sensor.
+
+
+09:41:06 ! CCDM : Blad sprzetu : (stClass=65c0, stCode=24000c31, stWarn=0)
+09:41:06 ! Zdarzenie : BCD Urzadzenie zmienilo status na 4
+09:41:06 ! CCDM : Blad sprzetu : (stClass=65c0, stCode=24000c31, stWarn=0)
+09:41:06 ! CCDM : Blad sprzetu :  LogicalName CIM30
+WorkStationName RNET5A73
+AppID CCAPPLICATION
+Vendor dependent Info:
+0000  C0 65 00 00 31 0C 00 24  00 00 00 00 4A 41 4D 3A    .e..1..$ ....JAM:
+0001  6E 6F 74 65 20 6A 61 6D  3A 20 68 65 61 64 20 2D    note jam : head -
+0002  3E 20 6D 69 64 64 6C 65  20 74 72 61 6E 73 70 6F    > middle  transpo
+0003  72 74 20 75 6E 69 74 20  2D 3E 20 61 6C 69 67 6E    rt unit  -> align
+0004  6D 65 6E 74 20 75 6E 69  74 20 2D 3E 20 65 6E 74    ment uni t -> ent
+0005  72 79 20 70 68 6F 74 6F  2D 73 65 6E 73 6F 72 00    ry photo -sensor.
+
+
+09:41:06 Resetowanie modulu kasowego : blad -1
+09:41:06 Blad modulu kasowego : 21
+Stat : HW ERROR | BIM :    OK   | Tray : N EMP N EMP| Shutter :  CLOSE CLOSE| Stacker :  N EMP N EMP| Way :  INOP  INOP 
+ECOD =  | SCOD =  | WCOD =  | DLOC =  | CEX =  | CAS =  | IO =  | SHUT =  | ESSTA = 
+09:41:07 <- OD INTERWPLAT 1744098067227, ApplicationState: LOADING
+09:41:12 Liczniki gotowki(P)
+   PLN      200 01858 01505 00008 O
+   ***        0 00000 00000 00000 N
+   PLN       50 01304 01113 00007 O
+   PLN      100 03098 02766 00006 O
+09:41:14 Komunikacja uruchomiona
+09:41:15 Go out of service - zamkniecie
+09:41:02 Go in service - otwarcie
+09:41:04 Gotowka cofnieta:
+  KASETA  ID  WALUTA  WARTOSC IL.BANKN
+   ERROR -1            
+09:41:05 <- OD INTERWPLAT 1744098065614, ApplicationState: IDLE
+09:41:05 <- OD INTERWPLAT 1744098065617, IN SERVICE: 
+09:42:05 Gotowka cofnieta:
+  KASETA  ID  WALUTA  WARTOSC IL.BANKN
+   ERROR -1            
+09:43:07 Gotowka cofnieta:
+  KASETA  ID  WALUTA  WARTOSC IL.BANKN
+   ERROR -1            
+09:44:48 <- OD INTERWPLAT 1744098288902, ApplicationState: IDLE
+
+08.04.2025/09:45:03/RNET5A73->Rozpoczecie transakcji
+09:45:03 ->Karta557511******0000 wlozona
+09:45:04 <- OD INTERWPLAT 1744098304205, ApplicationState: TRANSACTION
+09:45:10 EMV CANDIDATES: 1
+09:45:11 EMV AID A0000000041010 / 557511******0000 STARTED
+09:45:22 wprowadzono PIN
+09:45:22 Transakcje przywrocone
+09:45:22 
+09:45:22 Transaction request ABB   DD, amount buffer 00000000
+09:45:23 Transaction reply next 521 function 5000
+INFO IS DCC CARD HOST RESP:
+NOT A DCC CARD
+09:45:29 Amount 100 entered
+09:45:31 
+09:45:31 Transaction request ABBD    , amount buffer 00000100
+09:45:32 Transaction reply next 833 function 5000
+09:45:32 TVR: 8000040000, TSI: 6000
+RNET5A73 TRAN: 441 STAN: 964813379
+2025-04-08 09:45:48
+************0000 TRANS. ODRZUCONA: (374)
+09:45:37 EMV AID A0000000041010 / 557511******0000 STARTED
+09:45:41 wprowadzono PIN
+09:45:42 
+09:45:42 Transaction request ABB   DD, amount buffer 00000100
+09:45:42 Transaction reply next 521 function 5000
+INFO IS DCC CARD HOST RESP:
+NOT A DCC CARD
+09:45:48 Amount 100 entered
+09:45:50 
+09:45:50 Transaction request ABBD    , amount buffer 00000100
+09:45:51 Transaction reply next 710 function A090
+09:45:51 TVR: 8000040000, TSI: 6000
+09:45:51 Transakcja 0443 niepomyslna
+09:45:51 BLAD Dyspensera: 00006434 0000004C 00000000
+09:45:51 Transaction reply next 710 function A090
+09:45:51 Transakcja 0443 niepomyslna
+09:45:51 BLAD Dyspensera: 00006434 0000004C 00000000
+09:45:52 Transaction reply next 803 function 5000
+RNET5A73 TRAN: 443 STAN: 964814107
+2025-04-08 09:46:07
+************0000 TRANS. ODRZUCONA: (431 BANKOTY NIE ZOSTALY WYPLACONE)
+09:45:53 Karta(557511******0000)zaprezentowana
+09:45:54 Karta(557511******0000)odebrana
+09:45:58 (08.04.2025) <-Koniec transakc.
+09:45:58 DISP 0000 0000 0000 0001 0016 0000
+NAME TYPE  ID   VAL  CUR S INIT CNT  DISP PRES RETR REJ  CIN  MIN  MAX  AD P NAME  ID   S INIT CNT  DISP PRES RETR REJ  MAX  H
+RRK1 RETR 47507 ---- --- O 0000 0000 ---- ---- ---- ---- ---- 0000 0050 0- 1 RRK1 47507 O 0000 0000 ---- ---- ---- ---- 0150 0
+RRK2 REJE 47507 ---- --- O 0000 0021 ---- ---- ---- ---- ---- 0000 0050 0- 1 RRK2 47507 O 0000 0021 ---- ---- ---- ---- 0100 0
+POZ1 ROLL 54754   50 PLN O 1304 0184 1120 1113 0000 0007 0204 0020 2000 0- 1 POZ1 54754 O 1100 0184 1120 1113 0000 0007 2000 0
+POZ2 ROLL 54789  100 PLN E 2130 0027 2103 2100 0000 0003 1630 0020 2000 0- 1 POZ2 54789 O 0500 0027 2103 2100 0000 0003 2000 0
+POZ3 ROLL 33560  100 PLN O 0968 0299 0669 0666 0000 0003 0468 0020 2000 0- 1 POZ3 33560 O 0500 0299 0669 0666 0000 0003 2000 0
+POZ4 ROLL 54702  200 PLN O 1858 0345 1510 1502 0000 0008 1458 0020 2000 0- 1 POZ4 54702 O 0400 0345 1510 1502 0000 0008 2000 0
+HEAD    2 07873 ---- --- M 0000 0000 ---- ---- ---- ---- ---- 0000 0020 00
+RRK3    3 47507 ---- --- O 0000 0000 ---- ---- ---- ---- ---- 0000 0100 00
+POZ5   AU 33605 ---- --- O 0000 0417 ---- ---- ---- ---- ---- 0000 2000 00
+POZ5      33605   10 PLN - ---- ---- ---- ---- ---- ---- 0214 ---- ---- --
+POZ5      33605   20 PLN - ---- ---- ---- ---- ---- ---- 0012 ---- ---- --
+POZ5      33605  100 PLN - ---- ---- ---- ---- ---- ---- 0085 ---- ---- --
+POZ5      33605  200 PLN - ---- ---- ---- ---- ---- ---- 0091 ---- ---- --
+POZ5      33605  500 PLN - ---- ---- ---- ---- ---- ---- 0015 ---- ---- --
+NOM: 0050 0100 0100 0200 
+KAS: 0184 0027 0299 0345 
+REJ: 0007 0003 0003 0008 
+CLI: 1113 2100 0666 1502 
+09:45:58 <- OD INTERWPLAT 1744098358549, ApplicationState: IDLE
+09:45:59 Gotowka cofnieta:
+  KASETA  ID  WALUTA  WARTOSC IL.BANKN
+   ERROR -1            
+
+08.04.2025/09:46:44/RNET5A73->Rozpoczecie transakcji
+09:46:45 <- OD INTERWPLAT 1744098405342, ApplicationState: TRANSACTION
+Odczytanie danych z karty
+08.04 09:46:46 CHIP CONTACT ERROR 1 
+09:46:55 Information 060898 entered
+09:47:01 Amount 100 entered
+09:47:03 
+09:47:03 Transaction request ABAF    , amount buffer 00000100
+09:47:04 Transaction reply next 301 function 5000
+RNET5A73 TRAN: 444 STAN: 964816811
+2025-04-08 09:47:21
+TRANSAKCJA BLIK TRANS. ODRZUCONA: (426)
+09:47:10 (08.04.2025) <-Koniec transakc.
+NAME TYPE  ID   VAL  CUR S INIT CNT  DISP PRES RETR REJ  CIN  MIN  MAX  AD P NAME  ID   S INIT CNT  DISP PRES RETR REJ  MAX  H
+RRK1 RETR 47507 ---- --- O 0000 0000 ---- ---- ---- ---- ---- 0000 0050 0- 1 RRK1 47507 O 0000 0000 ---- ---- ---- ---- 0150 0
+RRK2 REJE 47507 ---- --- O 0000 0021 ---- ---- ---- ---- ---- 0000 0050 0- 1 RRK2 47507 O 0000 0021 ---- ---- ---- ---- 0100 0
+POZ1 ROLL 54754   50 PLN O 1304 0184 1120 1113 0000 0007 0204 0020 2000 0- 1 POZ1 54754 O 1100 0184 1120 1113 0000 0007 2000 0
+POZ2 ROLL 54789  100 PLN E 2130 0027 2103 2100 0000 0003 1630 0020 2000 0- 1 POZ2 54789 O 0500 0027 2103 2100 0000 0003 2000 0
+POZ3 ROLL 33560  100 PLN O 0968 0299 0669 0666 0000 0003 0468 0020 2000 0- 1 POZ3 33560 O 0500 0299 0669 0666 0000 0003 2000 0
+POZ4 ROLL 54702  200 PLN O 1858 0345 1510 1502 0000 0008 1458 0020 2000 0- 1 POZ4 54702 O 0400 0345 1510 1502 0000 0008 2000 0
+HEAD    2 07873 ---- --- M 0000 0000 ---- ---- ---- ---- ---- 0000 0020 00
+RRK3    3 47507 ---- --- O 0000 0000 ---- ---- ---- ---- ---- 0000 0100 00
+POZ5   AU 33605 ---- --- O 0000 0417 ---- ---- ---- ---- ---- 0000 2000 00
+POZ5      33605   10 PLN - ---- ---- ---- ---- ---- ---- 0214 ---- ---- --
+POZ5      33605   20 PLN - ---- ---- ---- ---- ---- ---- 0012 ---- ---- --
+POZ5      33605  100 PLN - ---- ---- ---- ---- ---- ---- 0085 ---- ---- --
+POZ5      33605  200 PLN - ---- ---- ---- ---- ---- ---- 0091 ---- ---- --
+NOM: 0050 0100 0100 0200 
+KAS: 0184 0027 0299 0345 
+REJ: 0007 0003 0003 0008 
+CLI: 1113 2100 0666 1502 
+POZ5      33605  500 PLN - ---- ---- ---- ---- ---- ---- 0015 ---- ---- --
+09:47:10 <- OD INTERWPLAT 1744098430599, ApplicationState: IDLE
+09:47:11 Gotowka cofnieta:
+  KASETA  ID  WALUTA  WARTOSC IL.BANKN
+   ERROR -1            
+09:47:12 <- OD INTERWPLAT 1744098432149, ApplicationState: IDLE
+09:47:12 Go out of service - zamkniecie
+NAME TYPE  ID   VAL  CUR S INIT CNT  DISP PRES RETR REJ  CIN  MIN  MAX  AD P NAME  ID   S INIT CNT  DISP PRES RETR REJ  MAX  H
+RRK1 RETR 47507 ---- --- O 0000 0000 ---- ---- ---- ---- ---- 0000 0050 0- 1 RRK1 47507 O 0000 0000 ---- ---- ---- ---- 0150 0
+RRK2 REJE 47507 ---- --- O 0000 0021 ---- ---- ---- ---- ---- 0000 0050 0- 1 RRK2 47507 O 0000 0021 ---- ---- ---- ---- 0100 0
+POZ1 ROLL 54754   50 PLN O 1304 0184 1120 1113 0000 0007 0204 0020 2000 0- 1 POZ1 54754 O 1100 0184 1120 1113 0000 0007 2000 0
+POZ2 ROLL 54789  100 PLN E 2130 0027 2103 2100 0000 0003 1630 0020 2000 0- 1 POZ2 54789 O 0500 0027 2103 2100 0000 0003 2000 0
+POZ3 ROLL 33560  100 PLN O 0968 0299 0669 0666 0000 0003 0468 0020 2000 0- 1 POZ3 33560 O 0500 0299 0669 0666 0000 0003 2000 0
+POZ4 ROLL 54702  200 PLN O 1858 0345 1510 1502 0000 0008 1458 0020 2000 0- 1 POZ4 54702 O 0400 0345 1510 1502 0000 0008 2000 0
+HEAD    2 07873 ---- --- M 0000 0000 ---- ---- ---- ---- ---- 0000 0020 00
+RRK3    3 47507 ---- --- O 0000 0000 ---- ---- ---- ---- ---- 0000 0100 00
+POZ5   AU 33605 ---- --- O 0000 0417 ---- ---- ---- ---- ---- 0000 2000 00
+POZ5      33605   10 PLN - ---- ---- ---- ---- ---- ---- 0214 ---- ---- --
+POZ5      33605   20 PLN - ---- ---- ---- ---- ---- ---- 0012 ---- ---- --
+POZ5      33605  100 PLN - ---- ---- ---- ---- ---- ---- 0085 ---- ---- --
+POZ5      33605  200 PLN - ---- ---- ---- ---- ---- ---- 0091 ---- ---- --
+POZ5      33605  500 PLN - ---- ---- ---- ---- ---- ---- 0015 ---- ---- --
+NOM: 0050 0100 0100 0200 
+KAS: 0184 0027 0299 0345 
+REJ: 0007 0003 0003 0008 
+CLI: 1113 2100 0666 1502 
+09:47:25 <- OD INTERWPLAT 1744098445904, ApplicationState: CLOSED
+09:47:25 <- OD INTERWPLAT 1744098445907, OUT OF SERVICE:  Niepoprawny stan aplikacji(CLOSED)
+09:59:48 <- OD INTERWPLAT 1744099188852, ApplicationState: CLOSED
+10:14:48 <- OD INTERWPLAT 1744100088853, ApplicationState: CLOSED
+10:29:48 <- OD INTERWPLAT 1744100988855, ApplicationState: CLOSED
+10:44:48 <- OD INTERWPLAT 1744101888892, ApplicationState: CLOSED
+10:59:48 <- OD INTERWPLAT 1744102788863, ApplicationState: CLOSED
+11:14:48 <- OD INTERWPLAT 1744103688881, ApplicationState: CLOSED
+11:29:48 <- OD INTERWPLAT 1744104588951, ApplicationState: CLOSED
+11:44:48 <- OD INTERWPLAT 1744105488896, ApplicationState: CLOSED
+11:59:48 <- OD INTERWPLAT 1744106388945, ApplicationState: CLOSED
+12:14:48 <- OD INTERWPLAT 1744107288957, ApplicationState: CLOSED
+12:29:48 <- OD INTERWPLAT 1744108188928, ApplicationState: CLOSED
+12:45:05 <- OD INTERWPLAT 1744109105946, ApplicationState: CLOSED
+13:00:05 <- OD INTERWPLAT 1744110005958, ApplicationState: CLOSED
+13:15:05 <- OD INTERWPLAT 1744110905960, ApplicationState: CLOSED
