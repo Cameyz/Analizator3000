@@ -31,10 +31,65 @@ max_czas_udanych = {}
 czasy_trx_udane_wyplata = defaultdict(list)
 czasy_trx_udane_wplata = defaultdict(list)
 
+najkrotsza_wyplata = {}
+najdluzsza_wyplata = {}
+najkrotsza_wplata = {}
+najdluzsza_wplata = {}
+linie_startowe = {}  # (urzadzenie_id, data, typ, czas_trwania): linia_startu
+
+wszystkie_linie = []
+
+slownik_opisow_odmowy = {
+    "365": "Nieudana autoryzacja",
+    "366": "Brak odpowiedzi z banku",
+    "367": "Transakcja zablokowana przez operatora",
+    "368": "Odrzucenie przez limit dzienny",
+    "369": "Odrzucenie przez kartę",
+    "370": "Błąd komunikacji z systemem bankowym",
+    "371": "Niewłaściwa kwota operacji",
+    "372": "Zbyt wiele prób",
+    "373": "Nieznany błąd terminala",
+    "374": "Błąd systemu",
+    "375": "Limit ilościowy przekroczony",
+    "376": "Transakcja odrzucona z powodu bezpieczeństwa",
+    "377": "Przekroczony czas operacji",
+    "378": "Karta zastrzeżona",
+    "379": "Niepoprawny PIN",
+    "380": "Nieobsługiwany typ karty",
+    "381": "Niewłaściwa wersja systemu",
+    "382": "System w trybie serwisowym",
+    "383": "Karta nieaktywna",
+    "384": "Transakcja już zrealizowana",
+    "385": "Operacja anulowana przez użytkownika",
+    "386": "Przekroczono limit wypłat",
+    "387": "Niedozwolona operacja",
+    "388": "Transakcja przekracza limit karty",
+    "389": "Brak środków",
+    "390": "Nieznany typ operacji",
+    "391": "Zbyt mała kwota operacji",
+    "392": "Zbyt duża kwota operacji",
+    "393": "Karta zablokowana",
+    "394": "Nieautoryzowana karta",
+    "395": "Nieobsługiwany bank",
+    "396": "Transakcja odrzucona przez bank",
+    "397": "Błąd formatowania danych",
+    "398": "Nieznana odpowiedź banku",
+    "399": "Błąd aplikacji bankowej",
+    "400": "System chwilowo niedostępny",
+    "401": "System zajęty",
+    "402": "Przekroczono limit czasowy odpowiedzi",
+    "403": "Transakcja zablokowana z przyczyn bezpieczeństwa",
+    "404": "REFUSE OFF US",
+    "424": "PROSZE WPROWADZIC INNA KWOTE",
+    "426": "Błąd wszystkich kaset",
+    "431": "BANKOTY NIE ZOSTALY WYPLACONE"
+}
+
 
 # ========================
 # MIEJSCE NA FUNKCJĘ
 # ========================
+
 
 def formatuj_czas(sekundy):
     if sekundy is None:
@@ -84,26 +139,31 @@ def analizuj_transakcje(linie, urzadzenie_id, data, transakcje_udane, transakcje
     klucz = (urzadzenie_id, data)
     trx_slowa_udane = ["gotowka odebrana", "sprawdzenie salda", "banknoty odebrane", "status transakcji 6", "bankonty odebrano", "cdm-zakonczenie przyjecia gotowki"]
     trx_slowa_nieudane = ["trans. odrzucona", "brak reakcji klienta w czasie", "status transakcji 3", "status transakcji 1", "klient wybral 'cancel' - anulowanie transakcji", "blad", "deponowanie - blad", "timeout z stanu timeout", "klient wybral anulowanie transakcji"]
-    trx_slowa_konczace = ["koniec operacji", "deponowanie - blad", "blad urzadzenia", "zdetektowano banknoty", "rozpoczeto retract", "reset nieudany", "koniec transakc"]
+    trx_slowa_konczace = ["koniec operacji", "*koniec operacji*", "deponowanie - blad", "blad urzadzenia", "zdetektowano banknoty", "rozpoczeto retract", "reset nieudany", "koniec transakc"]
 
     transakcja_aktywna = False
     trx_status = "nieznany"
     ostatni_czas_w_linii = None
     czas_startu = None
     typ_transakcji = "wypłata"
+    
+    oczekiwanie_na_czas_startu = False  # 🆕 flaga oczekiwania na pierwszy poprawny czas
 
     for i, linia in enumerate(linie):
         linia_mala = linia.lower().strip()
 
         czas_w_linii = znajdz_czas(linia)
-        if czas_w_linii is not None:
-            ostatni_czas_w_linii = czas_w_linii
 
-        if any(slowo in linia_mala for slowo in ["rozpoczecie transakcji", "poczatek operacji", "transakcja bez karty", "*transakcja bez karty*"]):
+        # 🆕 jeśli oczekujemy na pierwszy czas PO rozpoczęciu transakcji
+        if oczekiwanie_na_czas_startu and czas_w_linii:
+            czas_startu = czas_w_linii
+            oczekiwanie_na_czas_startu = False
+
+        if any(slowo in linia_mala for slowo in ["rozpoczecie transakcji", "poczatek operacji", "*poczatek operacji*", "transakcja bez karty", "*transakcja bez karty*"]):
             transakcja_aktywna = True
             trx_status = "nieznany"
-            czas_startu = ostatni_czas_w_linii
-            typ_transakcji = "wypłata"  # domyślnie wypłata
+            oczekiwanie_na_czas_startu = True  # 🆕 oczekujemy na rzeczywisty start
+            typ_transakcji = "wypłata"  # 🔁 zamiast przypisywać czas od razu
 
         if transakcja_aktywna and any(slowo in linia_mala for slowo in ["wplaty", "wpłaty", "wplata", "wpłata"]):
             typ_transakcji = "wpłata"
@@ -146,6 +206,7 @@ def analizuj_transakcje(linie, urzadzenie_id, data, transakcje_udane, transakcje
 
             # Reset transakcji
             transakcja_aktywna = False
+            oczekiwanie_na_czas_startu = False  # 🆕 reset flagi
             czas_startu = None
             typ_transakcji = "wypłata"
 
@@ -194,7 +255,7 @@ def analizuj_bledy_dyspensera(linie, klucz, bledy_dyspensera_per_dziennik):
 def analizuj_bledy(linie, klucz, nazwa_pliku, data, licznik_bledow_urzadzen, wykluczenia):
     for i, linia in enumerate(linie):
         linia_lower = linia.lower()
-        if any(keyword in linia_lower for keyword in ["stcode", "rejcode", "error", "blad", "rcode", "aplikacja wylaczona", "gooutofservice","trans. odrzucona", "brak reakcji klienta w czasie", "status transakcji 3", "status transakcji 1", "blad", "deponowanie - blad", "timeout z stanu timeout"]):
+        if any(keyword in linia_lower for keyword in ["stcode", "rejcode", "error", "blad", "rcode", "aplikacja wylaczona", "gooutofservice", "brak reakcji klienta w czasie", "status transakcji 3", "status transakcji 1", "blad", "deponowanie - blad", "timeout z stanu timeout"]):
             if any(wyklucz in linia_lower for wyklucz in wykluczenia):
                 continue
 
@@ -266,6 +327,115 @@ def przetworz_linie(nazwa_pliku, linie): #funckja do liczenia trx i błędów
     analizuj_bledy_dyspensera(linie, klucz, bledy_dyspensera_per_dziennik)
     analizuj_bledy(linie, klucz, nazwa_pliku, data, licznik_bledow_urzadzen, wykluczenia)
 
+def znajdz_i_pokaz_transakcje_szczegolowe(lista_plikow_z_liniami):
+    wszystkie_transakcje = []
+
+    for nazwa_pliku, linie in lista_plikow_z_liniami:
+        transakcja = []
+        transakcja_aktywna = False
+        czas_startu = None
+        trx_typ = "wypłata"
+        ostatni_czas_w_linii = None
+        oczekiwanie_na_czas_startu = False  # 🆕 dodano flagę jak w analizuj_transakcje
+
+        for i, linia in enumerate(linie):
+            linia_mala = linia.lower()
+            czas_w_linii = znajdz_czas(linia)
+
+            if czas_w_linii is not None:
+                ostatni_czas_w_linii = czas_w_linii  # 🆕 zapamiętaj ostatni znany czas
+
+            if any(slowo in linia_mala for slowo in [
+                "rozpoczecie transakcji", "poczatek operacji", "*poczatek operacji*",
+                "transakcja bez karty", "*transakcja bez karty*"
+            ]):
+                transakcja_aktywna = True
+                oczekiwanie_na_czas_startu = True  # 🆕 oczekujemy na pierwszy realny czas
+                transakcja = [(i, linia.strip())]
+                trx_typ = "wypłata"
+                czas_startu = None  # 🆕 reset
+
+            elif transakcja_aktywna:
+                transakcja.append((i, linia.strip()))
+
+                 # 🆕 przypisujemy pierwszy czas po starcie transakcji
+                if oczekiwanie_na_czas_startu and czas_w_linii:
+                    czas_startu = czas_w_linii
+                    oczekiwanie_na_czas_startu = False
+
+                if any(w in linia_mala for w in ["wplaty", "wpłaty", "wplata", "wpłata"]):
+                    trx_typ = "wpłata"
+
+                if any(slowo in linia_mala for slowo in [
+                    "koniec operacji", "koniec transakc", "*koniec operacji*", "*koniec transakc*"
+                ]):
+                    czas_konca = czas_w_linii if czas_w_linii is not None else ostatni_czas_w_linii  # 🆕 fallback
+                    if czas_startu and czas_konca:
+                        czas_trwania = czas_konca - czas_startu
+                        wszystkie_transakcje.append({
+                            "plik": nazwa_pliku,
+                            "linia_start": transakcja[0][0] + 1,
+                            "czas_trwania": czas_trwania,
+                            "typ": trx_typ,
+                            "linie": transakcja
+                        })
+                    transakcja_aktywna = False
+                    oczekiwanie_na_czas_startu = False  # 🆕 reset flagi
+
+    if not wszystkie_transakcje:
+        print("❌ Nie znaleziono żadnych zakończonych transakcji.")
+        return
+
+    def pokaz_transakcje(naj, opis):
+        print(f"\n📌 {opis} | z dziennika {naj['plik']} zaczynająca się od linii {naj['linia_start']}:")
+        print("─" * 80)
+        for _, linia in naj['linie']:
+            print(linia)
+        print(f"⏱️ Czas trwania: {formatuj_czas(naj['czas_trwania'])}")
+
+    # wybierz i pokaż
+    for typ in ["wypłata", "wpłata"]:
+        trx_danego_typu = [t for t in wszystkie_transakcje if t["typ"] == typ]
+        if trx_danego_typu:
+            najkrotsza = min(trx_danego_typu, key=lambda t: t["czas_trwania"])
+            najdluzsza = max(trx_danego_typu, key=lambda t: t["czas_trwania"])
+            pokaz_transakcje(najkrotsza, f"Najkrótsza transakcja {typ}")
+            pokaz_transakcje(najdluzsza, f"Najdłuższa transakcja {typ}")
+
+
+def znajdz_kody_odrzuconych_transakcji(lista_plikow_z_liniami):
+    kody_odrzucen = defaultdict(lambda: {"opis": None, "ilosc": 0})
+
+    # Wzorce
+    wzorce = [
+        r"TRANS\. ODRZUCONA: \((\d+) ([^\)]+)\)",       # ************XXXX TRANS. ODRZUCONA: (424 OPIS)
+        r"TRANS\. ODRZUCONA: \((\d+)\)",                # ************XXXX TRANS. ODRZUCONA: (426)
+        r"TRANS\. ODRZUCONA: \((\d+)\) ([^\n]*)"        # TRANSAKCJA BLIK TRANS. ODRZUCONA: (404) OPIS
+    ]
+
+    for nazwa_pliku, linie in lista_plikow_z_liniami:
+        for linia in linie:
+            for wzorzec in wzorce:
+                match = re.search(wzorzec, linia)
+                if match:
+                    kod = match.group(1)
+                    opis = match.group(2).strip() if len(match.groups()) > 1 else "Brak opisu"
+                    kody_odrzucen[kod]["opis"] = opis or kody_odrzucen[kod]["opis"]
+                    kody_odrzucen[kod]["ilosc"] += 1
+                    break  # Jeśli dopasowano jeden wzorzec, pomiń resztę
+
+    # Wyświetlenie podsumowania
+    print("\n📊 Podsumowanie kodów odrzuconych transakcji:")
+    print("Kod | Opis                                 | Liczba wystąpień")
+    print("-" * 65)
+
+    for kod, dane in sorted(kody_odrzucen.items(), key=lambda x: x[1]["ilosc"], reverse=True):
+        opis = dane["opis"]
+        if not opis or opis == "Brak opisu":
+            opis = slownik_opisow_odmowy.get(kod, "! Brak opisu w bazie")
+        print(f"{kod:<4} | {opis:<50} | {dane['ilosc']:<20}")
+
+
 
 # ========================
 # WYKONANIE 
@@ -283,6 +453,7 @@ for plik in sciezki: #pętla wypisze mi ścieżki do plików
     linie = wczytaj_linie_z_pliku(plik)
     nazwa = Path(plik).name
     przetworz_linie(nazwa, linie) #Silnik programu, najpier tabele i zmienne globalne później funkcję wykonujące
+    wszystkie_linie.append((nazwa, linie))  # 💾 dodaj nazwę i linie
 
 
 #wyświetlam wynik podsumowania ilości błędów dla kazdego z plików
@@ -341,8 +512,9 @@ for klasa, kody in bledy_dyspensera_global.items():
     for kod, ile in kody.items():
         print(f"⚙️  Kod: {kod} → {ile}x")
 
-# Wyświetlanie podsumowania transkacji
-# Wyswietlam podsumowanie czasu trx:
+# Wyświetlanie podsumowania znalezionych powdów odrzuceń przez CC
+
+znajdz_kody_odrzuconych_transakcji(wszystkie_linie)
 
 # 📊 PODSUMOWANIE TRANSAKCJI (wpłaty i wypłaty, czasy, sukcesy i porażki):
 
@@ -407,8 +579,9 @@ for (urz_id, data) in sorted(set().union(
         f"{min_wypl:>{col_widths['min_wyp']}} {max_wypl:>{col_widths['max_wyp']}} "
         f"{min_wpl:>{col_widths['min_wpl']}} {max_wpl:>{col_widths['max_wpl']}}"
     )
-     
 
+print("\n")
+znajdz_i_pokaz_transakcje_szczegolowe(wszystkie_linie)
 print("\n")
 
 
