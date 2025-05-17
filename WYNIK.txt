@@ -1,0 +1,526 @@
+✅ Odczytano 17250 linii z pliku (UTF-8): D:/Projekty/Python/Analizator3000/Dzienniki/NEW\RNET7436_2025-03-24.jrn
+✅ Odczytano 12553 linii z pliku (UTF-8): D:/Projekty/Python/Analizator3000/Dzienniki/NEW\RNET7436_2025-03-25.jrn
+✅ Odczytano 11714 linii z pliku (UTF-8): D:/Projekty/Python/Analizator3000/Dzienniki/NEW\RNET7436_2025-03-26.jrn
+✅ Odczytano 16463 linii z pliku (UTF-8): D:/Projekty/Python/Analizator3000/Dzienniki/NEW\RNET7436_2025-03-27.jrn
+✅ Odczytano 14878 linii z pliku (UTF-8): D:/Projekty/Python/Analizator3000/Dzienniki/NEW\RNET7436_2025-03-28.jrn
+✅ Odczytano 11235 linii z pliku (UTF-8): D:/Projekty/Python/Analizator3000/Dzienniki/NEW\RNET7436_2025-03-29.jrn
+✅ Odczytano 7013 linii z pliku (UTF-8): D:/Projekty/Python/Analizator3000/Dzienniki/NEW\RNET7436_2025-03-30.jrn
+✅ Odczytano 5165 linii z pliku (UTF-8): D:/Projekty/Python/Analizator3000/Dzienniki/NEW\RNET7436_2025-03-31.jrn
+✅ Odczytano 13845 linii z pliku (UTF-8): D:/Projekty/Python/Analizator3000/Dzienniki/NEW\RNET7436_2025-04-01.jrn
+✅ Odczytano 19473 linii z pliku (UTF-8): D:/Projekty/Python/Analizator3000/Dzienniki/NEW\RNET7436_2025-04-02.jrn
+✅ Odczytano 6234 linii z pliku (UTF-8): D:/Projekty/Python/Analizator3000/Dzienniki/NEW\RNET7436_2025-04-03.jrn
+✅ Odczytano 225 linii z pliku (UTF-8): D:/Projekty/Python/Analizator3000/Dzienniki/NEW\RNET7436_2025-04-04.jrn
+✅ Odczytano 9454 linii z pliku (UTF-8): D:/Projekty/Python/Analizator3000/Dzienniki/NEW\RNET7436_2025-04-07.jrn
+✅ Odczytano 11588 linii z pliku (UTF-8): D:/Projekty/Python/Analizator3000/Dzienniki/NEW\RNET7436_2025-04-08.jrn
+✅ Odczytano 6747 linii z pliku (UTF-8): D:/Projekty/Python/Analizator3000/Dzienniki/NEW\RNET7436_2025-04-09.jrn
+✅ Odczytano 12132 linii z pliku (UTF-8): D:/Projekty/Python/Analizator3000/Dzienniki/NEW\RNET7436_2025-04-10.jrn
+✅ Odczytano 18673 linii z pliku (UTF-8): D:/Projekty/Python/Analizator3000/Dzienniki/NEW\RNET7436_2025-04-11.jrn
+✅ Odczytano 17121 linii z pliku (UTF-8): D:/Projekty/Python/Analizator3000/Dzienniki/NEW\RNET7436_2025-04-12.jrn
+✅ Odczytano 14483 linii z pliku (UTF-8): D:/Projekty/Python/Analizator3000/Dzienniki/NEW\RNET7436_2025-04-13.jrn
+✅ Odczytano 23406 linii z pliku (UTF-8): D:/Projekty/Python/Analizator3000/Dzienniki/NEW\RNET7436_2025-04-14.jrn
+✅ Odczytano 11617 linii z pliku (UTF-8): D:/Projekty/Python/Analizator3000/Dzienniki/NEW\RNET7436_2025-04-15.jrn
+✅ Odczytano 24927 linii z pliku (UTF-8): D:/Projekty/Python/Analizator3000/Dzienniki/NEW\RNET7436_2025-04-16.jrn
+✅ Odczytano 19614 linii z pliku (UTF-8): D:/Projekty/Python/Analizator3000/Dzienniki/NEW\RNET7436_2025-04-17.jrn
+✅ Odczytano 21941 linii z pliku (UTF-8): D:/Projekty/Python/Analizator3000/Dzienniki/NEW\RNET7436_2025-04-18.jrn
+✅ Odczytano 13198 linii z pliku (UTF-8): D:/Projekty/Python/Analizator3000/Dzienniki/NEW\RNET7436_2025-04-19.jrn
+
+📊 Podsumowanie błędów:
+➡️  [2025-03-24] RNET7436: 46 błędów
+➡️  [2025-03-25] RNET7436: 42 błędów
+➡️  [2025-03-26] RNET7436: 35 błędów
+➡️  [2025-03-27] RNET7436: 40 błędów
+➡️  [2025-03-28] RNET7436: 39 błędów
+➡️  [2025-03-29] RNET7436: 32 błędów
+➡️  [2025-03-30] RNET7436: 23 błędów
+➡️  [2025-03-31] RNET7436: 27 błędów
+➡️  [2025-04-01] RNET7436: 30 błędów
+➡️  [2025-04-02] RNET7436: 53 błędów
+➡️  [2025-04-03] RNET7436: 20 błędów
+➡️  [2025-04-04] RNET7436: 5 błędów
+➡️  [2025-04-07] RNET7436: 24 błędów
+➡️  [2025-04-08] RNET7436: 29 błędów
+➡️  [2025-04-09] RNET7436: 20 błędów
+➡️  [2025-04-10] RNET7436: 35 błędów
+➡️  [2025-04-11] RNET7436: 48 błędów
+➡️  [2025-04-12] RNET7436: 44 błędów
+➡️  [2025-04-13] RNET7436: 35 błędów
+➡️  [2025-04-14] RNET7436: 52 błędów
+➡️  [2025-04-15] RNET7436: 32 błędów
+➡️  [2025-04-16] RNET7436: 45 błędów
+➡️  [2025-04-17] RNET7436: 41 błędów
+➡️  [2025-04-18] RNET7436: 75 błędów
+➡️  [2025-04-19] RNET7436: 80 błędów
+
+📊 Znalezione błędy wg stClass/stCode:
+
+❌ Nie wykryto błędów stClass/stCode w badanym okresie
+
+📊 Podsumowanie błędów dyspensera:
+
+❌ Nie wykryto błędów dyspensera w badanym okresie 
+
+
+📊 Podsumowanie kodów odrzuconych transakcji:
+Kod | Opis                                 | Liczba wystąpień
+-----------------------------------------------------------------
+431  | BANKOTY NIE ZOSTALY WYPLACONE                      | 249                 
+413  | Issuer does not honor this transaction             | 106                 
+365  | Przekroczony limit wypłaty gotówki                 | 89                  
+374  | Wprowadzony PIN błędny                             | 89                  
+378  | Kwota wypłaty przekracza dostępne środki - spróbuj wybrać niższą kwotę | 53                  
+424  | PROSZE WPROWADZIC INNA KWOTE                       | 47                  
+411  | ! Brak opisu w bazie                               | 20                  
+356  | Brak połaczenia z hostem / host nie odpowiada      | 15                  
+370  | Przekroczona liczba prób wprowadzenia PIN - nie zatrzymywać karty | 7                   
+404  | REFUSE OFF US                                      | 6                   
+346  | Problem z odczytem dnych EMV z karty, karta uszkodzona lub zabrudzona | 4                   
+316  | ! Brak opisu w bazie                               | 4                   
+433  | Transakcja nie może być kontynuowana - błąd danych | 2                   
+427  | Banknoty nie zostały wydane / wypłacone            | 2                   
+305  | ! Brak opisu w bazie                               | 1                   
+456  | Błąd ogólny (sprawdź epp i klucze)                 | 1                   
+426  | Błąd wszystkich kaset                              | 1                   
+332  | Karta zastrzeżona                                  | 1                   
+336  | Karta z przekroczoną datą ważności                 | 1                   
+
+📊 Błędy statusów urządzeń (M-status):
+Moduł  | Nazwa modułu         | M-status | Opis                                          | Liczba wystąpień
+----------------------------------------------------------------------------------------------------
+E      | Dyspenser            | 04       | Pick failure plus low (Out of bills).         | 642
+Iw     | Moduł wpłat          | 02       | ! Brak opisu w bazie                          | 73
+D      | Czytnik kart         | 81       | ! Brak opisu w bazie                          | 27
+E      | Dyspenser            | 02       | Too many bills being rejected                 | 10
+G      | Drukarka             | 16       | Eject jam.                                    | 6
+Iw     | Moduł wpłat          | 31       | Media jam between feed and BV                 | 2
+E      | Dyspenser            | 79       | ! Brak opisu w bazie                          | 2
+Iw     | Moduł wpłat          | 38       | ! Brak opisu w bazie                          | 1
+E      | Dyspenser            | 43       | ! Brak opisu w bazie                          | 1
+Iw     | Moduł wpłat          | 76       | ! Brak opisu w bazie                          | 1
+E      | Dyspenser            | 31       | ! Brak opisu w bazie                          | 1
+D      | Czytnik kart         | 78       | ! Brak opisu w bazie                          | 1
+
+📊 PODSUMOWANIE TRANSAKCJI (wpłaty i wypłaty, czasy, sukcesy i porażki):
+
+ID         Data          Wypł. ✅  Wypł. ❌   Wpł. ✅   Wpł. ❌   📋  Razem ⏱️  Śr. wypł. ⏱️  Śr. wpł. ⏱️  Min wypł. ⏱️  Max wypł. ⏱️  Min wpł. ⏱️  Max wpł.
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+RNET7436   2025-03-24          8       27       81        6        122       0m 57s       1m 39s       0m 31s       1m 34s       0m 54s        4m 1s
+RNET7436   2025-03-25          4       27       52        5         88       0m 45s       1m 35s       0m 34s       1m 15s       0m 53s        3m 4s
+RNET7436   2025-03-26          7       39       51        3        100        1m 8s       1m 34s       0m 31s       1m 44s       0m 51s       2m 44s
+RNET7436   2025-03-27          8       33       65        9        115       0m 51s       1m 34s       0m 35s       1m 35s       0m 58s       3m 27s
+RNET7436   2025-03-28          4       50       55       12        121       0m 41s       1m 46s       0m 29s       1m 14s        1m 5s       3m 40s
+RNET7436   2025-03-29          7       31       51        8         97       1m 12s       1m 37s       0m 36s       1m 46s       0m 56s       2m 59s
+RNET7436   2025-03-30          2        7       32        5         46       1m 18s       1m 25s        1m 8s       1m 29s       0m 57s       2m 38s
+RNET7436   2025-03-31          1        9       15        6         31       0m 35s       1m 51s       0m 35s       0m 35s        1m 8s       4m 15s
+RNET7436   2025-04-01          3       31       56        8         98       0m 44s       1m 35s       0m 44s       0m 46s       0m 49s       3m 54s
+RNET7436   2025-04-02          9       53       80        6        148        1m 3s       1m 43s       0m 38s       1m 57s       0m 58s        5m 1s
+RNET7436   2025-04-03          7       19       15        3         44       0m 45s       1m 34s       0m 28s       1m 14s       0m 54s        3m 6s
+RNET7436   2025-04-07          1       22       39        7         69       0m 42s       1m 43s       0m 42s       0m 42s       0m 54s       3m 57s
+RNET7436   2025-04-08          6       27       48        7         88       0m 38s       1m 33s       0m 33s       0m 42s       0m 52s        3m 7s
+RNET7436   2025-04-09          7       19       23        3         52       0m 41s       1m 31s       0m 30s       1m 11s       0m 53s       2m 27s
+RNET7436   2025-04-10          3       32       47        2         84       1m 25s       1m 34s       1m 17s       1m 31s       0m 59s       2m 32s
+RNET7436   2025-04-11          4       42       70       11        127       0m 51s       1m 41s       0m 37s       1m 29s       0m 48s       3m 48s
+RNET7436   2025-04-12          7       38       71       12        128       0m 44s       1m 33s       0m 34s       1m 28s       0m 55s        3m 8s
+RNET7436   2025-04-13          2       27       65        7        101        1m 9s       1m 33s       0m 40s       1m 38s       0m 54s       2m 53s
+RNET7436   2025-04-14          9       59       78       10        156       0m 58s       1m 29s       0m 35s       1m 45s       0m 54s        3m 3s
+RNET7436   2025-04-15          1       21       51        5         78       0m 41s       1m 39s       0m 41s       0m 41s        1m 1s       3m 54s
+RNET7436   2025-04-16          7       42       93       11        153       0m 56s       1m 32s       0m 32s       1m 47s       0m 59s       3m 40s
+RNET7436   2025-04-17          9       38       70        6        123       0m 53s       1m 32s       0m 23s       1m 40s       0m 46s       3m 48s
+RNET7436   2025-04-18          8      213       33        4        258       0m 49s       1m 37s       0m 32s       1m 26s        1m 6s       2m 36s
+RNET7436   2025-04-19          1      184        0        1        186        1m 5s            -        1m 5s        1m 5s            -            -
+
+📌 Najkrótsza transakcja wypłata | z dziennika RNET7436_2025-03-24.jrn zaczynająca się od linii 3737:
+────────────────────────────────────────────────────────────────────────────────
+*TRANSAKCJA BEZ KARTY*
+[020t 10:46:20 KONIEC OPERACJI
+⏱️ Czas trwania: 0m 0s
+
+📌 Najdłuższa transakcja wypłata | z dziennika RNET7436_2025-04-17.jrn zaczynająca się od linii 8416:
+────────────────────────────────────────────────────────────────────────────────
+*POCZATEK OPERACJI*
+[020t KARTA WLOZONA
+[020tKARTA: 487512*********2967
+DATA 17-04-25    CZAS 13:01:10
+13:01:16 OTRZYMANY ATR T=0
+[020t 13:01:23 WPROWADZONO PIN
+[020t 13:01:23 OPCODE = ABB   DD
+13:01:23 KWOTA OPERACJI 0
+13:01:23 TR_REQ:ABB___DD
+13:01:24 TR_REP: - 510-5-000
+
+INFO IS DCC CARD HOST RESP:
+DCC CARD
+[020t 13:01:37 OPCODE = ABBD
+13:01:37 GENAC 1 : ARQC
+13:01:37 KWOTA OPERACJI 200
+13:01:37 TR_REQ:ABBD____
+13:01:48 KWOTA OPERACJI 200
+13:01:48 TR_REQ:ABBD____
+13:01:49 TR_REP: - 612-5-000
+EXTERNAL AUTHENTICATE: NO ARPC
+13:01:49 GENAC 2 : AAC
+
+DCC_AF continue
+13:01:49 OTRZYMANY ATR T=0
+[020t 13:01:52 OPCODE = ABBD   D
+13:01:52 GENAC 1 : ARQC
+13:01:52 KWOTA OPERACJI 200
+13:01:52 TR_REQ:ABBD___D
+13:01:53 TR_REP: - 753-5-000
+13:01:54 GENAC 2 : AAC
+
+RNET7436 TRAN: 1619 STAN: 983143608
+2025-04-17 13:01:53
+***************2967 TRANS. ODRZUCONA: (378)
+13:01:59 OTRZYMANY ATR T=0
+[020t 13:02:08 WPROWADZONO PIN
+[020t 13:02:08 OPCODE = ABB   DD
+13:02:08 KWOTA OPERACJI 200
+13:02:08 TR_REQ:ABB___DD
+13:02:09 TR_REP: - 510-5-000
+
+INFO IS DCC CARD HOST RESP:
+DCC CARD
+13:02:19 UZYTKOWNIK PRZERWAL
+13:02:27 UZYTKOWNIK PRZERWAL
+[020t 13:02:33 WPROWADZONO PIN
+[020t 13:02:33 OPCODE = ABB   DD
+13:02:33 KWOTA OPERACJI 150
+13:02:33 TR_REQ:ABB___DD
+13:02:34 TR_REP: - 510-5-000
+
+INFO IS DCC CARD HOST RESP:
+DCC CARD
+[020t 13:02:43 OPCODE = ABBD
+13:02:43 GENAC 1 : ARQC
+13:02:44 KWOTA OPERACJI 170
+13:02:44 TR_REQ:ABBD____
+13:02:44 TR_REP: - 805-5-000
+EXTERNAL AUTHENTICATE: NO ARPC
+13:02:45 GENAC 2 : AAC
+
+RNET7436 TRAN: 1622 STAN: 983146222
+2025-04-17 13:02:44
+***************2967 TRANS. ODRZUCONA: (424 PROSZE WPROWADZIC INNA KWOTE)
+13:02:45 OTRZYMANY ATR T=0
+[020t 13:03:04 OPCODE = ABBD
+13:03:05 GENAC 1 : ARQC
+13:03:05 KWOTA OPERACJI 180
+13:03:05 TR_REQ:ABBD____
+13:03:05 TR_REP: - 805-5-000
+EXTERNAL AUTHENTICATE: NO ARPC
+13:03:06 GENAC 2 : AAC
+
+RNET7436 TRAN: 1623 STAN: 983147268
+2025-04-17 13:03:05
+***************2967 TRANS. ODRZUCONA: (424 PROSZE WPROWADZIC INNA KWOTE)
+13:03:06 OTRZYMANY ATR T=0
+[020t 13:03:24 OPCODE = ABBD
+13:03:24 GENAC 1 : ARQC
+13:03:24 KWOTA OPERACJI 200
+13:03:24 TR_REQ:ABBD____
+13:03:36 KWOTA OPERACJI 200
+13:03:36 TR_REQ:ABBD____
+13:03:37 TR_REP: - 612-5-000
+EXTERNAL AUTHENTICATE: NO ARPC
+13:03:37 GENAC 2 : AAC
+
+DCC_AF continue
+13:03:37 OTRZYMANY ATR T=0
+[020t 13:03:40 OPCODE = ABBD   D
+13:03:40 GENAC 1 : ARQC
+13:03:40 KWOTA OPERACJI 200
+13:03:40 TR_REQ:ABBD___D
+13:03:41 TR_REP: - 753-5-000
+13:03:42 GENAC 2 : AAC
+
+RNET7436 TRAN: 1625 STAN: 983149091
+2025-04-17 13:03:41
+***************2967 TRANS. ODRZUCONA: (378)
+13:03:50 OTRZYMANY ATR T=0
+[020t 13:03:59 WPROWADZONO PIN
+[020t 13:03:59 OPCODE = ABB   DD
+13:03:59 KWOTA OPERACJI 200
+13:03:59 TR_REQ:ABB___DD
+13:04:00 TR_REP: - 510-5-000
+
+INFO IS DCC CARD HOST RESP:
+DCC CARD
+[020t 13:04:08 OPCODE = ABBD
+13:04:09 GENAC 1 : ARQC
+13:04:09 KWOTA OPERACJI 100
+13:04:09 TR_REQ:ABBD____
+13:04:13 KWOTA OPERACJI 100
+13:04:13 TR_REQ:ABBD____
+13:04:13 TR_REP: - 612-5-000
+EXTERNAL AUTHENTICATE: NO ARPC
+13:04:14 GENAC 2 : AAC
+
+DCC_AF continue
+13:04:14 OTRZYMANY ATR T=0
+[020t 13:04:17 OPCODE = ABBD   D
+13:04:17 GENAC 1 : ARQC
+13:04:17 KWOTA OPERACJI 100
+13:04:17 TR_REQ:ABBD___D
+13:04:18 TR_REP: - 753-5-000
+13:04:18 GENAC 2 : AAC
+
+RNET7436 TRAN: 1628 STAN: 983150886
+2025-04-17 13:04:17
+***************2967 TRANS. ODRZUCONA: (378)
+13:04:22 OTRZYMANY ATR T=0
+[020t 13:04:29 WPROWADZONO PIN
+[020t 13:04:29 OPCODE = ABB   DD
+13:04:29 KWOTA OPERACJI 100
+13:04:29 TR_REQ:ABB___DD
+13:04:30 TR_REP: - 510-5-000
+
+INFO IS DCC CARD HOST RESP:
+DCC CARD
+[020t 13:04:47 OPCODE = ABBD
+13:04:47 GENAC 1 : ARQC
+13:04:47 KWOTA OPERACJI 100
+13:04:47 TR_REQ:ABBD____
+13:04:50 KWOTA OPERACJI 100
+13:04:50 TR_REQ:ABBD____
+13:04:52 TR_REP: - 753-5-000
+13:04:52 GENAC 2 : AAC
+
+RNET7436 TRAN: 1630 STAN: 983152303
+2025-04-17 13:04:47
+***************2967 TRANS. ODRZUCONA: (378)
+13:04:55 OTRZYMANY ATR T=0
+13:05:02 UZYTKOWNIK PRZERWAL
+[020t 13:05:12 KARTA ODEBRANA
+[020t 13:05:16 KONIEC OPERACJI
+⏱️ Czas trwania: 4m 6s
+
+📌 Najkrótsza transakcja wpłata | z dziennika RNET7436_2025-04-11.jrn zaczynająca się od linii 16867:
+────────────────────────────────────────────────────────────────────────────────
+*TRANSAKCJA BEZ KARTY*
+20:41:20 *TRANSAKCJA WPLATY BLIK*
+[020t[05p LICZNIKI PO TRANSAKCJI
+TYP  1   TYP  2   TYP  3   TYP  4
+NOMINAL       200 PLN  20 PLN   50 PLN   100 PLN
+W KASECIE     00624    00000    00607    00601
++ODRZUCONO     00006    00000    00002    00007
++WYDANO        00565    00000    01432    02519
+-ZDEPONOWANO   00695    00000    00241    01327
+=RAZEM         00500    00000    01800    01800[00p
+
+[020t[05p
+LICZNIKI BNA
+
+DENOMINACJE    64x10PLN 41x20PLN 21x50PLN 96x100PLN 37x200PLN 38x500PLN
+ZDEPONOWANO    2560
+ODRZUCONO      33
+COFNIETO       0
+W TRANSPORCIE  0
+ESCROW ZDEPO.  2584
+ESCROW ZWROC.  24
+SUMA FALSZYW.  0
+SUMA PODEJRZ.  0[00p
+[020t 20:41:30 KONIEC OPERACJI
+⏱️ Czas trwania: 0m 10s
+
+📌 Najdłuższa transakcja wpłata | z dziennika RNET7436_2025-04-02.jrn zaczynająca się od linii 12248:
+────────────────────────────────────────────────────────────────────────────────
+*POCZATEK OPERACJI*
+[020t KARTA WLOZONA
+[020tKARTA: 553454******3217
+DATA 02-04-25    CZAS 14:53:32
+14:53:33 OTRZYMANY ATR T=0
+[020t 14:53:39 WPROWADZONO PIN
+[020t 14:53:39 OPCODE = ABCCD
+14:53:39 GENAC 1 : ARQC
+14:53:39 KWOTA OPERACJI 0
+14:53:39 TR_REQ:ABCCD___
+14:53:41 TR_REP: - 665-5-000
+14:53:41 GENAC 2 : TC
+
+RNET7436 TRAN: 268 STAN: 955631407
+2025-04-02 14:53:40
+************3217 WERYFIKACJA PIN
+14:53:41 OTRZYMANY ATR T=0
+[020t 14:53:44 OPCODE = AB    DD
+14:53:44 KWOTA OPERACJI 0
+14:53:44 TR_REQ:AB____DD
+14:53:44 TR_REP: - 557-5-000
+
+INFO REPORT CARD USAGE REQ HOST RESP:
+GO TO ATM OR CD SELECT WHEN NO ERRORS
+14:53:49 CDM - ROZPOCZETO TRANSAKCJE WPLATY
+[020t 14:53:49 OPCODE = AC     I
+14:53:49 KWOTA OPERACJI 0
+14:53:49 TR_REQ:AC_____I
+14:53:50 TR_REP: - 396-5-000
+14:53:50 WERYFIKACJA KARTY I KONTA ******1659 O.K.
+14:53:59 DEKLARACJA WPLATY: 30000 PLN
+14:54:02*CDM-ROZPOCZECIE PRZYJECIA GOTOWKI
+14:54:07*CDM-SHUTER OTWARTY
+[020t*380*02/04/2025*14:54*
+000001_5357_020425_145407.388_3217_011
+14:54:07*CDM-BANKNOTY WLOZONE
+[020t*381*02/04/2025*14:54*
+000001_5357_020425_145407.541_3217_018
+14:54:30*BLAD BANKNOTU: POWOD:4--WYKRYTO ZBYT BLISKO WLOZONE BANKNOTY
+14:54:30*BLAD BANKNOTU: POWOD:2--WYKRYTO SKOSNIE WLOZONE BANKNOTY
+14:54:32*CDM-BANKNOTY ODRZUCONE,POWOD-NIEWLASCIWY TYP BANKNOTU
+14:54:37*CDM-BANKNOTY UDOSTEPNIONO
+14:54:37*CDM-SHUTER OTWARTY
+14:54:39*CDM-BANKNOTY ZABRANO
+[020t*382*02/04/2025*14:54*
+000001_5357_020425_145447.787_3217_012
+*383*02/04/2025*14:54*
+*5357*1*(Iw(1*0, M-00, R-100110021003100410051, S-000100020003000400050
+A/C ************3217
+DZIALANIE - OK
+ESCROW: 087
+PLN10-000,PLN20-000,
+PLN50-000,PLN100-077,
+PLN200-010,PLN500-000
+ZDEPONOWANO: 000
+ZWROCONO: 000
+ODRZUCONO:003*(1
+14:54:47*
+
+14:54:50*CDM-WYBRANO DODAJ BANKNOTY
+14:54:54*CDM-BANKNOTY WLOZONE
+[020t*384*02/04/2025*14:54*
+000001_5357_020425_145454.426_3217_011
+[020t*385*02/04/2025*14:54*
+000001_5357_020425_145454.716_3217_018
+14:54:55*CDM-SHUTER OTWARTY
+*386*02/04/2025*14:55*
+*5357*1*(Iw(1*0, M-00, R-100110021003100410051, S-000100020003000400050
+A/C ************3217
+DZIALANIE - OK
+ESCROW: 090
+PLN10-000,PLN20-000,
+PLN50-000,PLN100-080,
+PLN200-010,PLN500-000
+ZDEPONOWANO: 000
+ZWROCONO: 000
+ODRZUCONO:003*(1
+14:55:05*
+
+14:55:10*CDM-WYBRANO DODAJ BANKNOTY
+14:55:16*CDM-SHUTER OTWARTY
+[020t*387*02/04/2025*14:55*
+000001_5357_020425_145516.375_3217_011
+14:55:16*CDM-BANKNOTY WLOZONE
+[020t*388*02/04/2025*14:55*
+000001_5357_020425_145516.547_3217_018
+14:55:39*BLAD BANKNOTU: POWOD:2--WYKRYTO SKOSNIE WLOZONE BANKNOTY
+14:55:41*CDM-BANKNOTY ODRZUCONE,POWOD-NIEWLASCIWY TYP BANKNOTU
+14:55:47*CDM-BANKNOTY UDOSTEPNIONO
+14:55:47*CDM-SHUTER OTWARTY
+14:55:48*CDM-BANKNOTY ZABRANO
+[020t*389*02/04/2025*14:55*
+000001_5357_020425_145558.588_3217_012
+*390*02/04/2025*14:55*
+*5357*1*(Iw(1*0, M-00, R-100110021003100410051, S-000100020003000400050
+A/C ************3217
+DZIALANIE - OK
+ESCROW: 189
+PLN10-000,PLN20-000,
+PLN50-002,PLN100-176,
+PLN200-011,PLN500-000
+ZDEPONOWANO: 000
+ZWROCONO: 000
+ODRZUCONO:004*(1
+14:55:58*
+
+14:56:00*CDM-WYBRANO DODAJ BANKNOTY
+14:56:04*CDM-SHUTER OTWARTY
+[020t*391*02/04/2025*14:56*
+000001_5357_020425_145604.398_3217_011
+14:56:04*CDM-BANKNOTY WLOZONE
+[020t*392*02/04/2025*14:56*
+000001_5357_020425_145604.577_3217_018
+*393*02/04/2025*14:56*
+*5357*1*(Iw(1*0, M-00, R-100110021003100410051, S-000100020003000400050
+A/C ************3217
+DZIALANIE - OK
+ESCROW: 190
+PLN10-000,PLN20-000,
+PLN50-002,PLN100-177,
+PLN200-011,PLN500-000
+ZDEPONOWANO: 000
+ZWROCONO: 000
+ODRZUCONO:004*(1
+14:56:17*
+
+14:56:19*CDM-WYBRANO DODAJ BANKNOTY
+14:56:24*CDM-SHUTER OTWARTY
+[020t*394*02/04/2025*14:56*
+000001_5357_020425_145624.778_3217_011
+14:56:24*CDM-BANKNOTY WLOZONE
+[020t*395*02/04/2025*14:56*
+000001_5357_020425_145625.000_3217_018
+14:56:47*BLAD BANKNOTU: POWOD:2--WYKRYTO SKOSNIE WLOZONE BANKNOTY
+14:56:50*CDM-BANKNOTY ODRZUCONE,POWOD-NIEWLASCIWY TYP BANKNOTU
+14:56:56*CDM-BANKNOTY UDOSTEPNIONO
+14:56:56*CDM-SHUTER OTWARTY
+14:56:57*CDM-BANKNOTY ZABRANO
+[020t*396*02/04/2025*14:57*
+000001_5357_020425_145707.460_3217_012
+14:57:07*OPCJA DODAWANIA NIE JEST WLACZONA
+*397*02/04/2025*14:57*
+*5357*1*(Iw(1*0, M-00, R-100110021003100410051, S-000100020003000400050
+A/C ************3217
+DZIALANIE - OK
+ESCROW: 283
+PLN10-000,PLN20-000,
+PLN50-012,PLN100-250,
+PLN200-021,PLN500-000
+ZDEPONOWANO: 000
+ZWROCONO: 000
+ODRZUCONO:006*(1
+14:57:07*
+
+[020t*398*02/04/2025*14:57*
+000001_5357_020425_145724.253_3217_014
+14:57:24*CDM-WYBRANO ZWROC BANKNOTY
+14:58:05*CDM-ZAKONCZENIE PRZYJECIA GOTOWKI - BANKNOTY ZWROCONO
+14:58:07*CDM-BANKNOTY UDOSTEPNIONO
+14:58:07*CDM-SHUTER OTWARTY
+[020t*399*02/04/2025*14:58*
+000001_5357_020425_145807.353_3217_016
+*400*02/04/2025*14:58*
+*5357*1*(Iw(1*1, M-00, R-100110021003100410051, S-000100020003000400050
+A/C ************3217
+KLIENT PRZERWAL TRANSAKCJE
+ESCROW: 000
+ZDEPONOWANO: 000
+ZWROCONO: 283
+PLN10-000,PLN20-000,
+PLN50-012,PLN100-250,
+PLN200-021,PLN500-000,
+ODRZUCONO:006*(1
+14:58:16*CDM-BANKNOTY ZABRANO
+[020t*401*02/04/2025*14:58*
+000001_5357_020425_145823.850_3217_017
+[020t 14:58:28 KARTA ODEBRANA
+[020t[05p LICZNIKI PO TRANSAKCJI
+TYP  1   TYP  2   TYP  3   TYP  4
+NOMINAL       200 PLN  20 PLN   50 PLN   100 PLN
+W KASECIE     00282    00000    01597    01590
++ODRZUCONO     00001    00000    00001    00002
++WYDANO        00105    00000    00285    00796
+-ZDEPONOWANO   00288    00000    00083    00188
+=RAZEM         00100    00000    01800    02200[00p
+
+[020t[05p
+LICZNIKI BNA
+
+DENOMINACJE    6x10PLN 3x20PLN 7x50PLN 12x100PLN 33x200PLN 15x500PLN
+ZDEPONOWANO    635
+ODRZUCONO      11
+COFNIETO       0
+W TRANSPORCIE  0
+ESCROW ZDEPO.  983
+ESCROW ZWROC.  348
+SUMA FALSZYW.  0
+SUMA PODEJRZ.  0[00p
+[020t 14:58:33 KONIEC OPERACJI
+⏱️ Czas trwania: 5m 1s

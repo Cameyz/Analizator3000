@@ -1,9 +1,13 @@
 import glob #biblioteka która używa Unixowych wyrażeń do szukania plików
 import os
 import re #moduł wyrażeń regularnych
+import sys
+import tkinter as tk
+from tkinter import filedialog, messagebox, ttk, simpledialog
 from collections import defaultdict
 from pathlib import Path
 from datetime import datetime
+from slownik_mstatusow import slownik_mstatusow 
 
 
 # ========================
@@ -20,16 +24,17 @@ transakcje_udane = {} # (urządzenie, data) -> liczba
 transakcje_nieudane = {} # (urządzenie, data) -> liczba
 transakcje_wplaty_udane = {} # (urządzenie, data) -> liczba
 transakcje_wplaty_nieudane = {} # (urządzenie, data) -> liczba
-czasy_wyplat_udane = defaultdict(list)
-czasy_wyplat_nieudane = defaultdict(list)
-czasy_wplat_udane = defaultdict(list)
-czasy_wplat_nieudane = defaultdict(list)
+czasy_transakcji_wyplat_udane  = defaultdict(list)
+czasy_transakcji_wyplat_nieudane = defaultdict(list)
+czasy_transakcji_wplat_udane  = defaultdict(list)
+czasy_transakcji_wplat_nieudane = defaultdict(list)
 czasy_wplat = {} # ⏱️ Czasy trwania transakcji
 czasy_wyplat = {}
 min_czas_udanych = {} # ⏱️ Min i max czas trwania dla udanych transakcji
 max_czas_udanych = {}
 czasy_trx_udane_wyplata = defaultdict(list)
 czasy_trx_udane_wplata = defaultdict(list)
+
 
 najkrotsza_wyplata = {}
 najdluzsza_wyplata = {}
@@ -38,23 +43,41 @@ najdluzsza_wplata = {}
 linie_startowe = {}  # (urzadzenie_id, data, typ, czas_trwania): linia_startu
 
 wszystkie_linie = []
+wynik_analizy = []
 
 slownik_opisow_odmowy = {
-    "365": "Nieudana autoryzacja",
+    "303": "Błędny typ rachunku",
+    "304": "Błędny format konta",
+    "312": "Brak odpowiedzi z bankomatu",
+    "321": "PIN translate process failed (możliwe złe klucze)",
+    "326": "PIN response unknown code",
+    "329": "Błędna karta - zatrzymać kartę",
+    "330": "Kwota wypłaty większa od limitu karty",
+    "332": "Karta zastrzeżona",
+    "334": "Karta nieważna / błędna / uszkodzona",
+    "336": "Karta z przekroczoną datą ważności",
+    "341": "Karta zgubiona - zatrzymać kartę",
+    "342": "Karta zatrzymana na polecenie banku wydawcy",
+    "346": "Problem z odczytem dnych EMV z karty, karta uszkodzona lub zabrudzona",
+    "349": "Błędne dane EMV",
+    "350": "Nieudana zmiana PIN (karta EMV)",
+    "356": "Brak połaczenia z hostem / host nie odpowiada",
+    "358": "Odpowiedź z nieprawidłowym (nieznanym) kodem",
+    "361": "Reversal z powodów technicznych - przekroczenie czasu odpowiedzi lub błąd",
+    "365": "Przekroczony limit wypłaty gotówki",
     "366": "Brak odpowiedzi z banku",
     "367": "Transakcja zablokowana przez operatora",
     "368": "Odrzucenie przez limit dzienny",
     "369": "Odrzucenie przez kartę",
-    "370": "Błąd komunikacji z systemem bankowym",
+    "370": "Przekroczona liczba prób wprowadzenia PIN - nie zatrzymywać karty",
     "371": "Niewłaściwa kwota operacji",
     "372": "Zbyt wiele prób",
     "373": "Nieznany błąd terminala",
-    "374": "Błąd systemu",
+    "374": "Wprowadzony PIN błędny",
     "375": "Limit ilościowy przekroczony",
     "376": "Transakcja odrzucona z powodu bezpieczeństwa",
     "377": "Przekroczony czas operacji",
-    "378": "Karta zastrzeżona",
-    "379": "Niepoprawny PIN",
+    "378": "Kwota wypłaty przekracza dostępne środki - spróbuj wybrać niższą kwotę",
     "380": "Nieobsługiwany typ karty",
     "381": "Niewłaściwa wersja systemu",
     "382": "System w trybie serwisowym",
@@ -63,14 +86,14 @@ slownik_opisow_odmowy = {
     "385": "Operacja anulowana przez użytkownika",
     "386": "Przekroczono limit wypłat",
     "387": "Niedozwolona operacja",
-    "388": "Transakcja przekracza limit karty",
+    "388": "Błędna transakcja (odpowiedź wydawcy karty)",
     "389": "Brak środków",
     "390": "Nieznany typ operacji",
     "391": "Zbyt mała kwota operacji",
     "392": "Zbyt duża kwota operacji",
     "393": "Karta zablokowana",
     "394": "Nieautoryzowana karta",
-    "395": "Nieobsługiwany bank",
+    "395": "Brak odpowiedzi - przekroczony czas",
     "396": "Transakcja odrzucona przez bank",
     "397": "Błąd formatowania danych",
     "398": "Nieznana odpowiedź banku",
@@ -80,15 +103,47 @@ slownik_opisow_odmowy = {
     "402": "Przekroczono limit czasowy odpowiedzi",
     "403": "Transakcja zablokowana z przyczyn bezpieczeństwa",
     "404": "REFUSE OFF US",
-    "424": "PROSZE WPROWADZIC INNA KWOTE",
+    "409": "Transakcja wycofana w POS lub transakcja przerwana w bankomacie",
+    "413": "Issuer does not honor this transaction",
+    "414": "Transakcja nie może być kontynuowana - błąd danych",
+    "415": "Nieprawidłowa kwota żądanej wypłaty (kwota zerowa lub niemożliwa do wypłacenia przez bankomat)",
+    "417": "Bankomat odrzucił odpowiedź, na tą transakcje powinnień być reversal",
+    "424": "Nieprawidłowa kwota żądanej wypłaty",
+    "425": "Wypłata częściowa Reversal na część kwoty.",
     "426": "Błąd wszystkich kaset",
-    "431": "BANKOTY NIE ZOSTALY WYPLACONE"
+    "427": "Banknoty nie zostały wydane / wypłacone",
+    "428": "Nieznana ilość wypłaconych banknotów",
+    "431": "Banknoty nie zostały wydane / wypłacone",
+    "432": "Banknoty nie zostały wydane / wypłacone, gdyż klient nie odebrał karty lub karta zaciła się w czytniku kart",
+    "433": "Transakcja nie może być kontynuowana - błąd danych",
+    "437": "Limit ilości / częstotliwości transakcji kartą przekroczony (odpowiedź wydawcy karty)",
+    "456": "Błąd ogólny (sprawdź epp i klucze)",
+    "457": "Nieprawidłowy format (bufor zbyt długi / nieprawidłowe dane przychodzące z urządzenia)",
+    "458": "Błąd dekodowania PIN (prawdopodobnie złe klucze w bankomacie)",
+    "460": "Mikroprocesor na karcie EMV odrzucił transakcję"    
 }
 
+slownik_modulow_ncr = {
+    "A": "Zegar",
+    "B": "Brak energii",
+    "D": "Czytnik kart",
+    "E": "Dyspenser",
+    "F": "Depozytor",
+    "G": "Drukarka",
+    "H": "Dziennik",
+    "Iw": "Moduł wpłat",
+    "L": "Klawiatura",
+    "P": "Sensory"
+}
 
 # ========================
 # MIEJSCE NA FUNKCJĘ
 # ========================
+
+
+def zapisz_linie(text):
+    print(text)
+    wynik_analizy.append(text)
 
 
 def formatuj_czas(sekundy):
@@ -123,17 +178,21 @@ def wczytaj_linie_z_pliku(plik): #funckja do wczytywania linni z plików
     try:
         with open(plik, "r", encoding="utf-8") as f:
             linie = f.readlines()
-            print(f"✅ Odczytano {len(linie)} linii z pliku (UTF-8): {plik}")
+            zapisz_linie(f"✅ Odczytano {len(linie)} linii z pliku (UTF-8): {plik}")
             return linie
     except UnicodeDecodeError:
         try:
             with open(plik, "r", encoding="cp1250") as f:
                 linie = f.readlines()
-                print(f"✅ Odczytano {len(linie)} linii z pliku (CP1250): {plik}")
+                zapisz_linie(f"✅ Odczytano {len(linie)} linii z pliku (CP1250): {plik}")
                 return linie
+        except FileNotFoundError:
+            zapisz_linie(f"❌ Plik nie został znaleziony: {plik}")
         except Exception as e:
-            print(f"❌ Błąd odczytu pliku {plik}: {e}")
-            return None
+            zapisz_linie(f"❌ Błąd odczytu pliku {plik}: {e}")
+    except Exception as e:
+        zapisz_linie(f"❌ Nieoczekiwany błąd podczas otwierania pliku {plik}: {e}")
+    return None
 
 def analizuj_transakcje(linie, urzadzenie_id, data, transakcje_udane, transakcje_nieudane, transakcje_wplaty_udane, transakcje_wplaty_nieudane):
     klucz = (urzadzenie_id, data)
@@ -183,12 +242,12 @@ def analizuj_transakcje(linie, urzadzenie_id, data, transakcje_udane, transakcje
                     if typ_transakcji == "wpłata":
                         czasy_wplat.setdefault(klucz, []).append(czas_trwania)
                         transakcje_wplaty_udane[klucz] = transakcje_wplaty_udane.get(klucz, 0) + 1
-                        czasy_wplat_udane[klucz].append(czas_trwania)
+                        czasy_transakcji_wplat_udane [klucz].append(czas_trwania)
                         czasy_trx_udane_wplata[klucz].append(czas_trwania)
                     else:
                         czasy_wyplat.setdefault(klucz, []).append(czas_trwania)
                         transakcje_udane[klucz] = transakcje_udane.get(klucz, 0) + 1
-                        czasy_wyplat_udane[klucz].append(czas_trwania)
+                        czasy_transakcji_wyplat_udane [klucz].append(czas_trwania)
                         czasy_trx_udane_wyplata[klucz].append(czas_trwania)
 
                     if klucz not in min_czas_udanych or czas_trwania < min_czas_udanych[klucz]:
@@ -199,14 +258,14 @@ def analizuj_transakcje(linie, urzadzenie_id, data, transakcje_udane, transakcje
                 elif trx_status == "nieudana":
                     if typ_transakcji == "wpłata":
                         transakcje_wplaty_nieudane[klucz] = transakcje_wplaty_nieudane.get(klucz, 0) + 1
-                        czasy_wplat_nieudane[klucz].append(czas_trwania)
+                        czasy_transakcji_wplat_nieudane[klucz].append(czas_trwania)
                     else:
                         transakcje_nieudane[klucz] = transakcje_nieudane.get(klucz, 0) + 1
-                        czasy_wyplat_nieudane[klucz].append(czas_trwania)
+                        czasy_transakcji_wyplat_nieudane[klucz].append(czas_trwania)
 
             # Reset transakcji
             transakcja_aktywna = False
-            oczekiwanie_na_czas_startu = False  # 🆕 reset flagi
+            oczekiwanie_na_czas_startu = False  # reset flagi
             czas_startu = None
             typ_transakcji = "wypłata"
 
@@ -262,7 +321,7 @@ def analizuj_bledy(linie, klucz, nazwa_pliku, data, licznik_bledow_urzadzen, wyk
             if klucz not in licznik_bledow_urzadzen:
                 licznik_bledow_urzadzen[klucz] = 0
 
-            print(f"🛑 [{data}] {nazwa_pliku} | Linia {i+1}: {linia.strip()}")
+            # zapisz_linie(f"🛑 [{data}] {nazwa_pliku} | Linia {i+1}: {linia.strip()}") narazie zrobimy bez wiodzcnych lini
             licznik_bledow_urzadzen[klucz] += 1
 
 def znajdz_id_urzadzenia(linie, nazwa_pliku):
@@ -285,6 +344,14 @@ def znajdz_id_urzadzenia(linie, nazwa_pliku):
     return "Nie odczytano numeru"
 
 def znajdz_date_z_linii(linie, nazwa_pliku):
+    def sformatuj_date(g1, g2, g3):
+        if len(g1) == 4:  # YYYY-MM-DD
+            return f"{g1}-{g2}-{g3}"
+        elif len(g3) == 4:  # DD.MM.YYYY lub DD/MM/YYYY
+            return f"{g3}-{g2}-{g1}"
+        else:  # np. 08-04-25 (rok dwucyfrowy)
+            return f"20{g3}-{g2}-{g1}"
+
     wzorce_dat = [
         r"\b(\d{4})-(\d{2})-(\d{2})\b",      # 2025-04-08
         r"\b(\d{2})-(\d{2})-(\d{2})\b",      # 08-04-25
@@ -293,19 +360,18 @@ def znajdz_date_z_linii(linie, nazwa_pliku):
     ]
 
     for linia in linie:
+        
         for wzorzec in wzorce_dat:
+            if re.search(r"([A-Fa-f0-9]{2}-){5,}", linia):  #znajdz i zignoruj linie z hashami
+                print(f"ℹ️ Ignoruję linię z hashem: {linia.strip()}")
+                continue
             dopasowanie = re.search(wzorzec, linia)
             if dopasowanie:
+                # Sprawdzamy, czy dopasowanie jest poprawne
                 try:
-                    if len(dopasowanie.groups()) == 3:
-                        g1, g2, g3 = dopasowanie.groups()
-                        if len(g1) == 4:  # YYYY-MM-DD
-                            return f"{g1}-{g2}-{g3}"
-                        elif len(g3) == 4:  # DD.MM.YYYY lub DD/MM/YYYY
-                            return f"{g3}-{g2}-{g1}"
-                        else:  # np. 08-04-25 (rok dwucyfrowy)
-                            return f"20{g3}-{g2}-{g1}"
-                except:
+                    return sformatuj_date(*dopasowanie.groups())
+                except ValueError as e:
+                    print(f"⚠️ Błąd podczas przetwarzania daty: {e}")
                     continue
 
     # Jeśli nic nie znaleziono, to próbujemy z nazwy pliku
@@ -316,16 +382,20 @@ def znajdz_date_z_linii(linie, nazwa_pliku):
     return "Nie odczytano daty"
 
 
-def przetworz_linie(nazwa_pliku, linie): #funckja do liczenia trx i błędów 
-    urzadzenie_id = znajdz_id_urzadzenia(linie, nazwa_pliku)
-    data = znajdz_date_z_linii(linie, nazwa_pliku)
-    klucz = (urzadzenie_id, data)
-    wykluczenia = ["no errors", "when no errors", "error -1", "chip contact error 1", "enter blik code", "receipt not available", "blad emv(dane niepoprawne lub niepelne) ctls"]
-
-    analizuj_transakcje(linie, urzadzenie_id, data, transakcje_udane, transakcje_nieudane, transakcje_wplaty_udane, transakcje_wplaty_nieudane)
-    analizuj_bledy_stclass(linie, klucz, bledy_stclass_per_dziennik)
-    analizuj_bledy_dyspensera(linie, klucz, bledy_dyspensera_per_dziennik)
-    analizuj_bledy(linie, klucz, nazwa_pliku, data, licznik_bledow_urzadzen, wykluczenia)
+def przetworz_linie(nazwa_pliku, linie): #funckja do liczenia trx i błędów
+    try:
+        urzadzenie_id = znajdz_id_urzadzenia(linie, nazwa_pliku)
+        data = znajdz_date_z_linii(linie, nazwa_pliku)
+        klucz = (urzadzenie_id, data)
+        wykluczenia = ["no errors", "when no errors", "error -1", "chip contact error 1", "enter blik code", "receipt not available", "blad emv(dane niepoprawne lub niepelne) ctls", "loading dialog: receipt error"]
+        analizuj_transakcje(linie, urzadzenie_id, data, transakcje_udane, transakcje_nieudane, transakcje_wplaty_udane, transakcje_wplaty_nieudane)
+        analizuj_bledy_stclass(linie, klucz, bledy_stclass_per_dziennik)
+        analizuj_bledy_dyspensera(linie, klucz, bledy_dyspensera_per_dziennik)
+        analizuj_bledy(linie, klucz, nazwa_pliku, data, licznik_bledow_urzadzen, wykluczenia)
+    except KeyError as e:
+        zapisz_linie(f"❌ Błąd klucza podczas przetwarzania pliku {nazwa_pliku}: {e}")
+    except Exception as e:
+        zapisz_linie(f"❌ Nieoczekiwany błąd podczas przetwarzania pliku {nazwa_pliku}: {e}")
 
 def znajdz_i_pokaz_transakcje_szczegolowe(lista_plikow_z_liniami):
     wszystkie_transakcje = []
@@ -337,6 +407,9 @@ def znajdz_i_pokaz_transakcje_szczegolowe(lista_plikow_z_liniami):
         trx_typ = "wypłata"
         ostatni_czas_w_linii = None
         oczekiwanie_na_czas_startu = False  # 🆕 dodano flagę jak w analizuj_transakcje
+        progress.step()
+        okno_postepu.update()
+        progress["value"] = 100
 
         for i, linia in enumerate(linie):
             linia_mala = linia.lower()
@@ -383,15 +456,15 @@ def znajdz_i_pokaz_transakcje_szczegolowe(lista_plikow_z_liniami):
                     oczekiwanie_na_czas_startu = False  # 🆕 reset flagi
 
     if not wszystkie_transakcje:
-        print("❌ Nie znaleziono żadnych zakończonych transakcji.")
+        zapisz_linie("❌ Nie znaleziono żadnych zakończonych transakcji.")
         return
 
     def pokaz_transakcje(naj, opis):
-        print(f"\n📌 {opis} | z dziennika {naj['plik']} zaczynająca się od linii {naj['linia_start']}:")
-        print("─" * 80)
+        zapisz_linie(f"\n📌 {opis} | z dziennika {naj['plik']} zaczynająca się od linii {naj['linia_start']}:")
+        zapisz_linie("─" * 80)
         for _, linia in naj['linie']:
-            print(linia)
-        print(f"⏱️ Czas trwania: {formatuj_czas(naj['czas_trwania'])}")
+            zapisz_linie(linia)
+        zapisz_linie(f"⏱️ Czas trwania: {formatuj_czas(naj['czas_trwania'])}")
 
     # wybierz i pokaż
     for typ in ["wypłata", "wpłata"]:
@@ -425,15 +498,58 @@ def znajdz_kody_odrzuconych_transakcji(lista_plikow_z_liniami):
                     break  # Jeśli dopasowano jeden wzorzec, pomiń resztę
 
     # Wyświetlenie podsumowania
-    print("\n📊 Podsumowanie kodów odrzuconych transakcji:")
-    print("Kod | Opis                                 | Liczba wystąpień")
-    print("-" * 65)
+    if not kody_odrzucen:
+        zapisz_linie("\n✅ Nie znaleziono kodów transkacji odrzuconych")
+    else:
+        zapisz_linie("\n📊 Podsumowanie kodów odrzuconych transakcji:")
+        zapisz_linie("Kod  | Opis                                                                                        | Liczba wystąpień")
+        zapisz_linie("-" * 105)
 
-    for kod, dane in sorted(kody_odrzucen.items(), key=lambda x: x[1]["ilosc"], reverse=True):
+        for kod, dane in sorted(kody_odrzucen.items(), key=lambda x: x[1]["ilosc"], reverse=True):
+            opis = dane["opis"]
+            if not opis or opis == "Brak opisu":
+                opis = slownik_opisow_odmowy.get(kod, "! Brak opisu w bazie")
+            zapisz_linie(f"{kod:<4} | {opis:<90} | {dane['ilosc']:<20}")
+
+def opis_bledu_z_modulu_mstatus(modul, kod):
+    return slownik_mstatusow.get(modul, {}).get(kod.zfill(2), "Brak opisu w bazie")
+
+def analizuj_bledy_statusow_ncr(lista_plikow_z_liniami):
+    bledy_statusow = defaultdict(lambda: {"ilosc": 0, "opis": ""})
+    # 🆕 Lepszy regex — wykrywa także M-XX z nawiasami i znakami sterującymi
+    wzorzec = re.compile(r"\*(?:\d{0,4})\*\d\*.*?([A-Za-z]{1,3}).*?M-(\w{2})[,)]")
+
+    for _, linie in lista_plikow_z_liniami:
+        for linia in linie:
+            linia = str(linia)  # na wszelki wypadek
+            dopasowanie = wzorzec.search(linia)
+            if dopasowanie:
+                modul = dopasowanie.group(1)
+                kod = dopasowanie.group(2)
+                if kod == "00":
+                    continue  # pomijamy status OK
+
+                # Ustal nazwę modułu
+                nazwa_modulu = slownik_modulow_ncr.get(modul, "! Nieznany moduł")
+                # Ustal opis błędu
+                opis = slownik_mstatusow.get(modul, {}).get(kod, "! Brak opisu w bazie")
+
+                bledy_statusow[(modul, kod)]["ilosc"] += 1
+                bledy_statusow[(modul, kod)]["opis"] = opis
+                bledy_statusow[(modul, kod)]["modul_nazwa"] = nazwa_modulu
+
+    if not bledy_statusow:
+        zapisz_linie("\n✅ Nie znaleziono błędów M-status w dziennikach.")
+        return
+
+    zapisz_linie("\n📊 Błędy statusów urządzeń (M-status):")
+    zapisz_linie(f"{'Moduł':<6} | {'Nazwa modułu':<20} | {'M-status':<8} | {'Opis':<45} | Liczba wystąpień")
+    zapisz_linie("-" * 100)
+
+    for (modul, kod), dane in sorted(bledy_statusow.items(), key=lambda x: x[1]["ilosc"], reverse=True):
         opis = dane["opis"]
-        if not opis or opis == "Brak opisu":
-            opis = slownik_opisow_odmowy.get(kod, "! Brak opisu w bazie")
-        print(f"{kod:<4} | {opis:<50} | {dane['ilosc']:<20}")
+        nazwa_modulu = dane["modul_nazwa"]
+        zapisz_linie(f"{modul:<6} | {nazwa_modulu:<20} | {kod:<8} | {opis:<45} | {dane['ilosc']}")
 
 
 
@@ -441,9 +557,49 @@ def znajdz_kody_odrzuconych_transakcji(lista_plikow_z_liniami):
 # WYKONANIE 
 # ========================
 
-os.chdir("D:/Projekty/Python/Analizator3000") #zmieniam mu na siłę miejsce odczytu plików
+# os.chdir("D:/Projekty/Python/Analizator3000") #zmieniam mu na siłę miejsce odczytu plików #tutaj stara ścieżka
+# Ustaw katalog roboczy na katalog, w którym znajduje się plik .exe lub .py
+
+# --- GUI do wyboru folderu ---
+root = tk.Tk()
+root.withdraw() # Ukryj główne okno tkinter
+
+# Okno wyboru katalogu
+print("🗂️ Wybierz folder zawierający dzienniki (.jrn, .txt)...")
+folder = filedialog.askdirectory(title="Wybierz folder z dziennikami")
+
+if not folder:
+    messagebox.showerror("Błąd", "❌ Nie wybrano folderu. Program zostanie zakończony.")
+    exit()
+
+print(f"📂 Wybrano folder: {folder}")
+
+# --- Wyszukiwanie plików w wybranym folderze ---
+sciezki = glob.glob(os.path.join(folder, "*.txt")) + glob.glob(os.path.join(folder, "*.jrn"))
+
+# Tworzymy nowe okno postępu
+okno_postepu = tk.Toplevel()
+okno_postepu.title("Przetwarzanie dzienników")
+ttk.Label(okno_postepu, text="🔍 Trwa analiza dzienników...").pack(padx=20, pady=10)
+
+# Pasek postępu
+progress = ttk.Progressbar(okno_postepu, length=300, mode='determinate', maximum=len(sciezki))
+progress.pack(padx=20, pady=10)
+
+# Odświeżenie GUI
+okno_postepu.update()
+
+"""
+if getattr(sys, 'frozen', False):
+    # uruchomione jako plik EXE
+    os.chdir(os.path.dirname(sys.executable))
+else:
+    # uruchomione jako skrypt .py
+    os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
 print("KATALOG: ", os.getcwd()) #testowo do sprawdzania ścieżki odczytu plików, mogę później usunąć
 sciezki = glob.glob("Dzienniki/*.txt") + glob.glob("Dzienniki/*.jrn") #zapisywanie scieżek do plików 
+"""
 
 #odczytywanie plików i ich kodowania
 
@@ -454,47 +610,55 @@ for plik in sciezki: #pętla wypisze mi ścieżki do plików
     nazwa = Path(plik).name
     przetworz_linie(nazwa, linie) #Silnik programu, najpier tabele i zmienne globalne później funkcję wykonujące
     wszystkie_linie.append((nazwa, linie))  # 💾 dodaj nazwę i linie
-
-
+    
 #wyświetlam wynik podsumowania ilości błędów dla kazdego z plików
 
-print("\n📊 Podsumowanie błędów:") 
+zapisz_linie("\n📊 Podsumowanie błędów:") 
 for (urz, data), liczba in licznik_bledow_urzadzen.items():
-    print(f"➡️  [{data}] {urz}: {liczba} błędów")
+    zapisz_linie(f"➡️  [{data}] {urz}: {liczba} błędów")
 
 #wyświetlam wynik podsumowania jakie klasy błedów znaleziono ile razy z podziałem na dni
 
-print("\n📊 Błedy DN wg stClass/stCode:")
-for (urz, data), klasy in bledy_stclass_per_dziennik.items():
-    print(f"\n📅 {data} | 🏧 {urz}")
-    for klasa, kody in klasy.items():
-        print(f"🔧 Klasa: {klasa}")
-        for kod, ile_razy in kody.items():
-            print(f"⚙️  Kod: {kod} → {ile_razy}x")
-
-            # Zbieramy do sumy globalnej znalezionych błędów
-            if klasa not in globalne_bledy_stclass:
-                globalne_bledy_stclass[klasa] = {}
-            if kod not in globalne_bledy_stclass[klasa]:
-                globalne_bledy_stclass[klasa][kod] = 0
-            globalne_bledy_stclass[klasa][kod] += ile_razy
+zapisz_linie("\n📊 Znalezione błędy wg stClass/stCode:")
+if not bledy_stclass_per_dziennik:
+    zapisz_linie("\n❌ Nie wykryto błędów stClass/stCode w badanym okresie")
+else:
+    for (urz, data), klasy in bledy_stclass_per_dziennik.items():
+        zapisz_linie(f"\n📅 {data} | 🏧 {urz}")
+        for klasa, kody in klasy.items():
+            zapisz_linie(f"🔧 Klasa: {klasa}")
+            for kod, ile_razy in kody.items():
+                zapisz_linie(f"⚙️  Kod: {kod} → {ile_razy}x")
+                
+                # Zbieramy do sumy globalnej znalezionych błędów
+                if klasa not in globalne_bledy_stclass:
+                    globalne_bledy_stclass[klasa] = {}
+                if kod not in globalne_bledy_stclass[klasa]:
+                    globalne_bledy_stclass[klasa][kod] = 0
+                globalne_bledy_stclass[klasa][kod] += ile_razy
 
 #wyświetlam wynik podsumowania jakie klasy błedów znaleziono
 
-print("\n⚠️  W badanym okresie łacznie stClass/stCode:\n")
-for klasa, kody in globalne_bledy_stclass.items():
-    print(f"🔧 Klasa: {klasa}")
-    for kod, ile_razy in kody.items():
-        print(f"⚙️  Kod: {kod} → {ile_razy}x")
+if not globalne_bledy_stclass:
+    print() # Jak nie ma błędów to i nie ma podsumowania
+else:
+    zapisz_linie("\n⚠️  W badanym okresie łącznie stClass/stCode:\n")
+    for klasa, kody in globalne_bledy_stclass.items():
+        zapisz_linie(f"🔧 Klasa: {klasa}")
+        for kod, ile_razy in kody.items():
+            zapisz_linie(f"⚙️  Kod: {kod} → {ile_razy}x")
 
 #wyświetlam wynik podsumowania jakie klasy błedów znaleziono dla dyspnsera
-print("\n📊 Podsumowanie błędów dyspensera:")
-for (urz, data), klasy in bledy_dyspensera_per_dziennik.items():
-    print(f"\n📅 {data} | 🏧 {urz}")
-    for klasa, kody in klasy.items():
-        print(f"🔧 Klasa: {klasa}")
-        for kod, ile_razy in kody.items():
-            print(f"⚙️  Kod: {kod} → {ile_razy}x")
+zapisz_linie("\n📊 Podsumowanie błędów dyspensera:")
+if not bledy_dyspensera_per_dziennik:
+     zapisz_linie("\n❌ Nie wykryto błędów dyspensera w badanym okresie \n")
+else:
+    for (urz, data), klasy in bledy_dyspensera_per_dziennik.items():
+        zapisz_linie(f"\n📅 {data} | 🏧 {urz}")
+        for klasa, kody in klasy.items():
+            zapisz_linie(f"🔧 Klasa: {klasa}")
+            for kod, ile_razy in kody.items():
+                zapisz_linie(f"⚙️  Kod: {kod} → {ile_razy}x")
 
 # Globalna tabela: klasa → kod → liczba
 bledy_dyspensera_global = defaultdict(lambda: defaultdict(int))
@@ -503,30 +667,34 @@ bledy_dyspensera_global = defaultdict(lambda: defaultdict(int))
 for klasy in bledy_dyspensera_per_dziennik.values():
     for klasa, kody in klasy.items():
         for kod, ile in kody.items():
-            bledy_dyspensera_global[klasa][kod] += ile
+            bledy_dyspensera_global[klasa][kod] += ile            
 
 # Wyświetlenie globalnego podsumowania
-print("\n⚠️  W badanym okresie łacznie błędów dyspensera:")
-for klasa, kody in bledy_dyspensera_global.items():
-    print(f"🔧 Klasa: {klasa}")
-    for kod, ile in kody.items():
-        print(f"⚙️  Kod: {kod} → {ile}x")
+if not bledy_dyspensera_global:
+    print() # Jak nie ma błędów nie ma podsumowania - musze w przyszłości poprawić ale nie wiem jak to inaczej ominąć
+else:
+    zapisz_linie("\n⚠️  W badanym okresie łącznie błędów dyspensera:")
+    for klasa, kody in bledy_dyspensera_global.items():
+        zapisz_linie(f"🔧 Klasa: {klasa}")
+        for kod, ile in kody.items():
+            zapisz_linie(f"⚙️  Kod: {kod} → {ile}x")
 
 # Wyświetlanie podsumowania znalezionych powdów odrzuceń przez CC
 
 znajdz_kody_odrzuconych_transakcji(wszystkie_linie)
+analizuj_bledy_statusow_ncr(wszystkie_linie)
 
 # 📊 PODSUMOWANIE TRANSAKCJI (wpłaty i wypłaty, czasy, sukcesy i porażki):
 
-print("\n📊 PODSUMOWANIE TRANSAKCJI (wpłaty i wypłaty, czasy, sukcesy i porażki):\n")
+zapisz_linie("\n📊 PODSUMOWANIE TRANSAKCJI (wpłaty i wypłaty, czasy, sukcesy i porażki):\n")
 
 col_widths = {
     "id": 10,
     "data": 12,
-    "wyp_ok": 8,
-    "wyp_fail": 8,
-    "wpl_ok": 8,
-    "wpl_fail": 8,
+    "wyp_ok": 11,
+    "wyp_fail": 11,
+    "wpl_ok": 11,
+    "wpl_fail": 11,
     "razem": 10,
     "sred_wyp": 12,
     "sred_wpl": 12,
@@ -539,15 +707,15 @@ col_widths = {
 # 🧾 Nagłówek
 naglowek = (
     f"{'ID':<{col_widths['id']}} {'Data':<{col_widths['data']}} "
-    f"{'Wypł. ✅':>{col_widths['wyp_ok']}} {'Wypł. ❌':>{col_widths['wyp_fail']}} "
-    f"{'Wpł. ✅':>{col_widths['wpl_ok']}} {'Wpł. ❌':>{col_widths['wpl_fail']}} "
+    f"{'Wypł. ud. ✅':>{col_widths['wyp_ok']}} {'Wypł. nud ❌':>{col_widths['wyp_fail']}} "
+    f"{'Wpł. ud. ✅':>{col_widths['wpl_ok']}} {'Wpł. nud ❌':>{col_widths['wpl_fail']}} "
     f"{'📋  Razem':>{col_widths['razem']}} "
     f"{'⏱️  Śr. wypł.':>{col_widths['sred_wyp']}} {'⏱️  Śr. wpł.':>{col_widths['sred_wpl']}} "
     f"{'⏱️  Min wypł.':>{col_widths['min_wyp']}} {'⏱️  Max wypł.':>{col_widths['max_wyp']}} "
     f"{'⏱️  Min wpł.':>{col_widths['min_wpl']}} {'⏱️  Max wpł.':>{col_widths['max_wpl']}}"
 )
-print(naglowek)
-print("-" * len(naglowek))
+zapisz_linie(naglowek)
+zapisz_linie("-" * len(naglowek))
 
 # 🧮 Wiersze danych
 for (urz_id, data) in sorted(set().union(
@@ -570,7 +738,7 @@ for (urz_id, data) in sorted(set().union(
     min_wpl = formatuj_czas(min(wplaty_czasy)) if wplaty_czasy else "-"
     max_wpl = formatuj_czas(max(wplaty_czasy)) if wplaty_czasy else "-"
 
-    print(
+    zapisz_linie(
         f"{urz_id:<{col_widths['id']}} {data:<{col_widths['data']}} "
         f"{udane:>{col_widths['wyp_ok']}} {nieudane:>{col_widths['wyp_fail']}} "
         f"{wp_udane:>{col_widths['wpl_ok']}} {wp_nieudane:>{col_widths['wpl_fail']}} "
@@ -580,8 +748,44 @@ for (urz_id, data) in sorted(set().union(
         f"{min_wpl:>{col_widths['min_wpl']}} {max_wpl:>{col_widths['max_wpl']}}"
     )
 
+
 print("\n")
 znajdz_i_pokaz_transakcje_szczegolowe(wszystkie_linie)
 print("\n")
+
+messagebox.showinfo("Analiza zakończona", "✔️ Analiza dzienników została zakończona pomyślnie.") #informacja o zakończeniu
+
+###############################
+# Pytanie o format zapisu
+###############################
+
+format_zapisu = simpledialog.askstring(
+    "Zapis wyników", "W jakim formacie zapisać wyniki? (txt / csv)"
+)
+
+if format_zapisu and format_zapisu.lower() in ["txt", "csv"]:
+    rozszerzenie = format_zapisu.lower()
+    typy_plikow = [("Plik tekstowy", "*.txt")] if rozszerzenie == "txt" else [("Plik CSV", "*.csv")]
+
+    sciezka_zapisu = filedialog.asksaveasfilename(
+        defaultextension=f".{rozszerzenie}",
+        filetypes=typy_plikow,
+        title="Zapisz wyniki analizy jako..."
+    )
+
+    if sciezka_zapisu:
+        with open(sciezka_zapisu, "w", encoding="utf-8") as f:
+            for linia in wynik_analizy:  # <- to musi być lista tekstowych linii z analizy
+                f.write(linia + "\n")
+        messagebox.showinfo("Zapis zakończony", f"✅ Wyniki zapisane do:\n{sciezka_zapisu}")
+    else:
+        messagebox.showwarning("Anulowano", "⚠️ Zapis przerwany przez użytkownika.")
+else:
+    messagebox.showwarning("Nieprawidłowy format", "⚠️ Dozwolone formaty: txt lub csv.")
+
+###############################
+
+
+okno_postepu.destroy() #ubija okno postepu anlizy 
 
 
